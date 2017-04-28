@@ -50,7 +50,14 @@ namespace KitchenCloud.Controllers
         public ActionResult Chat(int id)
         {
             ViewBag.ChatId =id;
-           
+
+            ViewBag.SenderID = 0;
+            User user = (User)Session[WebUtil.CURRENT_USER];
+            if (user != null)
+            {
+                ViewBag.SenderID = user.Id;
+            }
+
             return PartialView("_ChatFrame",new MessageModel()
             {
                 RecieverId = id,
