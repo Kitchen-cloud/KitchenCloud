@@ -1,5 +1,5 @@
 ﻿
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
 
 
 @using KitchenCloud.Models.Messenger;
@@ -32,8 +32,9 @@
             font-weight: bold;
         }
 </style>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-
+<img id="Accountloading" src="../../Content/Images/GIF/FhHRx.gif" style="margin-left: 50%;margin-top: 50px"  />
 @if (Model != null && Model.Count > 0)
 {
 
@@ -80,6 +81,11 @@ else
 }
 <script src="~/Scripts/jquery-2.2.3.min.js"></script>
 <script>
+
+    $(function() {
+        $("#Accountloading").hide();
+    });
+
     $(".InboxMsg").click(function () {
 
         $.ajax({

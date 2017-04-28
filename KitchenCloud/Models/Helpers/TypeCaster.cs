@@ -209,7 +209,7 @@ namespace KitchenCloud.Models.Helpers
                         SenderName = message.SenderName,
                         SenderImage = message.SenderImage,
                         RecievedOn=Convert.ToDateTime(message.SentOn),
-                        Preview = message.Body.Substring(0,message.Body.Length/2)
+                        Preview = message.Body.Length>30?message.Body.Substring(0,message.Body.Length/2):message.Body
                     });
                 }
 

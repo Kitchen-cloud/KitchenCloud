@@ -16,10 +16,10 @@
 
             @*<img src="~/Content/Images/left.PNG" height="250" width="200" />*@
             <ul class="list-group text-muted">
-                <li class="list-group-item">
+                <li id="inbox" class="list-group-item">
                     Inbox
                 </li>
-                <li class="list-group-item">
+                @*<li class="list-group-item">
                     Unread
                 </li>
                 <li class="list-group-item">
@@ -27,7 +27,7 @@
                 </li>
                 <li class="list-group-item">
                     Orders
-                </li>
+                </li>*@
             </ul>
 
         </div>
@@ -71,6 +71,19 @@
    
 
     $(function () {
+
+        $("#inbox").click(function() {
+            $.ajax({
+
+                url: "/Messenger/Index",
+                method: "GET",
+                success: function (result) {
+                    $("#AccountMainArea").html(result);
+                }
+
+
+            });
+        });
 
 
        

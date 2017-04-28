@@ -7,7 +7,6 @@
     User thisuser = (User)Session[WebUtil.CURRENT_USER];
 
 }
-<br />
 
 <style>
     ::-webkit-scrollbar {
@@ -44,6 +43,11 @@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <div id="mainmessagearea" style="background: url(../../Content/Images/Extra/chat-bg.png) beige">
+    <img id="Chatloading" src="../../Content/Images/GIF/FhHRx.gif" style="margin-left: 50%;margin-top: 50px" />
+
+    <br />
+    <br />
+
     @if (chatmsgs != null)
     {
         <div class="container-fluid" id="newmessagearea">
@@ -110,16 +114,14 @@
     }
     <br />
     <br />
+    <br />
 
 </div>
 
-<br />
-<br />
 
-
-<script src="~/Scripts/jquery-2.2.3.min.js"></script>
-<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
-<script>
+@*<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>*@
+@*<script>
     $(function () {
         $($("#ChatFrame").contents()).scrollTop(10000);
 
@@ -148,4 +150,4 @@
 
     });
 
-</script>
+</script>*@

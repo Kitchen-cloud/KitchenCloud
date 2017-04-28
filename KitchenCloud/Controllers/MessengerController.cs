@@ -35,9 +35,65 @@ namespace KitchenCloud.Controllers
             if (user != null)
             {
 
+
                 List<MessagePreviewModel> messagePreviews =
-                    TypeCaster.MessageModelListToMessagePreviewList(
-                        TypeCaster.MessageListToMessageModelList(new MessageHandler().GetAllByRecieverId(user.Id)));
+                TypeCaster.MessageModelListToMessagePreviewList(
+                    TypeCaster.MessageListToMessageModelList(new MessageHandler().GetAllByRecieverId(user.Id)));
+
+                var list = (from mp in messagePreviews
+                            group mp by mp.SenderName
+                            into gp
+                            select gp).ToList();
+
+
+
+
+
+
+                messagePreviews = new List<MessagePreviewModel>();
+                foreach (var l in list)
+                {
+
+                    messagePreviews.Add(
+                        (from i in l
+                         orderby i.RecievedOn descending 
+                         select i).FirstOrDefault()
+                           );
+
+
+
+
+
+
+
+                    //messagePreviews.Add(new MessagePreviewModel()
+                    //{
+                    //    Id = l.GetEnumerator().Current.Id,
+                    //    Preview = l.GetEnumerator().Current.Preview,
+                    //    SenderImage = l.GetEnumerator().Current.SenderImage,
+                    //    SenderName = l.GetEnumerator().Current.SenderName,
+                    //    RecievedOn = l.GetEnumerator().Current.RecievedOn,
+                    //    Status = l.GetEnumerator().Current.Status,
+                    //});
+                }
+
+
+
+                //List<List<MessagePreviewModel>> trylist=new List<List<MessagePreviewModel>>();
+
+                //foreach (MessagePreviewModel preview in messagePreviews)
+                //{
+                //    trylist.Add();
+                //}
+
+
+
+
+
+
+
+
+
 
                 return PartialView("_InboxData", messagePreviews);
             }
@@ -49,7 +105,7 @@ namespace KitchenCloud.Controllers
         [HttpGet]
         public ActionResult Chat(int id)
         {
-            ViewBag.ChatId =id;
+            ViewBag.ChatId = id;
 
             ViewBag.SenderID = 0;
             User user = (User)Session[WebUtil.CURRENT_USER];
@@ -58,7 +114,7 @@ namespace KitchenCloud.Controllers
                 ViewBag.SenderID = user.Id;
             }
 
-            return PartialView("_ChatFrame",new MessageModel()
+            return PartialView("_ChatFrame", new MessageModel()
             {
                 RecieverId = id,
 
@@ -77,13 +133,13 @@ namespace KitchenCloud.Controllers
 
             Message message = new MessageHandler().GetById(id);
             ViewBag.ChatId = message.Sender.Id;
-            return PartialView("_ChatFrame",new MessageModel()
+            return PartialView("_ChatFrame", new MessageModel()
             {
                 RecieverId = message.Sender.Id
             });
         }
 
-        
+
         [HttpGet]
         public ActionResult ChatEmptyData()
         {
@@ -98,12 +154,12 @@ namespace KitchenCloud.Controllers
             //Message message = new MessageHandler().GetById(id);
 
 
-            User user = (User) Session[WebUtil.CURRENT_USER];
-            if (user!=null)
+            User user = (User)Session[WebUtil.CURRENT_USER];
+            if (user != null)
             {
-                List<MessageModel> messages = TypeCaster.MessageListToMessageModelList(new MessageHandler().GetAllBySenderAndRecieverId(id,user.Id));
+                List<MessageModel> messages = TypeCaster.MessageListToMessageModelList(new MessageHandler().GetAllBySenderAndRecieverId(id, user.Id));
 
-                ViewBag.ChatList =messages;
+                ViewBag.ChatList = messages;
             }
             else
             {
@@ -146,15 +202,15 @@ namespace KitchenCloud.Controllers
                         SenderName = "Kitchen Cloud"
 
                     },
-                    
+
 
                 };
-                ViewBag.ChatList =chatList;
+                ViewBag.ChatList = chatList;
             }
 
             return PartialView("_ChatData");
         }
-        
+
         [HttpGet]
         public ActionResult SendMessage(MessageModel message)
         {
@@ -181,26 +237,26 @@ namespace KitchenCloud.Controllers
 
 
 
-                ProfileImage image =new SellerHandler().GetById(message.SenderId).ProfileImage;
+                ProfileImage image = new SellerHandler().GetById(message.SenderId).ProfileImage;
                 var msg = new MessageModel()
                 {
                     Status = MessageStatus.UnSeen,
                     Body = message.Body,
                     SentOn = DateTime.Now.ToString(),
-                    SenderImage = image.FolderPath.Replace('~',' ') + image.ImageName,
+                    SenderImage = image.FolderPath.Replace('~', ' ') + image.ImageName,
                     SenderName = new SellerHandler().GetById(sender.Id).FirstName,
                     SenderId = sender.Id,
                     RecieverId = reciever.Id
 
                 };
-                return Json(msg,JsonRequestBehavior.AllowGet);
+                return Json(msg, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
             {
                 string a = e.Message;
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
-           
+
         }
     }
 }
