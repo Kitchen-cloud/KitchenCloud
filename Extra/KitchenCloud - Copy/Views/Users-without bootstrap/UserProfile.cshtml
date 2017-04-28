@@ -1,0 +1,95 @@
+﻿@{
+
+    Layout = "_UserAccountLayout.cshtml";
+    ViewBag.Title = "User Account";
+
+}
+@section ProfileStyles{
+    <link href="~/Content/Styles/Profile.css" rel="stylesheet"/>
+    }
+<section class="ProfileMainSec">
+    <div class="ProfileDetails">
+        <div class="ProfileDscrptn">
+            <div class="DscrptnTitle">
+                <span class="Ttl">Description</span>
+            </div>
+            <div class="DscrptnBody">
+                <p class="Prgrph">
+                    Network of IT solutions since 11 august 2015
+                    Code Bakers is not only a platform for IT solutions but also for the training Institute of the interested upcoming generation to compete the upcoming challenges.
+                    Join hands to find solutions of new IT Domains We Lead InSoftware Development Design
+                    Web Development and Design
+                    Graphics Design
+                    Computer Programming (C,C++,C#,Java)
+                    Web based and Desktop Applications
+                    Auto-CAD
+                    Multimedia
+                    Computer Basics
+                    Career Guidance
+                </p>
+            </div>
+        </div>
+        <div class="ProfileServices">
+            <div class="ServicesTitle">
+                <span class="Ttl">Services</span>
+            </div>
+            <div class="ServicesBody">
+                <p class="Prgrph">
+                    Requirements<br />
+                    Basic Concepts about related topics<br />
+                    Basic Computer<br />
+                    Web Browsing<br />
+                    Email Address<br />
+                    Interest<br />
+                    Contact us<br />
+                    www.facebook.com/CodeBakers<br />
+                    Web Browsing<br />
+                    Email Address<br />
+
+                </p>
+            </div>
+        </div>
+        <div class="ClrStl"></div>
+    </div>
+    <div class="ClrStl"></div>
+
+    <div class="UserMenus">
+        <div class="UserMenusTitle">
+            <button id="PrfileMenuShow"><span class="Ttl">My Menus</span></button>
+        </div>
+        <div class="ProfileMenus">
+
+
+            <div class="MenuTitleCreator">
+                <a href="#">
+                    <span class="Ttl">Create Menu</span>
+                    <span class="MenuTtlOrders"></span>
+
+                </a>
+            </div>
+            <div class="ProfilesMenuCreate">
+                <div class="Menu">
+                    
+                </div>
+                    <div class="MenuImg">
+                        <input type="button" id="CreateNewMenu" class="Btn"/>
+                    </div>
+                    <div class="MenuDetail">
+                        <ul></ul>
+                    </div>
+                    <div class="MenuRatings">
+
+                    </div>
+                </div>
+                <div class="ClrStl"></div>
+            </div>
+
+
+
+
+        </div>
+</section>
+
+@section ProfileScripts{
+    <script src="~/Scripts/Profile.js"></script>
+}

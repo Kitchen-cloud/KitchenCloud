@@ -1,0 +1,48 @@
+﻿@using EvsLabTask.Models;
+@model StudentModel
+
+<html>
+<head>
+    <link href="~/Content/Css/index.css" rel="stylesheet"/>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="jumbotron">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Smart<span class="glyphicon glyphicon-shopping-cart"></span>obiles </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Cart</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Company Overview</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Contacts</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+
+
+
+@RenderBody()
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+﻿@using KitchenCloud.Models.Sellers;
+@using KitchenCloud.Models.Shared
+@model SellerProfileSettings
+@{
+    string imgPath = Model.ProfileImage.FolderPath.Replace("~", "") + Model.ProfileImage.ImageName;
+
+
+}
+<div class="container col-lg-12">
+    <div class="container col-lg-8 col-lg-offset-2">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active">
+                <a data-toggle="tab" href="#General"><span class="glyphicon glyphicon-picture"></span> General</a>
+            </li>
+
+            <li role="presentation">
+                <a data-toggle="tab" href="#Security"><span class="glyphicon glyphicon-lock"></span> Security</a>
+
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="General" class="tab-pane fade in active ">
+                <br />
+                <br />
+
+                @using (Html.BeginForm("ProfileSettings", "Sellers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+
+
+                    <div class="container col-lg-8 ">
+                        @Html.HiddenFor(x => x.ProfileImage.Id)
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.LabelFor(x => x.Slogan, new { @class = "lbl" })
+                        @Html.TextBoxFor(x => x.Slogan, new { @class = "form-control" })
+                        <br />
+                        @Html.LabelFor(x => x.Introduction, new { @class = "lbl" })
+                        @Html.TextAreaFor(x => x.Introduction, new { @class = "form-control", rows = "5" })
+
+
+                        <br />
+                        <div class="form-group">
+                            @Html.Label("Services", new { @class = "lbl" })
+                            <div class="list-group">
+                                <label class="list-group-item" style="background: url('/Content/Images/Extra/texture.png')" for="Ols">
+
+                                    @Html.CheckBoxFor(x => x.IA, new { style = "height: 25px ;width: 25px;margin-right: 5px;" })
+                                    @Html.LabelFor(x => x.IA, "Instant Bake", new { @class = "text-muted", style = "margin-right: 25px;" })
+                                    @Html.CheckBoxFor(x => x.FD, new { style = "height: 25px ;width: 25px;margin-right: 5px;" })
+                                    @Html.LabelFor(x => x.FD, "Fast Delivery", new { @class = "text-muted", style = "margin-right: 25px;" })
+                                    @Html.CheckBoxFor(x => x.AJ, new { style = "height: 25px ;width: 25px;margin-right: 5px;" })
+                                    @Html.LabelFor(x => x.AJ, "Available For Job", new { @class = "text-muted", style = "margin-right: 25px;" })
+
+
+
+
+                                </label>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+                    <div class="container col-lg-4">
+
+                        <input type="file" id="file" name="file" class="form-control " style="background-image: url('@imgPath'); margin-left: 30px ; background-repeat: no-repeat; background-size: 178px 178px; color: transparent; padding-top: 130px; padding-left: 45px; height: 180px; width: 180px; border-radius: 100px;" />
+
+
+                        <br />  <br />  <br />  <br />  <br />
+                        <div class="form-group">
+                            <input class="btn btn-primary col-lg-8 col-lg-offset-2" value="Update" type="submit" />
+
+                        </div>
+                    </div>
+                }
+            </div>
+            <div id="Security" class="tab-pane fade">
+
+                <br />
+                <br />
+                <br />
+
+                <br />
+
+                @using (Ajax.BeginForm("ChangePassword", "Dashboard", new AjaxOptions { HttpMethod = "POST", Url = "/Dashboard/ChangePassword", UpdateTargetId = "MsgSuccess", OnSuccess = "Success()" }))
+                {
+
+                    <span class="alert-success" id="MsgSuccess"></span>
+
+                    <div class="container col-lg-8 col-lg-offset-2 ">
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.OldPassword, new { @class = "lbl" }) @Html.ValidationMessageFor(x => x.OldPassword, null, new { @class = "text-danger" })
+                            @Html.TextBoxFor(x => x.OldPassword, new { @class = "form-control" })
+                            <br />
+                            @Html.LabelFor(x => x.NewPassword, new { @class = "lbl" }) @Html.ValidationMessageFor(x => x.NewPassword, null, new { @class = "text-danger" })
+                            @Html.TextBoxFor(x => x.NewPassword, new { @class = "form-control" })
+                            <br />
+                            @Html.LabelFor(x => x.ConfirmNewPassword, new { @class = "lbl" }) @Html.ValidationMessageFor(x => x.ConfirmNewPassword, null, new { @class = "text-danger" })
+                            @Html.TextBoxFor(x => x.ConfirmNewPassword, new { @class = "form-control" })
+                            <br />
+                            <br />  <br />
+                            <div class="form-group">
+                                <input class="btn btn-primary col-lg-8 col-lg-offset-2" value="Change Password" type="submit" />
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <br />
+        <br />
+        <br />
+        <br /><br />
+        <br />
+    </div>
+</div>
+
+
+
+
+
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+<script>
+
+    //function Success() {
+    //    alert("cCCCCCCCCCCCCC");
+
+    //    $("#MsgSuccess").html("Password Successfully Updated");
+    //}
+
+
+    //This code is about to change profile image temporarily
+    //$("#file").change(function () {
+
+    //    alert($("#file").val());
+    //    var path = $("#file").val();
+    //    $("#file").css("background-image", "\"" + path + "\"");
+    //    //$.ajax({
+
+    //    //    url: "/Sellers/ChangeProfileImage/",
+    //    //    method: "Get",
+    //    //    success: function (result) {
+    //    //        alert("Yes");
+    //    //    }
+    //    //});
+
+
+    //});
+
+
+
+
+
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            //alert("yes2");
+            var reader = new FileReader();
+
+            reader.onload = function (e)
+            {
+                $('#file').attr("style", "background:url('" + e.target.result + "'); margin-left: 30px ; background-repeat: no-repeat; background-size: 178px 178px; color: transparent; padding-top: 130px; padding-left: 45px; height: 180px; width: 180px; border-radius: 100px;");
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#file").change(function () {
+        //alert("Yes");
+        readURL(this);
+    });
+
+
+
+
+
+</script>

@@ -1,0 +1,92 @@
+﻿@using KitchenCloud.Models.Helpers
+@using KitchenCloud.Models.Messenger
+@using KitchenCloudEntities.Users
+@{
+    Layout = null;
+    int chatwith = 0;
+    if (ViewBag.ChatWith!=null)
+    {
+        chatwith = ViewBag.ChatWith;
+    }
+}
+<input type="hidden" id="chatwith" value="@chatwith"/>
+    <div class="container-fluid">
+        <!--Left Panel-->
+        <div class="col-lg-2">
+
+            @*<img src="~/Content/Images/left.PNG" height="250" width="200" />*@
+            <ul class="list-group text-muted">
+                <li class="list-group-item">
+                    Inbox
+                </li>
+                <li class="list-group-item">
+                    Unread
+                </li>
+                <li class="list-group-item">
+                    Sent 
+                </li>
+                <li class="list-group-item">
+                    Orders
+                </li>
+            </ul>
+
+        </div>
+        <!--Left Panel-->
+        <!--Chat Panel-->
+        <div class="col-lg-8" id="MessageAppMain" style="height: 550px;border: 1px solid lightgrey">
+           
+                    @RenderPage("_InboxFrame.cshtml")
+
+        </div>
+
+        <!--Chat Panel-->
+        <!--Right Panel-->
+        @*<div class="col-lg-2" style="height: 500px; border-left: 1px dashed lightgray; border-right: 1px dashed lightgray;border-bottom: 1px dashed lightgray">
+
+
+
+                <div class="row bg-primary text-center">
+                    <span style="color: white; font-size: 12px; font-weight: bold">All Users</span>
+                </div>
+
+
+                <div class="row" id="loading" style="margin-top: 150px">
+                    <img class="center-block" src="/Content/Images/GIF/loadinganimation.gif" height="30" width="50" />
+                </div>
+
+                <div class="row">
+                    <ul class="list-group" id="AllPersons"></ul>
+                    <ul class="pagination" id="personspaging" style="margin-top:-22px "></ul>
+                </div>
+            </div>*@
+        <!--Right Panel-->
+    </div>
+    <!--Main-->
+<script>
+
+
+
+
+
+   
+
+    $(function () {
+
+
+       
+
+
+
+        var chat = $("#chatwith").val();
+        if (chat!=0) {
+            $.ajax({
+                url: "/Messenger/Chat/" + chat,
+                method: "Get"
+            }).done(function (messages) {
+                $("#MessageAppMain").html(messages);
+            });
+        }
+
+      
+    })
+</script>

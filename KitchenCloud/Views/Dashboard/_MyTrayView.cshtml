@@ -1,0 +1,200 @@
+﻿
+@using KitchenCloud.Models.Helpers
+@using KitchenCloud.Models.Shared;
+@using KitchenCloud.Models.Orders;
+@model OrderModel
+@{
+    var MyTrayRecipes = (MyTray)Session[WebUtil.MY_TRAY];
+    List<SelectListItem> OrderTimeList = ViewBag.OrderTimeList;
+
+}
+<style>
+    .OneAdd {
+        margin-bottom: 2px;
+    }
+
+        .OneAdd:hover {
+            border: 1px solid lightgray;
+        }
+</style>
+<div class="container-fluid">
+    <div class="container col-lg-10">
+
+
+        @if (MyTrayRecipes != null)
+        {
+
+            <div class="row">
+                <div class="container col-lg-12 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
+                    <div class="list-group">
+                        <div class="list-group-item-heading ">
+                            <div class="row">
+                                <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                    <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;sr#</span>
+                                    <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;Image</span>
+                                    <span class="text-muted col-lg-3 col-md-2 col-sm-2 col-xs-2">&nbsp;&nbsp;Title</span>
+                                    <span class="text-muted col-lg-1 col-md-2 col-sm-2 col-xs-2">Category</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Sub Category</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Quantity</span>
+                                    <span class="text-muted col-lg-1 col-md-2 col-sm-2 col-xs-2">Price</span>
+                                    <span class="text-muted col-lg-1 col-md-2 col-sm-2 col-xs-2">Action</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container col-lg-12 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="list-group">
+                        @{ int count = 1; }
+
+
+
+
+                        @foreach (var myTrayRecipe in MyTrayRecipes.Items)
+
+                        {
+
+                            <div class="list-group-item OneAdd">
+                                <div class="row">
+                                    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+                                        <span class="text-primary col-lg-1 col-md-1 col-sm-1 col-xs-1 ">@count</span>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                            <img class="img-circle" src="@Url.Content(myTrayRecipe.ImgUrl)" style="height: 30px; width: 30px;" />
+                                        </div>
+                                        <input type="hidden" name="AddID" value="@myTrayRecipe.Id" />
+                                        <span class="text-primary col-lg-3 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.Title</span>
+                                        <span class="text-primary col-lg-1 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.Category</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.SubCategory</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <input class="quantity" data-qtty="@myTrayRecipe.Id" style="width: 55px" value="@myTrayRecipe.Quantity" />
+                                        </span>
+                                        <span class="text-primary col-lg-1 col-md-2 col-sm-2 col-xs-2">&nbsp;&nbsp;&nbsp;@myTrayRecipe.Amount</span>
+                                        <span class="text-primary col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                                            <a href="#" id="@myTrayRecipe.Id" class="btn btn-group-sm RemoveAdd" style="padding: 2px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></a>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            count++;
+
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="row ">
+                <div class="container-fluid  col-lg-12 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  " style="background: url('/Content/Images/Extra/texture.png');padding-top: 20px;">
+                    @using (Html.BeginForm("ConfirmOrder", "Dashboard", FormMethod.Post))
+                {
+
+
+                        <div class="form-group col-lg-3 col-lg-offset-2">
+                            <div class="input-group">
+                                @Html.TextBoxFor(x => x.DueDate, new { @class = "form-control", id = "duedate", value = System.DateTime.Now.ToShortDateString(), placeholder = "Select Due Date" })
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-lg-2">
+                            @Html.EnumDropDownListFor(x => x.Time, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <input type="submit" class="Btn btn-success" value="Order All" />
+                            <a href="#" class="Btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Clear All</a>
+
+                        </div>
+
+
+
+                    }
+                </div>
+
+            </div>
+                            }
+
+
+
+
+
+    </div>
+</div>
+
+
+
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<script>
+
+    $(function () {
+
+
+        $(".quantity").spinner({
+            min: 1, step: 1, max: 300,
+            change: function () {
+
+                $.ajax({
+                    url: "/Dashboard/QuatityChange?id=" + $(this).data("qtty") + "&value=" + $(this).val(),
+                    method: "POST",
+                    success: function (result) {
+                        $("#TrayCount").html(result);
+                    }
+                });
+            }
+
+        });
+
+
+
+
+        $("#duedate").datepicker();
+
+    });
+
+
+    $(".RemoveAdd").click(function () {
+
+        $.ajax({
+            url: "/Dashboard/RemoveRecipeTray/" + $(this).attr("id"),
+            method: "POST",
+            success: function (result) {
+                $("#AccountMainArea").html(result);
+            }
+
+        });
+
+
+    });
+
+
+
+
+</script>

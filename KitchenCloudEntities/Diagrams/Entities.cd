@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KitchenCloudEntities.Users.Seller">
+    <Position X="1.25" Y="7.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAABCUAAAUkgAAAAIgAAAgIAAEIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Users\Seller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KitchenCloudEntities.Common.City">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAIEAAACAAAAAAAAAgA=</HashCode>
+      <FileName>Common\City.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Country" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Common.Country">
+    <Position X="3.75" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAgAAQAIAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Common\Country.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KitchenCloudEntities.Common.Person">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAEgAACJgAACqIAAAiAAAAAAAAAACCAAAAgAAAgA=</HashCode>
+      <FileName>Common\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProfileImage" />
+      <Property Name="City" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Orders.Order">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAACAABAAAACQCAAAkAAAAAAAQAAAAEAAAAAAAgAIgA=</HashCode>
+      <FileName>Orders\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OrderStatus" />
+      <Property Name="Recipe" />
+      <Property Name="OrderTime" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Orders.TrayRecipe">
+    <Position X="13.25" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAALQAAAAQAAAAAAAAAAAAAACAAAAAiAAAAIgAAACkA=</HashCode>
+      <FileName>Orders\TrayRecipe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KitchenCloudEntities.Recipes.RecipeReview">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AMECAABBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAgA=</HashCode>
+      <FileName>Recipes\RecipeReview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KitchenCloudEntities.Recipes.Recipe">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Seller" Type="KitchenCloudEntities.Users.Seller" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.562" Y="6.517" />
+        <Point X="6.562" Y="8.705" />
+        <Point X="2.75" Y="8.705" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RecipeImages" Type="KitchenCloudEntities.Recipes.RecipeImage" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.125" Y="6.517" />
+        <Point X="7.125" Y="8.139" />
+        <Point X="8.5" Y="8.139" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAPAAAAQQAgAUAIIgAEiAAQCRQAEAgAAAAAAAABCgQ=</HashCode>
+      <FileName>Recipes\Recipe.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PersonsFor" />
+      <Property Name="Seller" />
+      <Property Name="City" />
+      <Property Name="SubCategory" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="RecipeImages" />
+      <Property Name="RecipeReviews" />
+      <Property Name="RecipeTags" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Recipes.RecipeCategory">
+    <Position X="8.75" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Recipes\RecipeCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KitchenCloudEntities.Recipes.RecipeImage">
+    <Position X="8.5" Y="7.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIAAAACAECAAABAgACAAAAAgAAgA=</HashCode>
+      <FileName>Recipes\RecipeImage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ImagePriority" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Recipes.RecipeSubCategory">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAAAAAAAAAAAAAAQAAAAECAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Recipes\RecipeSubCategory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RecipeCategory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Recipes.RecipeTag">
+    <Position X="6.25" Y="9.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Recipes\RecipeTag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KitchenCloudEntities.Users.User">
+    <Position X="3.75" Y="9" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAABAIAAAQCAAAAAIBAAACAQAAAgEACgA=</HashCode>
+      <FileName>Users\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+      <Property Name="Seller" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Messenger.Message">
+    <Position X="3.75" Y="12" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Sender" Type="KitchenCloudEntities.Users.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="12.874" />
+        <Point X="3.375" Y="12.874" />
+        <Point X="3.375" Y="10.688" />
+        <Point X="3.75" Y="10.688" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Reciever" Type="KitchenCloudEntities.Users.User" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="12.787" />
+        <Point X="5.625" Y="12.787" />
+        <Point X="5.625" Y="10.625" />
+        <Point X="5.25" Y="10.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAwCAAAEBAAAAAQAAAABCAAAAQgAAAAAAAAAAAAIAgA=</HashCode>
+      <FileName>Messenger\Message.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sender" />
+      <Property Name="Reciever" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KitchenCloudEntities.Users.ProfileImage">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAIAAAACAEAAAABAAACAAAAAgAAgA=</HashCode>
+      <FileName>Users\ProfileImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="KitchenCloudEntities.Common.Priority">
+    <Position X="8.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Common\Priority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KitchenCloudEntities.Orders.Status">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Orders\Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KitchenCloudEntities.Orders.Time">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAEAAAAAAABAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Orders\Time.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KitchenCloudEntities.Recipes.ServingFor">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAACAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Recipes\ServingFor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KitchenCloudEntities.Users.UserType">
+    <Position X="6.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAACAg=</HashCode>
+      <FileName>Users\UserType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="KitchenCloudEntities.Messenger.MessageStatus">
+    <Position X="6.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAIAAEAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messenger\MessageStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

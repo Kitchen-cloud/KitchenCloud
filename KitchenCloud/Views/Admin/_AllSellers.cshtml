@@ -1,0 +1,131 @@
+﻿
+
+@using KitchenCloud.Models.Admin;
+@model SellerInfo
+@{
+    List<SellerInfo> sellerInfo = ViewBag.AllSellers;
+
+}
+<style>
+    .OneAdd {
+        margin-bottom: 2px;
+    }
+
+        .OneAdd:hover {
+            cursor: pointer;
+            border: 1px solid lightgray;
+        }
+</style>
+@RenderPage("../Shared/_Dialog.cshtml")
+
+
+@if (sellerInfo.Count > 0 && sellerInfo != null)
+{
+
+    <div class="row">
+        <div class="container alert alert-info col-lg-8 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
+            <div class="list-group">
+                <div class="list-group-item-heading ">
+                    <div class="row">
+                        <div class="container  col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                            <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;sr#</span>
+                            <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;Image</span>
+                            <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">&nbsp;&nbsp;Name</span>
+                            <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Location</span>
+                            <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Rank</span>
+                            <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Recipes</span>
+                            <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Action</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="row">
+                    <div class="container col-lg-8 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                        <div class="list-group">
+                            @{ int count = 1; }
+                            @foreach (var r in sellerInfo)
+                            {
+
+                                <div class="list-group-item OneAdd">
+                                    <div class="row">
+                                        <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+                                            <span class="text-primary col-lg-1 col-md-1 col-sm-1 col-xs-1 ">@count</span>
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                <img class="img-circle" src="@Url.Content(r.ImgUrl)" style="height: 30px; width: 30px;" />
+                                            </div>
+                                            <input type="hidden" name="AddID" value="@r.Id" />
+                                            <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Name</span>
+                                            <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Location</span>
+                                            <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Rank</span>
+                                            <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Recipes</span>
+                                            <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <a href="#" id="@r.Id" class="btn btn-group-sm RemoveAdd" data-toggle="modal" data-target="#deletemodal" style="padding: 2px;"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                count++;
+
+
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                                }
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+
+<script>
+
+    var Id;
+
+
+    $(".RemoveAdd").click(function () {
+
+
+
+        Id = $(this).attr("id");
+
+    });
+
+
+
+
+
+
+
+
+
+
+    $("#DelYes").click(function () {
+
+
+
+        $.ajax({
+            url: "/Admin/DeleteSeller/" + Id,
+        });
+
+
+    });
+
+
+
+
+</script>

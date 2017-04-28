@@ -1,0 +1,11 @@
+﻿@using KitchenCloud.Models.Sellers;
+@model SignupSellerModel
+    
+@{
+    List<SelectListItem> cities = ViewBag.Cities;
+
+}
+
+
+@Html.DropDownListFor(x=>x.City,cities,"Cities",new { @class = "form-control" })
+

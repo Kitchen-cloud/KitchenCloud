@@ -1,0 +1,36 @@
+﻿
+
+<div class="Parent">
+    <div class="Dialog">
+        <div class="DialogTtl">
+            <span class="Ttl">Message</span>
+        </div>
+
+        <div class="ClsBtns">
+            <input class="ClsBtn" value="X" type="button"/>
+        </div>
+@using (Html.BeginForm("DeleteConfirm", "Home", FormMethod.Post, new {@class = "DeleteForm"}))
+{
+    <div class="Message">
+        <span class="DlgMsg">@ViewBag.Message</span>
+        <input name="data" type="hidden" value="@ViewBag.Id"/>
+    </div>
+    <input type="button" value="No" class="ClsBtn"/>
+    <input type="submit" value="Yes" class="btn"/>
+}
+    </div>
+</div>
+
+
+
+
+<script>
+    $(".ClsBtn").click(function() {
+        $(this).parents(".Dialog").hide();
+    });
+
+
+
+</script>
+
+

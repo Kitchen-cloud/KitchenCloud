@@ -1,0 +1,10 @@
+﻿@using KitchenCloud.Models.Shared;
+@model DDListModel
+
+@Html.DropDownList(
+      Model.Name,
+      Model.Values,
+      Model.Caption,
+      new {@class="form-control"}
+
+)

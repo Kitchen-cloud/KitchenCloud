@@ -1,0 +1,147 @@
+﻿@using KitchenCloud.Models.Helpers
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+    <meta charset="utf-8" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/Styles/bjqs.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/Images/Icons/fav (1).png" />
+    <link href="~/Content/kitchencloud-custom-css.css" rel="stylesheet" />
+    <link href="~/Content/sweet-alert.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <!--Header Area Reserved-->
+        <div style="width: 100%; position: fixed; z-index: 3;" id="navbars">
+
+            @{
+                if (Session[WebUtil.ALERT_MESSAGE] != null)
+                {
+                    @RenderPage("_AlertMessageBar.cshtml");
+
+                }
+
+            }
+            @RenderPage("_PrimaryNavBar.cshtml")
+            @RenderPage("_SecondaryNavBar.cshtml")
+        </div>
+        <br /><br />
+        <br /><br />
+        <br />
+        <br />
+
+
+
+
+
+
+
+
+        <div class="container-fluid">
+
+            <div class="container col-lg-3 col-md-4 hidden-sm hidden-xs">
+                <div class="row" >
+                    @RenderPage("_SidePanel.cshtml")
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="container col-lg-12 hidden-md hidden-sm hidden-xs" style="padding: 5px; border: 1px solid lightgray;box-shadow: 0px 0px 5px 0px lightgray">
+                        <div id="hpgslr">
+                            <ul class="bjqs">
+                                <li><img src="~/Content/Images/banners/banner 23 (2).png" style="height: 150px" alt="slide-1" class="img-responsive" /></li>
+                                <li><img src="~/Content/Images/banners/Picture2.png" style="height: 150px" alt="slide-2" class="img-responsive" /></li>
+                                <li><img src="~/Content/Images/banners/Picture3.png" style="height: 150px" alt="slide-3" class="img-responsive" /></li>
+                                <li><img src="~/Content/Images/banners/Picture4.PNG" alt="slide-3" class="img-responsive" /></li>
+                            </ul>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+            
+
+                <div class="row" style="padding-left: 45px;">
+                    @RenderBody()
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="row">
+                    <ul class="pagination">
+                        @for (var i = 1; i <= ViewBag.Pagination; i++)
+                        {
+
+                            <li class="pagination-sm">
+                                <a href="#">@i</a>
+                            </li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <div class="row" style=" position: fixed; z-index: 5; margin-left: 1240px; margin-top: 195px;">
+                <input id="feedbackbtn" type="button"  value="Feed back" class="btn btn-info"  style="background: steelblue"/>
+            </div>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+        @RenderPage("_LogIn.cshtml")
+        @*@RenderPage("_RecoverPassword.cshtml")*@
+        @RenderPage("_SignUp.cshtml")
+
+        <!--Forms-->
+        
+        
+        
+
+        <div id="notifyArea" style=" height: auto; width: 250px; margin-top: -1690px; z-index: 3; margin-left: 1060px;position: fixed">
+
+
+        </div>
+        @RenderPage("~/Views/Shared/_GlobalFeedback.cshtml")
+    </div>
+    @RenderPage("~/Views/Shared/_GlobalFooter.cshtml")
+
+    @*<div class="ldgmodal"><!-- Place at bottom of page --></div>*@
+
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+    <script src="~/Scripts/bjqs-1.3.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/sweet-alert.min.js"></script>
+    <script src="~/Scripts/Index.js"></script>
+
+
+    @*<script>
+
+    </script>*@
+
+</body>
+
+</html>

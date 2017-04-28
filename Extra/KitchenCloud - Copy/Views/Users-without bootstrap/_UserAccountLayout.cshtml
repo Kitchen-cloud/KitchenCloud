@@ -1,0 +1,109 @@
+﻿<html>
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+    <meta charset="utf-8" />
+    <link href="~/Content/Styles/Index.css" rel="stylesheet" />
+    @RenderSection("ProfileStyles", false)
+    <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <div class="HeaderWrapper">
+            <img src="~/Content/Images/Users/Profile Banners/Banner(13).jpg" />
+            <div class="HeaderProfileImg">
+                <img class="ProfileImg" src="~/Content/Images/Users/Profile Img/cb.jpg" />
+            </div>
+            <div class="UserName">
+                <span class="Ttl">
+                    @Html.ActionLink("Code_Bakers", "UserProfile", "Users")
+                </span>
+            </div>
+            <div class="ProfileSlogan">
+                <span class="Ttl">
+                    @Html.ActionLink("We Bake Solutions !!!", "UserProfile", "Users")
+                </span>
+            </div>
+        </div>
+    </header>
+    <nav>
+
+        <div class="Logo">
+            <a href="/Dashboard/Index"><img src="~/Content/Images/Logos/LogoG.png" height="60" width="110" /></a>
+        </div>
+        <div class="ProfileStats">
+            <ul class="ProfileStatsMenu">
+                <li><a href="#">Reviews </a></li>
+                <li><a href="#">Visitors</a></li>
+                <li>
+                    <a href="#">
+                        <div class="ProfileRatings">
+                            <span>Ratings</span>
+                            <div class="ProfileRatingsStars">
+
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i == 4)
+                                    {
+                                        <img src="~/Content/Images/Icons/star_half.png" />
+                                    }
+                                    else if (i == 5)
+                                    {
+                                        <img src="~/Content/Images/Icons/star_empty.png" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/Icons/star_full.png" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="ClrStl"></div>
+            <ul>
+                <li class="ProfileStatsSettings">
+                    <div class="ProfileSettingsBtn">
+                        <input id="SettingsUpDownBtn" class="Btn" type="button" />
+                    </div>
+                    <ul class="ProfileStatsSubMenu">
+                        <li>
+                            <a href="#" id="NewMenu">New Menu</a>
+                        </li>
+                        <li>
+                            <a href="#">Customer Orders</a>
+                        </li>
+                        <li>
+                            <a id="ShowStat" href="#">Statistics</a>
+                        </li>
+                        <li>
+                            <a href="#">Account Settings</a>
+                        </li>
+                        <li>
+                            <a href="#">Sign Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="AccountSettingsAndStat">
+        @RenderPage("_NewMenu.cshtml")
+        @RenderPage("_AccountStats.cshtml")
+
+    </section>
+    @RenderBody()
+
+    @RenderPage("../Shared/_GlobalFooter.cshtml")
+    <div class="modal"><!-- Place at bottom of page --></div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+    @RenderSection("ProfileScripts", false)
+
+</body>
+</html>

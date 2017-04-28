@@ -1,0 +1,177 @@
+﻿@using KitchenCloud.Models.Recipes
+@using KitchenCloud.Models.Recipes
+@model RecipeDescription
+@{
+    RecipeDescription recipeDetail = ViewBag.RecipeDescription;
+    ViewBag.Title = recipeDetail.Title;
+    Layout = "_SecondaryDashboard.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="container col-lg-4">
+        <div id="ImageSlide" class="img-thumbnail">
+            <!-- Insert to your webpage where you want to display the slider -->
+            <div id="amazingslider-wrapper-1" style="display: block; position: relative; max-width: 400px;">
+                <div id="amazingslider-1" style="display: block; position: relative; margin: 0 auto;">
+                    <ul class="amazingslider-slides " style="display: none;">
+
+
+                        @foreach (var image in recipeDetail.MenuImages)
+                        {
+
+                            <li>
+                                <img width="300" height="400" src="@Url.Content(image.FolderPath)" alt="@image.Caption" />
+
+                            </li>
+                        }
+
+                    </ul>
+
+
+
+
+
+
+
+                    <div class="amazingslider-engine">
+                        <a href="http://amazingslider.com" title="Responsive Image Slider jQuery"> Responsive Image SliderjQuery </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container col-lg-4 ">
+        <div class="row">
+
+            <span style="font-family: Arial; color: gray; font-weight: bold; font-size: 22px">@recipeDetail.Title</span>
+
+        </div>
+        <div class="row">
+            <span style="font-weight: bold; color: gray">@recipeDetail.Category @recipeDetail.SubCatrory</span>
+
+        </div>
+        <br />
+
+
+        <div class="row">
+            <p style="font-family: arial;color: gray">
+                @recipeDetail.Description
+            </p>
+
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+            @foreach (var tag in recipeDetail.Tags)
+            {
+
+                <span class='badge' style='color: gray; font-family: arial;border-radius: 5px; background-color: #EEEEEE; border: 1px solid lightgray; padding: 4px; margin-top: 5px; margin-right: 5px;'>
+                    <span class='glyphicon glyphicon-tag'>
+                        @tag.Name
+                    </span>
+                </span>
+
+            }
+        </div>
+    </div>
+    <div class="container col-lg-4">
+
+        <div class="row col-lg-offset-1" style="margin-top: 20px;">
+            <div class="container col-lg-5" style="margin-left: 8px;">
+                <a href="/Sellers/AccountLoad?id=@(recipeDetail.Seller.Id+2)"><input class="form-control btn-default " type="button" value="Message" /></a> 
+            </div>
+            <div class="container col-lg-5 ">
+                <input class="form-control btn-success " type="button" value="Add To Tray" />
+            </div>
+        </div>
+
+        <br /> <br /> <br />
+        <div class="row">
+
+            <div class="container btn-default col-lg-8 col-lg-offset-2 " style="padding: 10px; border: 1px solid lightgray; border-radius: 10px;">
+
+                <div class="row " style="margin-left: 80px;">
+                    <img class="img-circle" height="100" width="100" style="margin-left: -10px; border: 1px solid lightgray; padding: 5px" src="@Url.Content(recipeDetail.Seller.ProfileImage)" />
+                </div>
+                <br />
+                <div class="row">
+                    <div class="container col-lg-12" style="color: gray ">
+                        <span class="col-lg-offset-1" style="margin-right: 15px; font-family: Arial; font-size: 14px; font-weight: bold">@recipeDetail.Seller.FullName</span>
+
+                        <span>@recipeDetail.City.Name, @recipeDetail.Country.Name</span>
+                        <br />
+                        <br />
+                        @{
+                            recipeDetail.Seller.Description = "Network of IT solutions since 11 august 2015" +
+                                                              "Code Bakers is not only a platform  for  IT solutions but also for the training Institute of the interested upcoming generation to compete the upcoming challenges." +
+                                                              "Code Bakers is not only a platform  for  IT solutions but also for the training Institute of the interested upcoming generation to compete the upcoming challenges."
+
+                                ;
+                        }
+                        <span>@recipeDetail.Seller.Description</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+        </div>
+
+
+
+    </div>
+  
+    
+</div>
+<br />
+<br />
+<br />
+
+
+<div class="row">
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">
+                Other Recipes
+            </span>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid" style="margin-left: 80px;">
+
+                @{
+                    ViewBag.AllRecipes = recipeDetail.Recipes;
+                }
+                @RenderPage("~/Views/Shared/_GlobalRecipeTemplate.cshtml")
+
+
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+  
+</div>
+
+
+@section RecipeDescription{
+
+    <script src="~/Content/sliderengine/amazingslider.js"></script>
+    <script src="~/Content/sliderengine/initslider-1.js"></script>
+
+}

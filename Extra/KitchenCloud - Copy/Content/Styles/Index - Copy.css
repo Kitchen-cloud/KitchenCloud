@@ -1,0 +1,124 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+    background: gray;
+    font-family: Arial;
+}
+h1 {
+    
+}
+h2 {
+    
+}
+h3 {
+    
+}
+h4 {
+    
+}
+h5 {
+    
+}
+h6 {
+    
+}
+a {
+    text-decoration: none;
+    
+}
+.ClrStl {
+    clear: both;
+}
+
+nav
+{
+    height:65px;
+    background:white;
+    margin-top:300px;
+
+}
+.Logo {
+    position: absolute;
+    margin-top:-12px;
+    margin-left:100px;
+}
+.Catogaries
+{
+    margin-left:250px;
+     
+}
+
+
+.CatogariesLnk a{
+
+    float: left;
+    margin-right: 1px;
+    display:block;
+     height:40px;
+     padding:25px 0px 0px 50px;
+     width:120px;
+     color:steelblue;
+
+}
+.CatogariesLnk a:hover{
+   background:steelblue;
+     height:40px;
+     padding:25px 0px 0px 50px;
+     width:120px;
+     color:white;
+}
+
+
+
+.SubCatogaries 
+{
+    position:absolute;
+    margin-left:450px;
+    margin-top:-15px;
+
+}
+.SubCatogaries ul
+{
+    height:145px;
+    width:140px;
+    background:white;
+    float:left;
+    padding:10px 20px 0px 20px;
+
+}
+
+.SubCatogaries li
+{
+    display:block;
+    margin-bottom:1px;
+    margin-left:-20px;
+    width:180px;
+    height:35px;
+
+}
+
+.SubCatogaries li a
+{
+    width:150px;
+    height:25px;
+       position:absolute;
+    margin-top:-5px;
+    color:steelblue;
+    padding:10px 10px 0px 20px;
+
+}
+.SubCatogaries li a:hover
+{
+   background:steelblue;
+    width:150px;
+    height:25px;
+       position:absolute;
+    margin-top:-5px;
+    color:white;
+    padding:10px 10px 0px 20px;
+
+}
+
+
+
+

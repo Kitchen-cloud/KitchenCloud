@@ -1,0 +1,775 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial;
+    height: auto;
+}
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+a {
+    text-decoration: none;
+}
+
+.Ttl {
+    color: white;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.SubTtl {
+    color: steelblue;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+.SearchTxtBx {
+    height: 25px;
+    color: steelblue;
+    border-radius: 2px;
+    border: 1px solid lightgray;
+    width: 198px;
+    position: absolute;
+}
+
+.TxtBxErr {
+    width: 300px;
+    height: 30px;
+    margin-left: 45px;
+    font-family: Arial;
+    font-weight: bold;
+    margin-top: 35px;
+    border-radius: 5px;
+    color: steelblue;
+    border: 1px solid red;
+}
+
+.Spnr {
+    width: 160px;
+    height: 15px;
+}
+
+.ClsBtn {
+    position: absolute;
+    margin-left: 370px;
+    margin-top: -35px;
+}
+
+.ClsBtns input {
+    font-size: 10px;
+    height: 20px;
+    background: steelblue;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid lightgray;
+}
+
+.ClsBtns input:hover {
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.Form {
+    padding: 10px;
+}
+
+.ClrStl {
+    clear: both;
+}
+
+header {
+    height: 600px;
+}
+
+.SliderMainImg img {
+    height: 600px;
+    width: 100%;
+}
+
+.SliderThumbnailImgs {
+    margin-top: -94px;
+    position: absolute;
+    margin-left: 570px;
+}
+
+.SliderThumbnailImgs li {
+    display: block;
+    float: left;
+    margin-right: 10px;
+}
+
+.SliderThumbnailImgs li img {
+    height: 10px;
+    width: 10px;
+    margin-right: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 0px 10px white ;
+}
+
+.LoingInSignUpBtns {
+    z-index: 2;
+    position: absolute;
+    margin-top: -350px;
+    margin-left: 590px;
+}
+
+.LoingInSignUpBtns div {
+    float: left;
+    margin-right: 15px;
+}
+
+.LoingInSignUpBtns input {
+    height: 45px;
+    background: white;
+    color: steelblue;
+    border: 1px solid white;
+    font-weight: bold;
+    box-shadow: -5px 5px 10px -2px steelblue;
+}
+
+.LoingInSignUpBtns input:hover {
+    cursor: pointer;
+    background: steelblue;
+    color: white;
+    border: 1px solid white;
+    box-shadow: -5px 5px 10px -2px white;
+}
+
+.LogInBtn input {
+    width: 80px;
+}
+
+.SignUpBtn input {
+    width: 120px;
+}
+
+nav {
+    height: 65px;
+    background: white;
+    box-shadow: 0px 2px 10px 0px gray;
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    z-index: 1;
+}
+
+.fixed {
+    position: fixed;
+    top: -1px;
+    z-index: 1;
+}
+
+.Logo {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 100px;
+}
+
+.Catogaries {
+    margin-left: 250px;
+}
+
+.CatogariesLnk ul li {
+    float: left;
+    display: block;
+    padding: 0px 0px 0px 50px;
+    width: 120px;
+    color: steelblue;
+}
+
+.CatogariesLnk ul li a {
+    float: left;
+    display: block;
+    height: 40px;
+    padding: 25px 0px 0px 50px;
+    width: 120px;
+    color: steelblue;
+    margin-top: -15px;
+}
+
+.CatogariesLnk ul li a:hover {
+    background: steelblue;
+    height: 40px;
+    padding: 25px 0px 0px 50px;
+    width: 120px;
+    color: white;
+}
+
+.SubCatogaries {
+    font-size: 14px;
+    margin-left: 40px;
+    height: 170px;
+    margin-top: 50px;
+    padding-top: 15px;
+    width: 130px;
+    border: 1px solid lightgray;
+}
+
+.SubCatogaries li {
+    height: 60px;
+    margin-left: -30px;
+}
+
+.SubCatogaries li a {
+    margin-left: -60px;
+    background: white;
+}
+
+.LeftPanel {
+    position: absolute;
+    height: 450px;
+    width: 240px;
+    margin-top: 100px;
+    margin-left: 10px;
+    border: 1px lightgray solid;
+}
+
+.LeftPanelFix {
+    position: absolute;
+    position: fixed;
+    height: 450px;
+    width: 240px;
+    margin-top: -490px;
+    margin-left: 10px;
+    border: 1px lightgray solid;
+}
+
+.PanelNormal {
+}
+
+.LeftPanelTitle {
+    background: steelblue;
+    padding-left: 80px;
+}
+
+.LeftPanelBodyCtrls {
+    margin-top: 35px;
+    margin-left: 18px;
+}
+
+.LeftPanelBodyCtrls .TxtBx {
+    width: 200px;
+}
+
+.MealFor {
+    margin-top: 10px;
+    margin-left: -5px;
+}
+
+.MealFor .Ttl {
+    color: steelblue;
+    font-size: 14px;
+    position: absolute;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.MealFor input {
+    width: 20px;
+    height: 18px;
+    margin-bottom: 10px;
+}
+
+.OnlineChefs {
+    color: steelblue;
+    background: whitesmoke;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    height: 25px;
+    width: 198px;
+    margin-top: -20px;
+}
+
+.OnlineChefs input {
+    width: 20px;
+    height: 18px;
+}
+
+.OnlineChefs .Ttl {
+    color: steelblue;
+    font-size: 14px;
+    position: absolute;
+    margin-top: 5px;
+}
+
+/**********Main Area *******/
+.MainArea {
+    border: 1px solid lightgray;
+    margin-left: 290px;
+    margin-top: 100px;
+    width: 1000px;
+    height: auto;
+   margin-bottom:15px;
+}
+
+.MainAreaMenus {
+    padding-top: 30px;
+    padding-left: 32px;
+}
+
+.Menu {
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    box-shadow: 1px 5px 10px 1px lightgray;
+    height: 200px;
+    width: 200px;
+    border: 1px solid steelblue;
+}
+
+.MenuTitle {
+    background: steelblue;
+    padding-left: 10px;
+}
+
+.MenuImg img {
+    height: 100px;
+    width: 180px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.MenuDetail {
+    font-size: 12px;
+    margin-left: -15px;
+    margin-top: -5px;
+    color: steelblue;
+}
+
+.MenuDetail a {
+    color: steelblue;
+}
+
+.MenuDetail a:hover {
+    text-decoration: underline;
+}
+
+.MenuRatings {
+}
+
+.MenuTtlOrders {
+    margin-left: 111px;
+    font-size: 14px;
+    font-weight: bold;
+    color: orange;
+    background: white;
+}
+
+/*******Forms***/
+.Forms {
+    position: absolute;
+    margin-top: -520px;
+}
+
+.Forms .TxtBx {
+    margin-top: 35px;
+    width: 300px;
+    height: 30px;
+    margin-left: 45px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    background: white;
+    color: steelblue;
+}
+
+.Forms .TxtBx:focus {
+    box-shadow: 1px 1px 5px black;
+}
+
+.FormTtl {
+    font-family: Arial;
+    font-weight: bold;
+    padding-left: 178px;
+    height: 45px;
+    background: steelblue;
+    color: white;
+    font-size: 18px;
+}
+
+.FormTtl span {
+    position: absolute;
+    margin-top: 10px;
+}
+
+.FormsLgn {
+    position: fixed;
+    background: white;
+    height: 300px;
+    border: 1px solid steelblue;
+    width: 400px;
+    margin-left: 475px;
+    z-index: 2;
+}
+
+.FormsLgnTtl span {
+    position: absolute;
+    margin-top: 15px;
+}
+
+.FormsLgnBtn {
+    width: 150px;
+    margin-left: 45px;
+    height: 25px;
+    margin-top: 40px;
+    position: absolute;
+}
+
+.FormsLgnBtn input {
+    width: 150px;
+    height: 30px;
+    font-family: Arial;
+    font-weight: bold;
+    color: steelblue;
+    background: white;
+    border: 1px solid steelblue;
+}
+
+.FormsLgnBtn input:hover {
+    background: steelblue;
+    color: white;
+    cursor: pointer;
+}
+
+.FormsLgnFgtPss {
+    position: absolute;
+    margin-top: 45px;
+    margin-left: 205px;
+}
+
+.FormsLgnFgtPss a:hover {
+    font-weight: bold;
+}
+
+.FormsLgnFgtPss a {
+    color: steelblue;
+    font-family: Arial;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.FormsRcr {
+    position: fixed;
+    background: white;
+    height: 450px;
+    width: 400px;
+    margin-left: 475px;
+    z-index: 2;
+}
+
+.FormsRcrGrpBx {
+    position: absolute;
+    color: lightgray;
+    font-size: 11px;
+    border: 1px solid lightgray;
+    margin-left: 45px;
+    border-radius: 3px;
+    width: 283px;
+    margin-top: 15px;
+    padding-bottom: 25px;
+}
+
+.FormRcrSQslct select {
+    margin-top: 15px;
+    border-radius: 3px;
+    width: 240px;
+    height: 35px;
+    margin-left: 21px;
+    font-family: Arial;
+    font-weight: bold;
+    border: 1px solid steelblue;
+    background: white;
+    color: steelblue;
+}
+
+.FormRcrSQslct select:hover {
+    border: 1px solid steelblue;
+    background: steelblue;
+    color: white;
+}
+
+.FormsRcrGrpBx .SQTxtBx {
+    margin-top: 15px;
+    margin-left: 20px;
+    width: 240px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    background: white;
+    color: steelblue;
+}
+
+.FormsRcrBtn {
+    position: absolute;
+    width: 150px;
+    margin-left: 120px;
+    height: 25px;
+    margin-top: 280px;
+}
+
+.FormsRcrBtn input {
+    width: 150px;
+    height: 30px;
+    font-family: Arial;
+    font-weight: bold;
+    color: steelblue;
+    border: 1px solid steelblue;
+    background: white;
+}
+
+.FormsRcrBtn input:hover {
+    cursor: pointer;
+    color: white;
+    border: 1px solid steelblue;
+    background: steelblue;
+}
+
+/*  Register Form ***/
+.FormsRgstr {
+    position: fixed;
+    border: 1px solid steelblue;
+    background: white;
+    height: 560px;
+    width: 400px;
+    color: gray;
+    margin-left: 475px;
+    z-index: 2;
+
+}
+
+.FormsRgstr .ClsBtns input
+{
+
+    
+    width:35px;
+    margin-top:-40px;
+    margin-left:350px;
+    }
+
+
+.FormsRgstr input {
+border:lightgray solid 1px;
+
+    margin-top:15px;
+    height:35px;
+    margin-left:48px;
+    width:300px;
+
+}
+
+.FormsRgstrGrpBx {
+    color: gray;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    width: 284px;
+    height: 25px;
+    padding-bottom: 25px;
+    margin-left: 45px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.FormsRgstrGrpBx input {
+    margin-left: 20px;
+    width: 20px;
+    height: 15px;
+    margin-right: 60px;
+}
+
+.GdrLbl {
+    position: absolute;
+    color: steelblue;
+    font-size: 13px;
+    margin-top: 3px;
+    margin-left: -55px;
+    font-weight: bold;
+}
+
+.AddrsTxtArea {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 45px;
+    border: 1px lightgray solid;
+    color: steelblue;
+    background: white;
+    border-radius: 3px;
+}
+
+.FormsRgstrBtn {
+    position: absolute;
+    width: 150px;
+    margin-left: 120px;
+    height: 25px;
+    margin-top: 90px;
+}
+
+.FormsRgstrBtn input {
+    width: 150px;
+    height: 30px;
+    font-family: Arial;
+    font-weight: bold;
+    color: steelblue;
+    background: white;
+    border: 1px;
+    border: 1px solid steelblue;
+}
+
+.FormsRgstrBtn input:hover {
+    background: steelblue;
+    color: white;
+    cursor: pointer;
+}
+
+/******Forms*/
+/********Right Side *********/
+.RightPanel {
+    margin-left: 1100px;
+}
+
+.LiveChatWrapper {
+    background: white;
+    border: 1px solid steelblue;
+    position: absolute;
+    position: fixed;
+    height: 260px;
+    width: 220px;
+    margin-top: -225px;
+    z-index: 1;
+}
+
+.LiveChatTitle .SubTtl {
+    background: steelblue;
+    color: white;
+    padding-left: 80px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.ExpColBtn input {
+    height: 40px;
+    width: 40px;
+    margin-left: 210px;
+    position: fixed;
+    color: white;
+    background: steelblue;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    margin-top: -225px;
+}
+
+.LiveChatBody {
+    margin-left: 14px;
+    margin-top: -5px;
+}
+
+.LiveChatBodySub {
+    margin-bottom: 10px;
+}
+
+.LiveChatBodySub input {
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    height: 20px;
+    width: 167px;
+    font-size: 12px;
+}
+
+textarea {
+    border: 1px solid lightgray;
+    color: steelblue;
+    border-radius: 3px;
+}
+
+.LiveChatSendBtn input {
+    margin-left: 110px;
+    height: 30px;
+    width: 60px;
+    margin-top: 10px;
+    color: steelblue;
+    background: white;
+    border: 1px solid steelblue;
+}
+
+.LiveChatSendBtn input:hover {
+    cursor: pointer;
+    color: white;
+    background: steelblue;
+    border: none;
+}
+
+/**********Footer*/
+.footer {
+    background: steelblue;
+    color: white;
+    font-size: 12px;
+    font-family: Tahoma, Geneva, sans-serif;
+    height: 350px;
+    width: 100%;
+}
+
+.footer_links {
+    margin-top: 35px;
+    width: 175px;
+    padding-left: 85px;
+    padding-bottom: 100px;
+    float: left;
+}
+
+.footer_links a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer_links a img {
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 0px black;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 255, 255, 255, .8 ) url("../Images/GIF/loadinganimation.gif") 50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}

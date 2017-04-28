@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+    <meta charset="utf-8" />
+    <link href="~/Content/Styles/Index.css" rel="stylesheet" />
+    <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet"/>
+
+</head>
+<body >
+
+
+
+
+
+
+<div class="MainWrapper">
+
+
+<header>
+    <div class="HeaderSlider">
+        <div class="SliderMainImg">
+            <img id="SliderMainImg" src="~/Content/Images/Extra/Picture2.png"/>
+            @*<img id="SliderMainImg" src="~/Content/Images/Slider/prof.jpg" />*@
+        </div>
+        <div class="SliderThumbnailImgs">
+            <ul>
+                <li>
+                    <img class="SliderThumbnailImg" src="~/Content/Images/Slider/prof.png" height="80" width="100"/>
+                </li>
+                <li>
+                    <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (2).jpg" height="80" width="100"/>
+                </li>
+                <li>
+                    <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (3).jpg" height="80" width="100"/>
+                </li>
+                <li>
+                    <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (4).jpg" height="80" width="100"/>
+                </li>
+                <li>
+                    <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (5).jpg" height="80" width="100"/>
+                </li>
+            </ul>
+            <div class="ClrStl"></div>
+        </div>
+
+    </div>
+    <div class="LoingInSignUpBtns">
+        <div class="LogInBtn">
+            <input id="LogIn" type="button" value="LogIn" class="Btn"/>
+        </div>
+        <div class="SignUpBtn">
+            <input id="Register" type="button" value="Create Account" class="Btn"/>
+        </div>
+        <div class="ClrStl"></div>
+    </div>
+</header>
+
+    <nav>
+        <div class="Logo">
+            <img src="~/Content/Images/Logos/LogoBF.png" height="60" width="105" />
+        </div>
+        <div class="Catogaries">
+
+            <div class="CatogariesLnk" id="Catogary0">
+                <ul>
+                    <li>
+                        @*<a href="#">Home</a>*@
+                        @Html.ActionLink("Home", "Index", "Dashboard")
+                        <ul>
+                            <li>
+                            </li>
+                            <li>
+                            </li>
+                            <li>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="Catogary1" class="CatogariesLnk">
+                <ul>
+                    <li>
+                        @*<a href="#">Pakistani</a>*@
+                        @Html.ActionLink("Pakistani", "Index", "Dashboard")
+                        <ul class="SubCatogaries">
+                            <li>
+                                @*<a href="#">Fast Food</a>*@
+                                @Html.ActionLink("Fast Food", "Index", "Dashboard")
+                            </li>
+                            <li>
+                                @*<a href="#">Desi</a>*@
+                                @Html.ActionLink("Desi", "Index", "Dashboard")
+                            </li>
+                            <li>
+                                @*<a href="#">Lite</a>*@
+                                @Html.ActionLink("Lite", "Index", "Dashboard")
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="Catogary2" class="CatogariesLnk">
+                <ul>
+                    <li>
+                        @*<a href="#">Chinese</a>*@
+                        @Html.ActionLink("Chinese", "Index", "Dashboard")
+                        <ul class="SubCatogaries">
+                            <li>
+                                @*<a href="#">Fast Food</a>*@
+                                @Html.ActionLink("Fast Food", "Index", "Dashboard")
+
+                            </li>
+                            <li>
+                                @*<a href="#">Desi</a>*@
+                                @Html.ActionLink("Desi", "Index", "Dashboard")
+                            </li>
+                            <li>
+                                @*<a href="#">Lite</a>*@
+                                @Html.ActionLink("Lite", "Index", "Dashboard")
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="Catogary3" class="CatogariesLnk">
+                <ul>
+                    <li>
+                        @*<a href="#">Continental</a>*@
+                        @Html.ActionLink("Continental", "Index", "Dashboard")
+                        <ul class="SubCatogaries">
+                            <li>
+                                @*<a href="#">Fast Food</a>*@
+                                @Html.ActionLink("Fast Food", "Index", "Dashboard")
+                            </li>
+                            <li>
+                                @*<a href="#">Desi</a>*@
+                                @Html.ActionLink("Desi", "Index", "Dashboard")
+                            </li>
+                            <li>
+                                @*<a href="#">Lite</a>*@
+                                @Html.ActionLink("Lite", "Index", "Dashboard")
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="ClrStl"></div>
+        </div>
+
+    </nav>
+
+
+
+
+
+
+
+
+
+
+    <div  class="LeftPanel">
+    <div class="LeftPanelTitle">
+        <span class="Ttl">Search Food</span>
+    </div>
+    <div class="LeftPanelBody">
+        <div class="LeftPanelBodyCtrls">
+            @*<input class="SearchTxtBx" type="text" placeholder="what's your favorite ?" />*@
+            @Html.TextBox("SearchTxtBx", null, new {@class = "SearchTxtBx", placeholder = " what's your favorite ?"})<br/><br/>
+            <span class="SubTtl">Price</span><br/>
+            <input class="Spnr" id="Spnr"/><br/><br/>
+            <span class="SubTtl">Location</span>
+            <select class="Slct" id="Slct">
+                <option value="1">Lahore</option>
+                <option value="2">Karachi</option>
+                <option value="3">Islamabad</option>
+            </select><br/><br/>
+            <span class="SubTtl">Meal For</span>
+            <div class="MealFor">
+                @*<input id="Single" name="Meal" type="radio" value="Single" required="Required" checked="checked" />*@
+                @Html.RadioButton("Meal", "Single", new {id = "Single", required = "Required", @checked = "checked"})
+                @*<label class="Ttl" for="Meal">Single</label>*@
+                @Html.Label("Single", new {@class = "Ttl", @for = "Single"})<br/>
+                @*<input id="Double" name="Meal" type="radio" value="Double" required="Required" />*@
+                @Html.RadioButton("Meal", "Double", new {id = "Double", required = "Required", @checked = "checked"})
+                @*<label class="Ttl" for="Double">Double</label>*@
+                @Html.Label("Double", new {@class = "Ttl", @for = "Double"})<br/>
+                @*<input id="Party" name="Meal" type="radio" value="Party" required="Required" />*@
+                @Html.RadioButton("Meal", "Party", new {id = "Party", required = "Required", @checked = "checked"})
+                @*<label class="Ttl" for="Party" style="margin-left: 4px;">Party*@
+                @Html.Label("Party", new {@class = "Ttl", @for = "Party"})<br/>
+
+
+            </div>
+            <br/><br/>
+            <div class="OnlineChefs">
+                @*<input type="checkbox" id="ChkBx" name="ChkBx">*@
+                @Html.CheckBox("ChkBx", new {id = "OnlineChefChkBx"})
+                @*<label for="ChkBx" class="Ttl">Online Chefs</label>*@
+                @Html.Label("Online Chefs", new {@for = "OnlineChefChkBx", @class = "Ttl"})
+            </div>
+        </div>
+    </div>
+    <div id="LP" style="background-color: transparent   ;margin-top: 60px; height: 1px; width: 100%"></div>
+</div>
+
+<!---Forms-->
+
+<section>
+
+    <div class="MainWrapper">
+        <div class="Forms">
+
+
+            @RenderPage("../Dashboard/_LogIn.cshtml")
+            @RenderPage("../Dashboard/_RecoverPassword.cshtml")
+
+
+            @RenderPage("../Dashboard/_SignUp.cshtml")
+        </div>
+    </div>
+</section>
+
+<!--Forms-->
+
+
+<div class="MainArea">
+    @RenderBody()
+</div>
+
+   
+
+
+
+<div class="RightPanel">
+    @RenderPage("../Dashboard/_LiveChat.cshtml")
+</div>
+</div>
+        @RenderPage("_GlobalFooter.cshtml")
+    <div class="modal"><!-- Place at bottom of page --></div>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/Index.js"></script>
+
+</body>
+
+</html>

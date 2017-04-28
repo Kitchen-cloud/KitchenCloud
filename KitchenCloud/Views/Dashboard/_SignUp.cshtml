@@ -1,0 +1,90 @@
+﻿
+@using KitchenCloud.Models.Sellers;
+@model SignupSellerModel
+@{
+    List<SelectListItem> countryList = ViewBag.Countries;
+}
+<div class="modal fade" id="SignupModal" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center"><span class="glyphicon glyphicon-pushpin"></span> <strong>Register</strong></h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    @using (Html.BeginForm("SignUp", "Dashboard", FormMethod.Post, new { @class = "container col-lg-8 col-lg-offset-2"  }))
+                    {
+
+                        <div class="row">
+                            <div class="container col-lg-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(x=>x.FirstName,new {@class="lbl"})
+                                    @Html.ValidationMessageFor(x=>x.FirstName,null,new {@class="text-danger"})
+                                    @Html.TextBoxFor(x => x.FirstName, new {@class = "form-control txtbx" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="container col-lg-6">
+                                    @Html.LabelFor(x => x.SecondName, new { @class = "lbl" })
+                                    @Html.ValidationMessageFor(x => x.SecondName, null, new { @class = "text-danger" })
+                                    @Html.TextBoxFor(x => x.SecondName, new {@class = "form-control txtbx"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Email, new { @class = "lbl" })
+                            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control txtbx" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Password, new { @class = "lbl" })
+                            @Html.ValidationMessageFor(x=>x.Password,null,new {@class="text-danger"})
+                            @Html.PasswordFor(x => x.Password, new { @class = "form-control txtbx" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.ConfirmPassword, new { @class = "lbl" })
+                            @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+                            @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control txtbx" })
+                        </div>
+                        <div class="row">
+                            <div class="container col-lg-6">
+                                <div class="form-group">
+
+                                    <label class="lbl">Country</label>
+                                    @Html.DropDownListFor(x=>x.Country, countryList, "- Select Country -", new {@class = "form-control", id = "CountryList"})
+                                </div>
+                            </div>
+                            <div class="container col-lg-6">
+                                <div class="form-group">
+                                    <label class="lbl">City</label>
+
+                                    <div id="CityList">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            @Html.RadioButton("Gender", "Male", new { id = "m", @checked="checked"})
+                            <label for="m" class="text-primary">Male</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            @Html.RadioButton("Gender", "Female", new { id = "f" })
+                            <label for="f" class="text-primary">Female</label>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default">Register</button>
+                        </div>
+
+                    }
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div id="RecordsHeader">
+    <ul>
+        <li>Student Name</li>
+        <li>Student Father Name</li>
+        <li>Student Email</li>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
+        <li>Actions</li>
+    </ul>
+</div>
+<div class="RecordsSection">
+    @RenderPage("_View.cshtml")
+</div>

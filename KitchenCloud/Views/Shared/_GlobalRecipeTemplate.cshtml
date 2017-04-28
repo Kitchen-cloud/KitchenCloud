@@ -1,0 +1,181 @@
+﻿
+
+
+@using KitchenCloud.Models.Helpers
+@using KitchenCloud.Models.Recipes
+@using KitchenCloudEntities.Users
+@using KitchenCloudEntitiesHandler.Users
+@model RecipeTemplate
+@{  List<RecipeTemplate> M = ViewBag.Allrecipes;
+    List<FavoriteRecipe> favlist = ViewBag.Favorites;
+}
+@*recipe For Loop*@
+
+
+
+@if (M != null && M.Count() > 0)
+{
+
+    foreach (var m in M)
+    {
+        <div class="well   col-lg-3 col-md-3 col-sm-6 col-xs-12" style="background: white; margin-right: 50px; margin-top: 25px; width: 180px; padding-top: 5px; box-shadow: 0px 0px 10px 0px lightgray; border-radius: 0px;">
+            <div class="row" style="margin-left: -10px">
+                <a href="/Dashboard/RecipeDescription?id=@m.Id" style="text-decoration: none;">
+                    <span class="text-muted" style="font-weight: bold; font-size: 12px">@m.Title</span>&nbsp;&nbsp;
+                    @*<span class="text-muted" style="font-weight: bold;">@m.TotalOrders</span>*@
+                    <span>
+
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            if (i == 4)
+                            {
+                                <img src="~/Content/Images/Icons/star_half.png" style="height: 12px; width: 12px; margin-top: -5px" />
+                            }
+                            else if (i == 5)
+                            {
+                                <img src="~/Content/Images/Icons/star_empty.png" style="height: 12px; width: 12px; margin-top: -5px" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/Images/Icons/star_full.png" style="height: 12px; width: 12px; margin-top: -5px" />
+                            }
+                        }
+                    </span>
+
+                </a>
+            </div>
+
+            <div class="row" style="margin-top: 5px;">
+                <img style="height: 100px; width: 180px;" class="thumbnail img-responsive" src="@Url.Content(m.Image)" alt="@m.Title" />
+            </div>
+            <div class="row ">
+                <ul class="container col-lg-1 col-md-2 col-sm-6 col-xs-4" style="width: 100px; margin-left: 5px; margin-top:-10px;">
+                    @foreach (var D in m.Services)
+                    {
+                        <li class="text-primary">
+                            <span style="font-size: 12px;font-family: arial;"> @Html.ActionLink(D, "Account", "Sellers")</span>
+                        </li>
+                    }
+                </ul>
+                <input type="hidden" value="@m.Location" />
+                <div class="container col-sm-6 col-xs-8" style="margin-left: 5px; width: 80px;">
+                    @{
+
+
+                        if (Session[WebUtil.CURRENT_USER] != null)
+                        {
+                            User user = (User)Session[WebUtil.CURRENT_USER];
+                            if (user.Seller.Id != m.Seller.Id)
+                            {
+                                <a href="#" data-rid="@m.Id" data-rtitle="@m.Title" data-rcategory="@m.Services[0]" data-rsubcategory="@m.Services[1]" data-rprice="@m.Price" data-rimgurl="@m.Image" class="OrdrId" style="text-decoration: none;">
+                                    <span class="btn-success" style="font-size: 12px; padding: 2px; margin-left: -15px;">order</span>
+                                </a>
+                                if (favlist.Exists(x => x.Recipe.Id == m.Id))
+                                {
+                                    <span>&nbsp;</span><img class="fav" data-recipeid="@m.Id" src="~/Content/Images/Icons/favred.png" style="height: 20px; width: 20px" />
+                                }
+                                else
+                                {
+                                    <span>&nbsp;</span><img class="fav" data-recipeid="@m.Id" src="~/Content/Images/Icons/favgray.png" style="height: 20px; width: 20px" />
+
+                                }
+                            }
+
+
+                        }
+                        @*else
+                            {
+                                <a href="#" data-rid="@m.Id" data-rtitle="@m.Title" data-rcategory="@m.Services[0]" data-rsubcategory="@m.Services[1]" data-rprice="@m.Price" data-rimgurl="@m.Image" class="OrdrId" style="text-decoration: none;">
+                                    <span class="btn-info" style="font-size: 12px; padding: 2px; margin-left: -15px;">Tray</span>
+                                </a>
+                            }*@
+
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+                            }
+                        }
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script>
+
+
+    $(".OrdrId").click(function () {
+
+
+        var recipe = {
+
+            "Id": $(this).data("rid"),
+            "Title": $(this).data("rtitle"),
+            "Category": $(this).data("rcategory"),
+            "SubCategory": $(this).data("rsubcategory"),
+            "Price": $(this).data("rprice"),
+            "ImgUrl": $(this).data("rimgurl"),
+            "Quantity": 1,
+        }
+        $.ajax({
+
+            url: "/Dashboard/AddToTray",
+            method: "POST",
+            data: recipe,
+            success: function (result) {
+                if (result) {
+
+                    $("#TrayCount").html(result);
+                }
+                else {
+                    alert("Failed");
+                }
+            }
+
+        });
+
+    });
+
+
+    $(".fav").click(function () {
+        if ($(this).attr("src") == "/Content/Images/Icons/favred.png") {
+            $(this).attr("src", "/Content/Images/Icons/favgray.png");
+            $.ajax({
+                url: "/Dashboard/RemoveFavorite/" + $(this).data("recipeid"),
+                method: "Post",
+                success: function () {
+                    $("#notifyArea").html("");
+                }
+
+            });
+        }
+        else {
+            $(this).attr("src", "/Content/Images/Icons/favred.png");
+            $.ajax({
+
+                url: "/Dashboard/AddFavorite/" + $(this).data("recipeid"),
+                method: "Post",
+                success: function (result) {
+
+                    //$("#notify").css("background", "whitesmoke");
+                    //$("#NotifyText").css("color","#60A960");
+
+                    $("#notifyArea").append(result);
+                    $(".notify").show().delay(4000).fadeOut();
+
+                }
+
+
+            });
+        }
+
+    });
+
+
+
+</script>
+
+
+
+

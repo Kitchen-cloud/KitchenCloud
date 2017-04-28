@@ -1,0 +1,217 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+
+<head>
+    <style>
+        body {
+            height: 5000px;
+        }
+         #div1 { width: 200px; height: 50px;position: fixed; background-color: pink; }
+        #div2 { width: 400px; height: 100px;margin-top: 1000px; background-color: green; }
+    </style>
+</head>
+<strong>Drag divs around.</strong>
+
+<div id="div1">
+    Div1
+</div><br />
+<div id="div2">
+    Div2
+</div>
+
+<p>
+    Colliding? <span id="result">false</span>
+
+
+    @*@using KitchenCloud.Models
+        @model EFTestModelForSeller
+
+
+        @{
+            Layout = null;
+        }
+
+        <html>
+        <head>
+            <title>
+            </title>
+            <meta charset="utf-8" />
+            <link href="~/Content/Styles/Index.css" rel="stylesheet" />
+            <link href="~/Content/Styles/Profile.css" rel="stylesheet" />
+            <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+        </head>
+        <body>
+            <header>
+                <div class="HeaderWrapper">
+                    <img src="~/Content/Images/Users/Profile Banners/Banner(13).jpg" />
+                    <div class="HeaderProfileImg">
+                        <img class="ProfileImg" src="@Url.Content(Model.ProfileImage)" />
+                    </div>
+                    <div class="UserName">
+                        <span class="Ttl">
+                            @Html.ActionLink(Model.UserName, "UserProfile", "Users")
+                        </span>
+                    </div>
+                    <div class="ProfileSlogan">
+                        <span class="Ttl">
+                            @Html.ActionLink("We Bake Solutions !!!", "UserProfile", "Users")
+                        </span>
+                    </div>
+                </div>
+            </header>
+            <nav>
+                <div class="Logo">
+                    <a href="/Dashboard/Index">
+                        <img src="~/Content/Images/Logos/LogoG.png" height="60" width="110"/>
+                    </a>
+                </div>
+                <div class="ProfileStats">
+                    <ul class="ProfileStatsMenu">
+                        <li><a href="#">Reviews @Model.Reviews</a></li>
+                        <li><a href="#">Visitors @Model.Visitors</a></li>
+                        <li>
+                            <a href="#">
+                                <div class="ProfileRatings">
+                                    <span>Ratings </span>
+                                    <div class="ProfileRatingsStars">
+
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i == 4)
+                                            {
+                                                <img src="~/Content/Images/Icons/star_half.png" />
+                                            }
+                                            else if (i == 5)
+                                            {
+                                                <img src="~/Content/Images/Icons/star_empty.png" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/Images/Icons/star_full.png" />
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="ClrStl"></div>
+                    <ul>
+                        <li class="ProfileStatsSettings">
+                            <div class="ProfileSettingsBtn">
+                                <input id="SettingsUpDownBtn" class="Btn" type="button" />
+                            </div>
+                            <ul class="ProfileStatsSubMenu">
+                                <li>
+                                    <a href="#" id="NewMenu">New Menu</a>
+                                </li>
+                                <li>
+                                    <a href="#">Customer Orders</a>
+                                </li>
+                                <li>
+                                    <a id="ShowStat" href="#">Statistics</a>
+                                </li>
+                                <li>
+                                    <a href="#">Account Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sign Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <section class="AccountSettingsAndStat">
+
+
+            </section>
+        <section class="ProfileMainSec">
+            <div class="ProfileDetails">
+                <div class="ProfileDscrptn">
+                    <div class="DscrptnTitle">
+                        <span class="Ttl">Description</span>
+                    </div>
+                    <div class="DscrptnBody">
+                        <p class="Prgrph">
+                            @Model.Description
+                        </p>
+                    </div>
+                </div>
+                <div class="ProfileServices">
+                    <div class="ServicesTitle">
+                        <span class="Ttl">Services</span>
+                    </div>
+                    <div class="ServicesBody">
+                        <p class="Prgrph">
+                            Requirements<br />
+                            Basic Concepts about related topics<br />
+                            Basic Computer<br />
+                            Web Browsing<br />
+                            Email Address<br />
+                            Interest<br />
+                            Contact us<br />
+                            www.facebook.com/CodeBakers<br />
+                            Web Browsing<br />
+                            Email Address<br />
+
+                        </p>
+                    </div>
+                </div>
+                <div class="ClrStl"></div>
+            </div>
+            <div class="ClrStl"></div>
+
+            <div class="UserMenus">
+                <div class="UserMenusTitle">
+                    <button id="PrfileMenuShow"><span class="Ttl">My Menus</span></button>
+                </div>
+                <div class="ProfileMenus">
+
+                    <div class="MenuTitleCreator">
+                        <a href="#">
+                            <span class="Ttl">Create Menu</span>
+                            <span class="MenuTtlOrders"></span>
+
+                        </a>
+
+                    </div>
+
+                    <div class="ProfilesMenuCreate">
+                        <div class="Menu">
+
+
+                        </div>
+                        <div class="MenuImg">
+                            <input type="button" id="CreateNewMenu" class="Btn" />
+                        </div>
+                        <div class="MenuDetail">
+                            <ul></ul>
+                        </div>
+                        <div class="MenuRatings">
+
+                        </div>
+                    </div>
+                    <div class="ClrStl"></div>
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+            @RenderPage("../Shared/_GlobalFooter.cshtml")
+            <div class="modal"> Place at bottom of page </div>
+
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/jquery-ui.min.js"></script>
+            <script src="~/Scripts/Profile.js"></script>
+
+        </body>
+        </html>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>

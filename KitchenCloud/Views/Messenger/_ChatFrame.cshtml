@@ -1,0 +1,165 @@
+﻿@using KitchenCloud.Models.Messenger
+@model MessageModel
+@{
+    int cid = 0;
+    int senderid = 0;
+    if (ViewBag.ChatId != 0)
+    {
+        cid = ViewBag.ChatId;
+    }
+    if (ViewBag.SenderID != 0)
+    {
+        senderid = ViewBag.SenderID;
+    }
+}
+
+@Html.Hidden("chathistory", cid, new { id = "chathistory" })
+@*@Html.Hidden("sllerid", Model.SenderId, new { id = "sellerid" })*@
+<input type="hidden" value="@senderid" class="sellerid" id="sellerid" />
+
+
+<div class="row">
+    <iframe id="ChatFrame" src="@Url.Action("ChatEmptyData","Messenger")" style="border:0px; width: 100%; height:400px"></iframe>
+</div>
+<div class="row" style="background: aliceblue; height: 150px">
+    <br />
+    <div class="col-lg-10">
+        <textarea id="msgbody" class="form-control" cols="150" rows="3"></textarea>
+        <button class="btn btn-success" id="sendmsg" type="submit">
+            Send &nbsp;&nbsp;
+            <span class="glyphicon glyphicon-send">
+
+            </span>
+        </button>
+    </div>
+    <div class="col-lg-2">
+
+
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+
+    $(function () {
+
+
+        $.ajax({
+            url: "/Messenger/ChatData/" + $("#chathistory").val(),
+            method: "Get"
+        }).done(function (messages) {
+
+            $("#mainmessagearea", $("#ChatFrame").contents()).html(messages);
+            $($("#ChatFrame").contents()).scrollTop(10000);
+
+        });
+
+
+       // alert($("#sellerid").val());
+        var connection = $.hubConnection();
+        var hub = connection.createHubProxy('KitchenCloud');
+
+        hub.on("Recieved",
+            function (msg) {
+                var temp =  "<div class='row'>"+
+                            "<div class='col-sm-1'></div>"+
+                            "<div class='col-sm-1' style='margin-left: -10px; margin-right: 10px'>"+
+                            "<img class='img-circle' height='50' width='50' src='"+msg.SenderImage+"' />"+
+                            "<br />"+
+                    "<span class='text-muted' style='margin-left: 6px;font-size: 10px;font-weight: bold '>" +
+                        msg.SenderName +
+                            "</span></div><div class='well col-sm-5'>"+
+                            "<span class='pull-right' " +
+                            "style='margin-top: -15px; font-size: 10px; font-weight: bold'>"+
+                             msg.SentOn+
+                            "</span><span>"+msg.Body+"</span>" +
+                            "</div><div class='col-lg-5'></div></div>";
+                //alert("Yes");
+               // $("#end", $("#ChatFrame").contents()).attr("id", " ");
+              //  alert($("#chathistory").val());
+              //alert(msg.RecieverId);
+              if ($("#chathistory").val() == msg.SenderId) {
+                    $("#newmessagearea", $("#ChatFrame").contents()).append(temp);
+                }
+
+
+                $($("#ChatFrame").contents()).scrollTop(10000);
+            });
+
+
+
+
+        connection.start(function () {
+
+            hub.invoke("Connect", $("#sellerid").val());
+            $("#sendmsg").click(function () {
+
+
+                var message = {
+                    "Body": $("#msgbody").val(),
+                    "RecieverId": $("#chathistory").val(),
+                    "SenderId": $("#sellerid").val(),
+
+                }
+
+
+
+
+                $.ajax({
+                    url: "/Messenger/SendMessage",
+                    data:message,
+                    method:"Get"
+                }).done(function(msg) {
+                    var temp = "<br/><br/><div class='row'> " +
+                        "<div class='col-sm-5'></div>" +
+                        "<div class='well col-sm-5' " +
+                        " style='background: white' >" +
+                        "<span class='pull-right' " +
+                        "style='margin-top: -15px; font-size: 10px;" +
+                        " font-weight: bold'>" + msg.SentOn +
+                        "</span><span>" + msg.Body +
+                        "</span></div>" +
+                        "<div class='col-sm-1' >" +
+                        "<img class='img-circle'" +
+                        "height='50' width='50' " +
+                        "src='" + msg.SenderImage + "') />" +
+                        "<br /><span class='text-muted' style='margin-left:14px;font-size:12px;font-weight:bold'>" +
+                        "You</span></div>" +
+                        "<div class='col-sm-1'></div></div>";
+
+                    //$("#end", $("#ChatFrame").contents()).attr("id", " ");
+
+
+                    $("#newmessagearea", $("#ChatFrame").contents()).append(temp);
+
+
+                    $($("#ChatFrame").contents()).scrollTop(10000);
+                    hub.invoke('SendMessage', msg);
+
+                });
+
+
+
+
+
+
+            });
+
+
+        });
+
+
+       
+    });
+</script>
+
+
+
+
+
+

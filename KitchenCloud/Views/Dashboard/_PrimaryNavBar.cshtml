@@ -1,0 +1,65 @@
+﻿@using KitchenCloud.Models.Helpers
+@using KitchenCloud.Models.Shared
+@using KitchenCloudEntities.Users
+@using KitchenCloudEntitiesHandler.Users
+
+
+
+
+
+<div class="row">
+    <nav class="navbar  navbar-default">
+        <div class="navbar-header col-lg-8  col-md-8 col-sm-6 col-xs-8 ">
+            <a href="#" class="navbar-brand ">
+                <img src="~/Content/Images/Logos/LogoBF.png" style="margin-left: 50px; height: 40px; width: 70px; margin-top: -10px;" />
+            </a>
+            <div style="width: 400px; margin-left: 200px; margin-top: 8px;" class="input-group hidden-sm hidden-xs">
+                <input type="text" class="form-control" placeholder="search service here" />
+                <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span></span>
+            </div>
+        </div>
+        <ul class="nav  navbar-nav col-lg-4 col-md-4  col-sm-6 col-xs-4 ">
+            @if (Session[WebUtil.CURRENT_USER] == null)
+            {
+                <li><a href="#" data-toggle="modal" data-target="#loginModal">LogIn</a></li>
+
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#SignupModal">Join</a>
+                    </li>
+            }
+            else
+            {
+                <li>
+                    @{
+                        string userIcon = null;
+                        Seller seller = null;
+
+                        User us = (User)Session[WebUtil.CURRENT_USER];
+                        if (us.Type == UserType.Seller)
+                        {
+                            seller = new SellerHandler().GetById(us.Id);
+                            userIcon = seller.ProfileImage.FolderPath + seller.ProfileImage.ImageName;
+                        }
+
+
+
+                    }
+                    <a href="/Sellers/Account"><img src="@Url.Content(userIcon)" height="35" width="35" style="position: absolute; border-radius: 30px; margin-top: -8px; margin-left: -15px;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@seller.FirstName @seller.SecondName</a>
+
+
+                </li>
+                <li>
+                    <a href="/Sellers/AccountLoad/1"><span class="glyphicon glyphicon-shopping-cart"></span> MyTray <span class="badge bg-primary" id="TrayCount">@Session[WebUtil.TRAY_COUNT]</span></a>
+
+                </li>
+                    <li>
+
+
+                        <a href="/Dashboard/SignOut"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a>
+                    </li>
+                        }
+        </ul>
+    </nav>
+
+</div>
+

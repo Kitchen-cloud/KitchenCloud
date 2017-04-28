@@ -1,0 +1,406 @@
+﻿
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitchen Cloud</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/Styles/Index.css" rel="stylesheet" />
+    <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="MainWrapper">
+        <header>
+            <div class="HeaderSlider">
+                <div class="SliderMainImg">
+                    <img id="SliderMainImg" src="~/Content/Images/Slider/Img (1).bmp" />
+                </div>
+                <div class="SliderThumbnailImgs">
+                    <ul>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (1).jpg" height="80" width="100" />
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (2).jpg" height="80" width="100" />
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (3).jpg" height="80" width="100" />
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (4).jpg" height="80" width="100" />
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Slider/Img (5).jpg" height="80" width="100" />
+                        </li>
+                    </ul>
+                    <div class="ClrStl"></div>
+                </div>
+
+            </div>
+            <div class="LoingInSignUpBtns">
+                <div class="LogInBtn">
+                    <input id="LogIn" type="button" value="LogIn" class="Btn" />
+                </div>
+                <div class="SignUpBtn">
+                    <input id="Register" type="button" value="Create Account" class="Btn" />
+                </div>
+                <div class="ClrStl"></div>
+            </div>
+        </header>
+        <nav>
+            <div class="Logo">
+                <img src="~/Content/Images/Logos/n.png" height="55" width="110" />
+            </div>
+            <div class="Catogaries">
+
+                <div class="CatogariesLnk" id="Catogary0">
+                    <ul>
+                        <li>
+                            @*<a href="#">Home</a>*@
+                            @Html.ActionLink("Home", "Index")
+                            <ul>
+                                <li>
+                                </li>
+                                <li>
+                                </li>
+                                <li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Catogary1" class="CatogariesLnk">
+                    <ul>
+                        <li>
+                            @*<a href="#">Pakistani</a>*@
+                            @Html.ActionLink("Pakistani", "Index")
+                            <ul class="SubCatogaries">
+                                <li>
+                                    @*<a href="#">Fast Food</a>*@
+                                    @Html.ActionLink("Fast Food", "Index")
+                                </li>
+                                <li>
+                                    @*<a href="#">Desi</a>*@
+                                    @Html.ActionLink("Desi", "Index")
+                                </li>
+                                <li>
+                                    @*<a href="#">Lite</a>*@
+                                    @Html.ActionLink("Lite", "Index")
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Catogary2" class="CatogariesLnk">
+                    <ul>
+                        <li>
+                            @*<a href="#">Chinese</a>*@
+                            @Html.ActionLink("Chinese", "Index")
+                            <ul class="SubCatogaries">
+                                <li>
+                                    @*<a href="#">Fast Food</a>*@
+                                    @Html.ActionLink("Fast Food", "Index")
+
+                                </li>
+                                <li>
+                                    @*<a href="#">Desi</a>*@
+                                    @Html.ActionLink("Desi", "Index")
+                                </li>
+                                <li>
+                                    @*<a href="#">Lite</a>*@
+                                    @Html.ActionLink("Lite", "Index")
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Catogary3" class="CatogariesLnk">
+                    <ul>
+                        <li>
+                            @*<a href="#">Continental</a>*@
+                            @Html.ActionLink("Continental", "Index")
+                            <ul class="SubCatogaries">
+                                <li>
+                                    @*<a href="#">Fast Food</a>*@
+                                    @Html.ActionLink("Fast Food", "Index")
+                                </li>
+                                <li>
+                                    @*<a href="#">Desi</a>*@
+                                    @Html.ActionLink("Desi", "Index")
+                                </li>
+                                <li>
+                                    @*<a href="#">Lite</a>*@
+                                    @Html.ActionLink("Lite", "Index")
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ClrStl"></div>
+            </div>
+
+        </nav>
+        <div class="LeftPanel">
+            <div class="LeftPanelTitle">
+                <span class="Ttl">Search Food</span>
+            </div>
+            <div class="LeftPanelBody">
+                <div class="LeftPanelBodyCtrls">
+                    @*<input class="SearchTxtBx" type="text" placeholder="what's your favorite ?" />*@
+                    @Html.TextBox("SearchTxtBx", null, new { @class = "SearchTxtBx", placeholder = " what's your favorite ?" })<br /><br />
+                    <span class="SubTtl">Price</span><br />
+                    <input class="Spnr" id="Spnr" /><br /><br />
+                    <span class="SubTtl">Location</span>
+                    <select class="Slct" id="Slct">
+                        <option value="1">Lahore</option>
+                        <option value="2">Karachi</option>
+                        <option value="3">Islamabad</option>
+                    </select><br /><br />
+                    <span class="SubTtl">Meal For</span>
+                    <div class="MealFor">
+                        @*<input id="Single" name="Meal" type="radio" value="Single" required="Required" checked="checked" />*@
+                        @Html.RadioButton("Meal", "Single", new { id = "Single", required = "Required", @checked = "checked" })
+                        @*<label class="Ttl" for="Meal">Single</label>*@
+                        @Html.Label("Single", new { @class = "Ttl", @for = "Single" })<br />
+                        @*<input id="Double" name="Meal" type="radio" value="Double" required="Required" />*@
+                        @Html.RadioButton("Meal", "Double", new { id = "Double", required = "Required", @checked = "checked" })
+                        @*<label class="Ttl" for="Double">Double</label>*@
+                        @Html.Label("Double", new { @class = "Ttl", @for = "Double" })<br />
+                        @*<input id="Party" name="Meal" type="radio" value="Party" required="Required" />*@
+                        @Html.RadioButton("Meal", "Party", new { id = "Party", required = "Required", @checked = "checked" })
+                        @*<label class="Ttl" for="Party" style="margin-left: 4px;">Party*@
+                        @Html.Label("Party", new { @class = "Ttl", @for = "Party" })<br />
+
+
+                    </div>
+                    <br /><br />
+                    <div class="OnlineChefs">
+                        @*<input type="checkbox" id="ChkBx" name="ChkBx">*@
+                        @Html.CheckBox("ChkBx", new { id = "OnlineChefChkBx" })
+                        @*<label for="ChkBx" class="Ttl">Online Chefs</label>*@
+                        @Html.Label("Online Chefs", new { @for = "OnlineChefChkBx", @class = "Ttl" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MainArea">
+            <div class="MainAreaMenus">
+                <!--Menu For Loop-->
+                @{
+                    Random Rand = new Random();
+                    for (var i = 1; i < 38; i++)
+                    {
+                       <div class="Menu">
+                            <div class="MenuTitle">
+                                <span class="Ttl">Pakistani</span>
+                                <span class="MenuTtlOrders">@Rand.Next(22, 209)</span>
+                            </div>
+                            <div class="MenuImg">
+                                <img src="~/Content/Images/All Menus/MenuImg (@i).jpg"/>
+                            </div>
+                            <div class="MenuDetail">
+                                <ul>
+                                    <li>
+                                        @Html.ActionLink("Fast Food", "Index")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Desi", "Index")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Lite", "Index")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Salads", "Index")
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="MenuRatings">
+
+                            </div>
+                        </div>
+                    }
+                }
+                <!--Menu For Loop-->
+                <div class="ClrStl"></div>
+            </div>
+        </div>
+
+
+        <!---Forms-->
+
+        <section>
+
+            <div class="MainWrapper">
+                <div class="Forms">
+                    <div class="Parent">
+                        <div class="FormsLgn">
+                            <div class="FormTtl">
+                                <span>Login</span>
+                            </div>
+                            <div class="ClsBtns">
+                                <input class="ClsBtn" value="X" type="button" />
+                            </div>
+                            @*<form action="#">*@
+                            @using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
+                            {
+                                <div class="FormsLgnUserCrd">
+                                    @*<input class="TxtBx" id="UserName" type="text" placeholder=" User Name " />*@
+                                    @Html.TextBox("UserName", null, new { placeholder = " User Name", @class = "TxtBx" })
+                                    @*<input class="TxtBx" id="Password" type="password" placeholder=" Password " />*@
+                                    @Html.Password("Password", null, new { placeholder = " Password", @class = "TxtBx" })
+                                </div>
+                                <div class="FormsLgnBtnFgtPss">
+                                    <div class="FormsLgnBtn">
+                                        <input class="Btn" type="button" id="LogInBtn" value="Login" />
+                                    </div>
+                                    <div>
+                                        <div class="FormsLgnFgtPss">
+                                            <a id="FgtPssLnk" href="#">Forgot Password</a>
+                                            @*@Html.ActionLink("Forgot Password","Index", new { id = "FgtPssLnk" })*@
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @*</form>*@
+                        </div>
+                    </div>
+                    <div class="Parent">
+                        <div class="FormsRcr">
+                            <div class="FormTtl">
+                                <span style="margin-left: -65px;">Password Recovery</span>
+                            </div>
+                            <div class="ClsBtns">
+                                <input class="ClsBtn" value="X" type="button" />
+                            </div>
+                            @*<form action="#">*@
+                            @using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
+                            {
+                                <div class="FormRcrTxtBx">
+                                    @*<input class="TxtBx" id="FormRcrEml" type="text" placeholder=" Email Address " />*@
+                                    @Html.TextBox("FormRcrEml", null, new { @class = "TxtBx", id = "FormRcrEml", placeholder = " Email Address " })
+                                </div>
+                                <fieldset class="FormsRcrGrpBx">
+                                    <legend>Security Questions</legend>
+                                    <div class="FormRcrSQslct">
+                                        <select id="FormRcrSQ1">
+                                            <option value="1">What is your nick Name ?</option>
+                                            <option value="1">What is your birth place ? </option>
+                                            <option value="1">What is your best friend name ? </option>
+                                        </select>
+                                    </div>
+                                    <div class="FormRcrTxtBx">
+                                        @*<input type="text" id="FormRcrSQ1Ans" placeholder=" You Answer Here" class="SQTxtBx" />*@
+                                        @Html.TextBox("FormRcrSQ1Ans", null, new { id = "FormRcrSQ1Ans", placeholder = " You Answer Here", @class = "SQTxtBx" })
+
+
+                                    </div>
+                                    <div class="FormRcrSQslct">
+                                        <select id="FormRcrSQ2">
+                                            <option value="1">What is your best friend name ? </option>
+                                            <option value="1">What is your nick Name ?</option>
+                                            <option value="1">What is your birth place ? </option>
+                                        </select>
+                                    </div>
+                                    <div class="FormRcrTxtBx">
+                                        @*<input type="text" id="FormRcrSQ2Ans" placeholder=" You Answer Here" class="SQTxtBx"/>*@
+                                        @Html.TextBox("FormRcrSQ2Ans", null, new { id = "FormRcrSQ2Ans", placeholder = " You Answer Here", @class = "SQTxtBx" })
+
+                                    </div>
+                                </fieldset>
+                                <div class="FormsRcrBtn">
+                                    <input class="Btn" type="button" id="RcrBtn" value="Submit" />
+                                </div>
+                            }
+                            @*</form>*@
+                        </div>
+                    </div>
+                    <div class="Parent">
+                        <div class="FormsRgstr">
+                            <div class="FormTtl">
+                                <span style="margin-left: -20px;">Register</span>
+                            </div>
+                            <div class="ClsBtns">
+                                <input class="ClsBtn" value="X" type="button" />
+                            </div>
+                            @*<form action="#">*@
+                            @using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
+                            {
+                                @*<input class="TxtBx" id="UserName" name="Name" type="text" placeholder=" User Name" required="Required"/>*@
+                                @Html.TextBox("UserName", null, new { @class = "TxtBx", id = "UserName", placeholder = " User Name", required = "Required" })<br />
+                                @*<input class="TxtBx" id="Email" name="Email" type="text" placeholder=" Email" required="Required" />*@
+                                @Html.TextBox("Email", null, new { @class = "TxtBx", id = "Email", placeholder = " Email", required = "Required" })<br />
+                                @*<input class="TxtBx" id="Password" name="password" type="password" placeholder=" password" required="Required" />*@
+                                @Html.Password("Password", null, new { @class = "TxtBx", id = "Password", placeholder = " Password", required = "Required" })<br />
+                                @*<input class="TxtBx" id="ConfirmPassword" name="Confirmpassword" type="password" placeholder=" Confirm password" required="Required" />*@
+                                @Html.Password("ConfrimPassword", null, new { @class = "TxtBx", id = "ConfirmPassword", placeholder = " Confirm Password", required = "Required" })<br />
+                                <fieldset class="FormsRgstrGrpBx">
+                                    <legend style="color: lightgray;">
+                                        Gender
+                                    </legend>
+                                    @*<input id="GenderMale" name="Gender" type="radio" value="Male" required="Required" checked="checked" />*@
+                                    @Html.RadioButton("Gender", "Male", new { required = "Required", @checked = "checked", id = "GenderMale" })
+                                    @*<label class="GdrLbl" for="GenderMale">Male</label>*@
+                                    @Html.Label("Male", new { @class = "GdrLbl", @for = "GenderMale" })
+                                    @*<input id="GenderFemale" name="Gender" type="radio" value="Female" required="Required" />*@
+                                    @Html.RadioButton("Gender", "Female", new { required = "Required", @checked = "checked", id = "GenderFemale" })
+                                    @*<label class="GdrLbl" for="GenderFemale">Female</label>*@
+                                    @Html.Label("Female", new { @class = "GdrLbl", @for = "GenderFemale" })
+
+
+                                </fieldset>
+                                <div class="FormsRgstrAddrs">
+                                    @*<textarea placeholder=" Street Address Here" class="AddrsTxtArea" id="Address" cols="40" rows="5"></textarea>*@
+                                    @Html.TextArea("Address", new { placeholder = " Street Address Here", @class = "AddrsTxtArea", id = "Address", cols = "40", rows = "5" })
+                                </div>
+                                <div class="FormsRgstrBtn">
+                                    <input class="Btn" id="Submit" name="Submit" type="submit" />
+                                </div>
+                            }
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Forms-->
+        <div class="RightPanel">
+            <div class="LiveChat">
+                <div class="ExpColBtn">
+                    <input class="Btn" id="ExpColBtn" value="<<" type="button" />
+                </div>
+                <div class="LiveChatWrapper">
+                    <div class="LiveChatTitle">
+                        <div class="SubTtl">Feed Back</div>
+                    </div>
+                    @*<form action="#" class="Form">*@
+                    @using (Html.BeginForm("Index", "Dashboard", FormMethod.Post, new { @class = "Form" }))
+                    {
+                        <div class="LiveChatBody">
+                            <div class="LiveChatBodySub">
+                                @*<input class="TxtBx" type="text" placeholder="Subject" />*@
+                                @Html.TextBox("LiveChatSubject", null, new { @class = "TxtBx", placeholder = " Subject" })
+                            </div>
+                            <div class="LiveChatBodyDes">
+                                <span class="SubTtl">Description</span><br />
+                                @*<textarea cols="21" rows="5"></textarea>*@
+                                @Html.TextArea("LiveChatDescription", new { cols = "21", rows = "5" })
+                            </div>
+                            <div class="LiveChatSendBtn">
+                                <input class="Btn" value="Send" type="submit" />
+                            </div>
+                        </div>
+                    }
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/Index.js"></script>
+</body>
+</html>

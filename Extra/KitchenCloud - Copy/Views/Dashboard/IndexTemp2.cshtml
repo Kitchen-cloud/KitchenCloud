@@ -1,0 +1,695 @@
+﻿
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitchen Cloud</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/Styles/Index.css" rel="stylesheet" />
+    <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="MainWrapper">
+        <header>
+            <div class="HeaderSlider">
+                <div class="SliderMainImg">
+                    <img id="SliderMainImg" src="~/Content/Images/Img (1).bmp"/>
+                </div>
+                <div class="SliderThumbnailImgs">
+                    <ul>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Img (1).jpg" height="80" width="100"/>
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Img (2).jpg" height="80" width="100"/>
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Img (3).jpg" height="80" width="100"/>
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Img (4).jpg" height="80" width="100"/>
+                        </li>
+                        <li>
+                            <img class="SliderThumbnailImg" src="~/Content/Images/Img (5).jpg" height="80" width="100"/>
+                        </li>
+                    </ul>
+                    <div class="ClrStl"></div>
+                </div>
+
+            </div>
+            <div class="LoingInSignUpBtns">
+                <div class="LogInBtn">
+                    <input id="LogIn" type="button" value="LogIn" class="Btn"/>
+                </div>
+                <div class="SignUpBtn">
+                    <input id="Register" type="button" value="Create Account" class="Btn"/>
+                </div>
+                <div  class="ClrStl"></div>
+            </div>
+        </header>
+        <nav>
+            <div class="Logo">
+                <img src="~/Content/Images/Logo.png" height="90" width="140" />
+            </div>
+            <div class="Catogaries">
+
+                <div class="CatogariesLnk" id="Catogary0">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                            <ul>
+                                <li>
+                                </li>
+                                <li>
+                                </li>
+                                <li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Catogary1" class="CatogariesLnk">
+                    <ul>
+                        <li>
+                            <a href="#">Pakistani</a>
+                            <ul class="SubCatogaries">
+                                <li>
+                                    <a href="#">Fast Food</a>
+                                </li>
+                                <li>
+                                    <a href="#">Desi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Lite</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Catogary2" class="CatogariesLnk">
+                    <ul>
+                        <li>
+                            <a href="#">Chinese</a>
+                            <ul class="SubCatogaries">
+                                <li>
+                                    <a href="#">Fast Food</a>
+                                </li>
+                                <li>
+                                    <a href="#">Desi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Lite</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="Catogary3" class="CatogariesLnk">
+                    <ul>
+                        <li>
+                            <a href="#">Continental</a>
+                            <ul class="SubCatogaries">
+                                <li>
+                                    <a href="#">Fast Food</a>
+                                </li>
+                                <li>
+                                    <a href="#">Desi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Lite</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ClrStl"></div>
+            </div>
+
+        </nav>
+        <div class="LeftPanel">
+            <div class="LeftPanelTitle">
+                <span class="Ttl">Search Food</span>
+            </div>
+            <div class="LeftPanelBody">
+                <div class="LeftPanelBodyCtrls">
+                    <input class="SearchTxtBx" type="text" placeholder="what's your favorite ?" /><br /><br />
+                   <span class="SubTtl">Price</span><br/>
+                    <input class="Spnr" id="Spnr"/><br/><br/>
+                    <span class="SubTtl">Location</span>
+                    <select class="Slct" id="Slct">
+                        <option value="1">Lahore</option>
+                        <option value="2">Karachi</option>
+                        <option value="3">Islamabad</option>
+                    </select><br/><br/>
+                    <span class="SubTtl">Meal For</span>
+                    <div class="MealFor">
+                        <input id="Single" name="Meal" type="radio" value="Single" required="Required" checked="checked" />
+                        <label class="Ttl" for="Single">Single</label><br/>
+                        <input id="Double" name="Meal" type="radio" value="Double" required="Required" />
+                        <label class="Ttl" for="Double">Double</label><br/>
+                        <input id="Party" name="Meal" type="radio" value="Party" required="Required" />
+                        <label class="Ttl" for="Party" style="margin-left: 4px;">Party</label>
+                    </div>
+                    <br /><br />
+                    <div class="OnlineChefs">
+                        <input type="checkbox" id="ChkBx" name="ChkBx"><label for="ChkBx" class="Ttl">Online Chefs</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="MainArea">
+    <div class="MainAreaMenus">
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="Menu">
+        <div class="MenuTitle">
+            <span class="Ttl">Pakistani</span>
+            <span class="MenuTtlOrders">150</span>
+        </div>
+        <div class="MenuImg">
+            <img src="~/Content/Images/MenuImg (1).jpg"/>
+        </div>
+        <div class="MenuDetail">
+            <ul>
+                <li>Fast Food</li>
+                <li>Desi</li>
+                <li>Lite</li>
+                <li>Salads</li>
+            </ul>
+        </div>
+        <div class="MenuRatings">
+
+        </div>
+
+    </div>
+    <div class="ClrStl"></div>
+    </div>
+    </div>
+
+
+
+
+<!---Forms-->
+
+<section>
+
+        <div class="MainWrapper">
+            <div class="Forms">
+                <div class="Parent">
+                    <div class="FormsLgn">
+                        <div class="FormTtl">
+                            <span>Login</span>
+                        </div>
+                        <div class="ClsBtns">
+                            <input class="ClsBtn" value="X" type="button" />
+                        </div>
+                        <form action="#">
+                            <div class="FormsLgnUserCrd">
+                                <input class="TxtBx" id="UserName" type="text" placeholder=" User Name " />
+                                <input class="TxtBx" id="Password" type="password" placeholder=" Password " />
+                            </div>
+                            <div class="FormsLgnBtnFgtPss">
+                                <div class="FormsLgnBtn">
+                                    <input class="Btn" type="button" id="LogInBtn" value="Login" />
+                                </div>
+                                <div>
+                                    <div class="FormsLgnFgtPss">
+                                        <a id="FgtPssLnk" href="#">Forgot Password</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="Parent">
+                    <div class="FormsRcr">
+                        <div class="FormTtl">
+                            <span style="margin-left: -65px;">Password Recovery</span>
+                        </div>
+                        <div class="ClsBtns">
+                            <input class="ClsBtn" value="X" type="button" />
+                        </div>
+                        <form action="#">
+                            <div class="FormRcrTxtBx">
+                                <input class="TxtBx" id="FormRcrEml" type="text" placeholder=" Email Address " />
+                            </div>
+                            <fieldset class="FormsRcrGrpBx">
+                                <legend>Security Questions</legend>
+                                <div class="FormRcrSQslct">
+                                    <select id="FormRcrSQ1">
+                                        <option value="1">What is your nick Name ?</option>
+                                        <option value="1">What is your birth place ? </option>
+                                        <option value="1">What is your best friend name ? </option>
+                                    </select>
+                                </div>
+                                <div class="FormRcrTxtBx">
+                                    <input type="text" id="FormRcrSQ1Ans" placeholder=" You Answer Here" class="SQTxtBx" />
+                                </div>
+                                <div class="FormRcrSQslct">
+                                    <select id="FormRcrSQ2">
+                                        <option value="1">What is your best friend name ? </option>
+                                        <option value="1">What is your nick Name ?</option>
+                                        <option value="1">What is your birth place ? </option>
+                                    </select>
+                                </div>
+                                <div class="FormRcrTxtBx">
+                                    <input type="text" id="FormRcrSQ2Ans" placeholder=" You Answer Here" class="SQTxtBx" />
+                                </div>
+                            </fieldset>
+                            <div class="FormsRcrBtn">
+                                <input class="Btn" type="button" id="RcrBtn" value="Submit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="Parent">
+                    <div class="FormsRgstr">
+                        <div class="FormTtl">
+                            <span style="margin-left: -20px;">Register</span>
+                        </div>
+                        <div class="ClsBtns">
+                            <input class="ClsBtn" value="X" type="button" />
+                        </div>
+                        <form action="#">
+                            <div class="FormsRgstrHlfTxtBx">
+                                <input class="TxtBx" id="UserName" name="Name" type="text" placeholder=" User Name" required="Required" /><br />
+                            </div>
+                            <input class="TxtBx" id="Email" name="Email" type="text" placeholder=" Email" required="Required" /><br />
+                            <input class="TxtBx" id="Password" name="password" type="password" placeholder=" password" required="Required" /><br />
+                            <input class="TxtBx" id="ConfirmPassword" name="Confirmpassword" type="password" placeholder=" Confirm password" required="Required" /><br />
+                            <fieldset class="FormsRgstrGrpBx">
+                                <legend style="color: lightgray;">
+                                    Gender
+                                </legend>
+                                <input id="GenderMale" name="Gender" type="radio" value="Male" required="Required" checked="checked" />
+                                <label class="GdrLbl" for="GenderMale">Male</label>
+                                <input id="GenderFemale" name="Gender" type="radio" value="Female" required="Required" />
+                                <label class="GdrLbl" for="GenderFemale">Female</label>
+                            </fieldset>
+                            <div class="FormsRgstrAddrs">
+                                <textarea placeholder=" Street Address Here" class="AddrsTxtArea" id="Address" cols="40" rows="5"></textarea>
+                            </div>
+                            <div class="FormsRgstrBtn">
+                                <input class="Btn" id="Submit" name="Submit" type="submit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--Forms-->
+
+
+    <div class="RightPanel">
+            <div class="LiveChat">
+                <div class="ExpColBtn">
+                    <input class="Btn" id="ExpColBtn" value="<<" type="button"/>
+                </div>
+                <div class="LiveChatWrapper">
+                    <div class="LiveChatTitle">
+                        <div class="SubTtl">Feed Back</div>
+                    </div>
+                    <form action="#" class="Form">
+                        <div class="LiveChatBody">
+                            <div class="LiveChatBodySub">
+                                <input class="TxtBx" type="text" placeholder="Subject" />
+                            </div>
+                            <div class="LiveChatBodyDes">
+                                <span class="SubTtl">Description</span><br />
+                                <textarea cols="21" rows="5"></textarea>
+                            </div>
+                            <div class="LiveChatSendBtn">
+                                <input class="Btn" value="Send" type="submit" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/Index.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_GlobalLayout.cshtml";
+    ViewBag.Title = "Kitchen Cloud";
+
+}
+
+
+
+
+    <div class="MainAreaMenus">
+        <!--Menu For Loop-->
+        @for (var i = 1; i < 25; i++)
+        {
+            <div class="Menu">
+                <div class="MenuTitle">
+                    <span class="Ttl">Pakistani</span>
+                    <span class="MenuTtlOrders">150</span>
+                </div>
+                <div class="MenuImg">
+                    <img src="~/Content/Images/All Menus/MenuImg (@i).jpg" />
+                </div>
+                <div class="MenuDetail">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Fast Food", "Index")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Desi", "Index")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Lite", "Index")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Salads", "Index")
+                        </li>
+                    </ul>
+                </div>
+                <div class="MenuRatings">
+
+                </div>
+            </div>
+        }
+        <!--Menu For Loop-->
+        <div class="ClrStl"></div>
+    </div>
+

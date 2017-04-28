@@ -1,0 +1,141 @@
+﻿@using KitchenCloud.Models.Sellers;
+@model SellerProfile
+
+@{
+
+    Layout = "_AccountLayout.cshtml";
+
+    SellerProfile seller = ViewBag.SellerAcc;
+    int LoadPage=0;
+    if (ViewBag.LoadPage != null)
+    {
+        LoadPage = ViewBag.LoadPage;
+    }
+}
+
+<input  type="hidden" value="@LoadPage" id="loadpage"/>
+<div id="AccountMainArea">
+    @if (seller != null)
+    {
+
+        <section class="container-fluid">
+            <div class="container">
+                <div class="row col-md-6">
+                    <div class="panel panel-default">
+                        <div class="label-default" style="background-color: #EEEEEE; height: 20px; padding: 0px 15px;">
+                            <span class="text-primary">Description</span>
+                        </div>
+                        <div class="panel-body">
+                            <p class="text-muted">
+                                @seller.Introduction
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-lg-6 col-md-6 hidden-sm hidden-xs  " style="margin-left: 35px;">
+                    <div class="panel panel-default">
+                        <div class="label-default" style="background-color: #EEEEEE;height: 20px; padding: 0px 15px;">
+                            <span class="text-primary">Services</span>
+                        </div>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="container col-lg-10 col-lg-offset-1">
+
+                <div class="panel panel-default">
+                    <div class="label-default" style="background-color: #EEEEEE; padding-top:12px;height: 50px;">
+                        <span class="text-primary" style="padding-left: 20px; font-weight: bold">My Recipes</span>
+                        <button data-toggle="modal" data-target="#myModal" class="btn btn-default" style="outline: none; padding: 1px;  border-radius: 30px;"><span class="text-primary glyphicon glyphicon-plus-sign"></span></button>
+
+                        <ul class="pull-right">
+                            <li class="dropdown " style="display: block;">
+                                <a class="dropdown-toggle" style="border: 1px solid lightgray; padding: 5px; display: block; margin-right: 60px;" data-toggle="dropdown"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="#">Name</a>
+                                    </li>
+                                  
+                                    <li>
+                                        <a id="ShowStat" href="#">Reviews</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Orders</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+
+                    </div>
+                    <div class="panel-body " id="RecipeArea" style="padding-left: 85px;">
+
+                        @RenderPage("../Shared/_GlobalRecipeTemplate.cshtml")
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <br />
+    }
+    @RenderPage("_BuyerReviewsTemplate.cshtml")
+
+    <br />
+    <br />
+    <br />
+</div>
+
+
+@section AccountScripts{
+    <script>
+        $(function() {
+            var page = $("#loadpage").val();
+            var pageurl = "";
+            if (page == 1) {
+                pageurl = "/Sellers/MyTrayView";
+            }
+            else if (page > 1) {
+                var id = $("#loadpage").val() - 2;
+
+                pageurl = "/Messenger/IndexLoadChat/"+id;
+            }
+
+            if (pageurl !== "") {
+                $.ajax({
+
+                    url: pageurl,
+                    method: "GET",
+                    success: function (result) {
+                        $("#AccountMainArea").html(result);
+                    }
+
+
+                });
+            }
+        });
+        
+    </script>
+			<script src="~/Scripts/Profile.js"></script>
+		}

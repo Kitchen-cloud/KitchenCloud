@@ -1,0 +1,304 @@
+﻿
+@using KitchenCloud.Models.Helpers
+@using KitchenCloud.Models.Sellers;
+@using KitchenCloudEntities.Orders
+@model SellerProfile
+@{
+
+    SellerProfile s = ViewBag.SellerProfile;
+    List<Order> OrdersList = ViewBag.OrdersList;
+
+}
+
+
+
+
+@if (s != null)
+{
+    <html>
+    <head>
+        <title>
+            @s.UserName
+        </title>
+        <meta charset="utf-8" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+        <style>
+            a:focus, :focus {
+                outline: none;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+            .lbl {
+                font-size: 12px;
+                color: lightgray;
+            }
+
+
+            /* Start by setting display:none to make this hidden.
+            Then we position it in relation to the viewport window
+            with position:fixed. Width, height, top and left speak
+            for themselves. Background we set to 80% white with
+            our animation centered, and no-repeating */
+            .ldgmodal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: rgba( 255, 255, 255, .8 ) url("../../Content/Images/GIF/loadinganimation.gif") 50% 50% no-repeat;
+            }
+
+            /* When the body has the loading class, we turn
+            the scrollbar off with overflow:hidden */
+            .loading {
+                overflow: hidden;
+            }
+
+                /* Anytime the body has the loading class, our
+            modal element will be visible */
+                .loading .ldgmodal {
+                    display: block;
+                }
+        </style>
+
+    </head>
+
+    <body>
+
+
+
+
+        @{
+            if (Session[WebUtil.ALERT_MESSAGE] != null)
+            {
+                @RenderPage("../Dashboard/_AlertMessageBar.cshtml")
+
+            }
+
+        }    <div class="container-fluid">
+
+            <div class="container-fluid" style="height: 250px; background: url('/Content/Images/Users/Profile Banners/Banner(15).jpg');">
+                <div class="row">
+                    <div class="container col-lg-4 col-lg-push-1  col-md-6 col-md-push-2 col-sm-12 col-xs-12 ">
+                        @*<input type="hidden" value="@s.Id" id="sllrid" />*@
+                        <img class="img-circle center-block" src="@Url.Content(s.ProfileImage.FolderPath+s.ProfileImage.ImageName)" style="height: 150px; width: 150px; margin-top: 35px;" />
+                        @*<img src="~/Content/Images/Icons/Picture2.png" style="height: 100px; width: 100px; margin-top: -95px; margin-left: 210px;" />*@
+                        <span class="hidden-lg hidden-md col-sm-12 col-xs-12 text-center " style="margin-top: 20px;">
+                            <a href="#" style="color: white; font-size: 18px; font-weight: bold; font-family: Arial;">@s.UserName</a>
+                        </span>
+                    </div>
+                    <div class="container col-lg-8 col-md-6 hidden-sm hidden-xs ">
+                        <span class="col-lg-8 col-md-2 hidden-sm hidden-xs " style="margin-top: 50px;">
+                            <a href="#" style="color: white; font-size: 22px; font-weight: bold; font-family: Arial;"><span class="glyphicon glyphicon-map-marker"> <span style="font-family: arial">@s.Location.Name</span></span></a><br /><br />
+                            <a href="#" style="color: white; font-size: 24px; font-weight: bold; font-family: Arial; margin-left: 16px;">@s.UserName</a>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+
+                            <span>
+
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i == 4)
+                                    {
+                                        <img src="~/Content/Images/Icons/star_half.png" style="height: 25px; width: 25px; margin-top: -5px" />
+                                    }
+                                    else if (i == 5)
+                                    {
+                                        <img src="~/Content/Images/Icons/star_empty.png" style="height: 25px; width: 25px; margin-top: -5px" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/Icons/star_full.png" style="height: 25px; width: 25px; margin-top: -5px" />
+                                    }
+                                }
+                            </span>
+                            <br /><br />
+
+
+                            <a href="#" style="color: white; font-size: 22px; font-weight: bold; font-family: Arial;">@s.Slogan</a><br /><br />
+
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="navbar navbar-default  ">
+                        <div class="navbar-header col-lg-1">
+                            <a href="/Dashboard/index" class="navbar-brand"><img src="~/Content/Images/Logos/LogoG.png" style="height: 40px; width: 70px; margin-top: -10px;" /></a>
+                        </div>
+
+                        <ul class="col-lg-10 nav  navbar-nav">
+
+                            <li class="col-lg-2"><a href="#">Reviews <span class="badge text-primary">@s.Reviews</span></a></li>
+
+                            <li class="col-lg-2 ">
+                                <a href="#">Visitors <span class="badge text-primary">@s.Visitors</span></a>
+                            </li>
+                            <li class="col-lg-2">
+                                <a class="AccFunc" data-value="/Sellers/MyTrayView">My Tray&nbsp;&nbsp;<span class="badge text-primary" id="TrayCount">@Session[WebUtil.TRAY_COUNT]</span></a>
+                            </li>
+                            <li class="col-lg-3">
+
+                            </li>
+                            <li class="col-lg-2">
+                                <a class="AccFunc" data-value="/Sellers/MyOrders" href="#">
+                                    @if (OrdersList.Count != 0)
+                                    {
+                                        <img src="~/Content/Images/Icons/notification.png" height="20" width="20" />
+                                        <span class="badge">@OrdersList.Count</span>
+
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/Icons/notificationDim.png" height="20" width="20" />
+
+                                    }
+
+                                </a>
+
+                            </li>
+                            <li class="col-lg-1">
+                                <a class="AccFunc" data-value="/Messenger/Index">
+                                    <img src="~/Content/Images/Icons/chat-off.png" height="20" width="20" />
+
+                                </a>
+                            </li>
+
+
+
+
+                        </ul>
+
+
+
+
+
+                        <ul class="nav navbar-nav navbar-right col-lg-1">
+                            <li class="dropdown  hidden-sm hidden-xs  ">
+                                <a class="dropdown-toggle" style="border: 1px solid #EEEEEE; margin-top: 6px;" data-toggle="dropdown"><span class="text-primary caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/Sellers/Account" style="color: gray;"><span class="text-muted glyphicon glyphicon-user"></span>  My Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-toggle="modal" style="color: gray;" data-target="#myModal"><span class="text-muted glyphicon glyphicon-new-window"></span>  New recipe</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="AccFunc" style="color: gray;" data-value="/Sellers/AccountOrders"><span class="text-muted glyphicon glyphicon-repeat"></span>  Orders</a>
+                                    </li>
+                                    <li>
+                                        <a class="AccFunc" style="color: gray;" data-value="AccountStatistics" href="#"><span class="text-muted glyphicon glyphicon-stats"></span>  Statistics</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="AccFunc" style="color: gray;" data-value="/Sellers/AccountSettings"><span class="text-muted glyphicon glyphicon-adjust"></span>  Account Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="AccFunc" style="color: gray;" data-value="/Sellers/Myrecipes"><span class="text-muted glyphicon glyphicon-gift"></span>  My recipes</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Dashboard/SignOut" style="color: gray;"><span class="text-muted glyphicon glyphicon-log-out"></span>  Sign Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        @RenderPage("_Newrecipe.cshtml")
+        @RenderBody()
+        <br />
+
+        @RenderPage("~/Views/Shared/_GlobalFooter.cshtml")
+
+
+        <div class="ldgmodal"><!-- Place at bottom of page --></div>
+
+
+
+
+        <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+        @*<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+        <script type="text/javascript" src="/signalr/hubs"></script>*@
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        @*<script src="~/Scripts/Index.js"></script>*@
+        <script src="~/Scripts/jquery-ui.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+        @RenderSection("AccountScripts", false)
+
+        <script>
+
+
+            //$(function () {
+
+            //    var conn = $.hubConnection();
+            //    var hub = conn.createHubProxy("KitchenCloud");
+            //    hub.client.Connected = function(message) {
+            //        alert(message);
+            //    };
+                    
+            //    conn.start(function () {
+            //        hub.invoke("Connect", $("#sllrid").val());
+            //    });
+
+            //});
+
+
+
+
+
+            $(".AccFunc").click(function () {
+
+
+
+                $.ajax({
+
+                    url: $(this).data("value"),
+                    method: "GET",
+                    success: function (result) {
+                        $("#AccountMainArea").html(result);
+                    }
+
+
+                });
+
+            });
+
+
+            function Success() {
+
+                $("#MsgSuccess").html("Password Successfully Updated");
+            }
+            $body = $("body");
+
+            $(document).on({
+                ajaxStart: function () { $body.addClass("loading"); },
+                ajaxStop: function () { $body.removeClass("loading"); }
+            });
+        </script>
+
+
+
+    </body>
+</html>
+            }

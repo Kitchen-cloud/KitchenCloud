@@ -1,0 +1,61 @@
+﻿@using KitchenCloud.Models.Helpers
+
+
+@{
+    string cssclass = null;
+
+    string temp = (string)Session[WebUtil.ALERT_MESSAGE];
+
+        if (temp.Contains("Success"))
+        {
+            cssclass = "success";
+        }
+        else
+        {
+            cssclass = "danger";
+        }
+
+}
+
+
+<div id="AlertBar" class="row  btn-@cssclass">
+
+    <div class="col-lg-7 col-lg-offset-4">
+       <span style="font-weight: bold">@Session[WebUtil.ALERT_MESSAGE]</span>
+    </div>
+    <div class="col-lg-1">
+        <span id="AlertBarClose" class="glyphicon glyphicon-remove-sign"></span>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+
+<script>
+
+    $(function() {
+
+
+        $("#AlertBarClose").click(function() {
+        
+
+            $.ajax({
+                url: "/Dashboard/RemoveAlertBar",
+                method: "POST",
+                success: function(result) {
+
+                    if (result) {
+                        $("#AlertBar").hide();
+                    }
+
+                }
+
+        });
+
+
+        });
+
+
+    });
+
+
+</script>

@@ -1,0 +1,135 @@
+﻿@using KitchenCloud.Models.Recipes;
+@model MyRecipesModel
+@{
+    List<MyRecipesModel> RecipeList = ViewBag.MyRecipes;
+
+}
+<style>
+    .OneAdd {
+        margin-bottom: 2px;
+    }
+
+    .OneAdd:hover {
+        cursor: pointer;
+        border: 1px solid lightgray;
+    }
+</style>
+@RenderPage("../Shared/_Dialog.cshtml")
+<div class="container">
+    <div class="container col-lg-12">
+
+
+        @if (RecipeList.Count > 0 && RecipeList != null)
+        {
+
+            <div class="row">
+                <div class="container col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
+                    <div class="list-group">
+                        <div class="list-group-item-heading ">
+                            <div class="row">
+                                <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                    <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;sr#</span>
+                                    <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;Image</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">&nbsp;&nbsp;Title</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Category</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Sub Category</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Price</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Action</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="list-group">
+                        @{ int count = 1; }
+                        @foreach (MyRecipesModel r in RecipeList)
+                        {
+
+                            <div class="list-group-item OneAdd">
+                                <div class="row">
+                                    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+                                        <span class="text-primary col-lg-1 col-md-1 col-sm-1 col-xs-1 ">@count</span>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                            <img class="img-circle" src="@Url.Content(r.ImgUrl)" style="height: 30px; width: 30px;"/>
+                                        </div>
+                                        <input type="hidden" name="AddID" value="@r.Id"/>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Title</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Category</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.SubCategory</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@r.Price</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <a href="/Dashboard/RecipeDescription?Id=@r.Id" class="btn btn-group-sm" style="padding: 2px;"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                    <a href="#" id="@r.Id" class="btn btn-group-sm RemoveAdd" data-toggle="modal" data-target="#deletemodal" style="padding: 2px;"><span class="glyphicon glyphicon-trash"></span></a>
+                                </span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            count++;
+
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+
+
+
+    </div>
+</div>
+
+
+
+<br />
+<br />
+<br />
+<br />
+
+<script>
+
+    var Id;
+
+
+    $(".RemoveAdd").click(function () {
+
+
+
+        Id = $(this).attr("id");
+
+    });
+
+
+
+
+
+
+
+
+
+
+    $("#DelYes").click(function () {
+
+   
+
+        $.ajax({
+            url: "/Sellers/DeleteRecipe/" + Id,
+        });
+
+
+    });
+
+
+
+
+</script>

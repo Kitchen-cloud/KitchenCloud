@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        @ViewBag.Title
+    </title>
+    <meta charset="utf-8" />
+    <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <style>
+        .fixed {
+            position: fixed;
+            top: -1px;
+            z-index: 1;
+        }
+
+         .SecondaryNav {
+        background-color: #EEEEEE; height: 30px;
+             padding-left: 50px;
+        }
+        .SecondaryNav ul li {
+            float: left;
+            display: block;
+            margin-right: 60px;
+            padding-top: 4px;
+        }
+             .SecondaryNav ul li a {
+                             color: gray;
+
+             }
+
+    </style>
+</head>
+<body>
+
+
+
+    <div class="container-fluid">
+
+        <!--Header Area Reserved-->
+        <div style="width: 100%; position: fixed; z-index: 3;" id="navbars">
+            @RenderPage("_PrimaryNavBar.cshtml")
+            @RenderPage("_SecondaryNavBar.cshtml")
+        </div>
+   <br /><br />
+   <br /><br />
+        <br />  
+        <br />  
+       
+       
+       
+       
+      
+
+
+
+        <div class="container-fluid">
+
+            <div class="container col-lg-3 col-md-4 hidden-sm hidden-xs">
+                <div class="row" style="position: fixed">
+                    @RenderPage("_SidePanel.cshtml")
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 10px; background-color: lightgray">
+                        <img class="img-responsive" src="~/Content/Images/Users/Profile Banners/Picture3.png"  />
+                    </div>
+                </div>
+                <br />
+                <div class="row" style="padding-left: 45px; " >
+            @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+        <section>
+            <div class="MainWrapper">
+                <div class="Forms">
+                    @RenderPage("_LogIn.cshtml")
+                    @RenderPage("_RecoverPassword.cshtml")
+                    @RenderPage("_SignUp.cshtml")
+                </div>
+            </div>
+        </section>
+
+        <!--Forms-->
+
+
+
+
+
+
+        <div class="RightPanel">
+            @RenderPage("~/Views/Shared/_GlobalFeedback.cshtml")
+        </div>
+    </div>
+    @RenderPage("~/Views/Shared/_GlobalFooter.cshtml")
+    <div class="modal"><!-- Place at bottom of page --></div>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/Index.js"></script>
+
+
+
+
+
+</body>
+
+</html>

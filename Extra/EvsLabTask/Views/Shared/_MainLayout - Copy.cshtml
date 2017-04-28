@@ -1,0 +1,58 @@
+﻿@using EvsLabTask.Models;
+@model StudentModel
+
+<html>
+<head>
+    <link href="~/Content/Css/index.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+<div id="second">
+    @using (Html.BeginForm("InsertStudent", "Home", FormMethod.Post, new {@class = "MainForm"}))
+    {
+        <div class="MainFormInputs">
+            <ul>
+                <li>
+                    @Html.LabelFor(x => x.Name, new {@class = "lblM"})<br/>
+                    @Html.TextBoxFor(x => x.Name, new {placeholder = "Student Name", @class = "TxtBxM"})
+                </li>
+                <li>
+                    @Html.LabelFor(x => x.FatherName, new {@class = "lblM"})<br/>
+                    @Html.TextBoxFor(x => x.FatherName, new {placeholder = "Student Father Name", @class = "TxtBxM"})
+                </li>
+                <li>
+                    @Html.LabelFor(x => x.Email, new {@class = "lblM"})<br/>
+                    @Html.TextBoxFor(x => x.Email, new {placeholder = "Student Email Address", @class = "TxtBxM"})
+                </li>
+                <li>
+                    <input type="submit" value="Add Student" class="btn"/>
+                </li>
+            </ul>
+        </div>
+        <div class="ClrStl"></div>
+
+    }
+    @RenderBody()
+
+</div><!--second-->
+<div id="EditFormSec"></div>
+<div id="CnfrmDialog"></div>
+<div class="modal"><!-- Place at bottom of page --></div>
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/index.js"></script>
+</body>
+</html>

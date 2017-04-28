@@ -1,0 +1,64 @@
+﻿@using KitchenCloud.Models.Orders;
+@model OrderModel
+@{
+        List<OrderModel> MyOrderList = ViewBag.MyOrdersList;
+   
+}
+
+<div class="container">
+    @*<div class="container col-lg-12 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
+        <div class="list-group">
+            <div class="list-group-item-heading ">
+                <div class="row">
+                    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;sr#</span>
+                        <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;Image</span>
+                        <span class="text-muted col-lg-3 col-md-2 col-sm-2 col-xs-2">&nbsp;&nbsp;Title</span>
+                        <span class="text-muted col-lg-1 col-md-2 col-sm-2 col-xs-2">Category</span>
+                        <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Sub Category</span>
+                        <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Quantity</span>
+                        <span class="text-muted col-lg-1 col-md-2 col-sm-2 col-xs-2">Price</span>
+                        <span class="text-muted col-lg-1 col-md-2 col-sm-2 col-xs-2">Action</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    @if (MyOrderList.Count() > 0 && MyOrderList != null)
+    {
+
+
+           foreach (OrderModel order in MyOrderList)
+                {
+                    <div class="jumbotron" style="padding: 10px">
+                        <span>Order Details</span>
+                        <div class="row">
+                            <span>Ordered On @order.OrderDate</span>
+                            <span>Due Date   @order.DueDate</span>
+                            <span>Status   @Html.EnumDropDownListFor(x => x.Status)</span>
+                            <span>@order.Time.ToString()</span>
+                            <span>@Html.HiddenFor(x => x.Id)</span>
+                        </div>
+                        <span>Recipe Details</span>
+                        <div class="row">
+                            <span>@order.Recipe.Category @order.Recipe.SubCategory</span>
+                            <span>Quantity @order.Recipe.Quantity</span>
+                            <span>Price @order.Recipe.Price</span>
+                        </div>
+                        <span>Buyer Details</span>
+                        <div class="row">
+                            <img class="img-circle" src="@Url.Content(@order.Buyer.ProfileImage.FolderPath + @order.Buyer.ProfileImage.ImageName)" style="height: 30px; width: 30px;"/>
+                            <span>@order.Buyer.FirstName @order.Buyer.SecondName</span>
+                            <span>@order.Buyer.City.Name @order.Buyer.City.Country.Name</span>
+                        </div>
+
+                    </div>
+
+
+                }
+         
+
+    }
+
+</div>

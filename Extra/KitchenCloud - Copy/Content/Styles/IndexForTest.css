@@ -1,0 +1,142 @@
+﻿
+
+/*******Forms***/
+
+
+.Forms {
+  z-index:2;
+  position:absolute;
+}
+
+.Forms .TxtBx {
+    margin-top: 35px;
+    width: 300px;
+    height: 30px;
+    margin-left: 45px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    background: white;
+    color: steelblue;
+}
+
+
+.Forms .TxtBx:focus {
+        box-shadow: 1px 1px 5px black;
+    }
+
+
+.FormTtl {
+    font-family: Arial;
+    font-weight: bold;
+    padding-left: 178px;
+    height: 45px;
+    background: steelblue;
+    color: white;
+    font-size: 18px;
+}
+
+    .FormTtl span {
+        position: absolute;
+        margin-top: 10px;
+    }
+
+/*  Register Form ***/
+
+.FormsRgstr {
+  border:1px solid steelblue;
+    background: white;
+    height: 560px;
+    width: 400px;
+    color: gray;
+    margin-left: 475px;
+    position:fixed;
+    margin-top: -580px;
+}
+
+
+.FormsRgstr input {
+    margin-bottom: -15px;
+
+}
+
+.FormsRgstrGrpBx {
+    color: gray;
+    border: 1px solid lightgray;
+    border-radius:3px;
+    width: 284px;
+    height: 25px;
+    padding-bottom: 25px;
+    margin-left: 45px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+    .FormsRgstrGrpBx input {
+        margin-left: 20px;
+        width: 20px;
+        height: 15px;
+        margin-right: 60px;
+    }
+
+
+.GdrLbl {
+    position: absolute;
+    color: steelblue;
+    font-size: 13px;
+    margin-top: 3px;
+    margin-left: -55px;
+    font-weight: bold;
+}
+
+
+
+
+.AddrsTxtArea {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 45px;
+    border: 1px lightgray solid;
+    color: steelblue;
+    background: white;
+    border-radius:3px;
+}
+
+
+
+
+
+
+.FormsRgstrBtn {
+    position: absolute;
+    width: 150px;
+    margin-left: 120px;
+    height: 25px;
+    margin-top: 90px;
+}
+
+
+    .FormsRgstrBtn input {
+        width: 150px;
+        height: 30px;
+        font-family: Arial;
+        font-weight: bold;
+        color: steelblue;
+        background: white;
+        border: 1px;
+        border:1px solid steelblue;
+    }
+
+        .FormsRgstrBtn input:hover {
+            background:steelblue;
+            color:white;
+            cursor: pointer;
+        }
+
+
+
+
+/******Forms*/
+

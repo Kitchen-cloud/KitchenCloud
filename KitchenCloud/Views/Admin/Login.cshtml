@@ -1,0 +1,43 @@
+﻿
+
+@{
+    Layout = "_AdminLayout.cshtml";
+}
+
+
+
+@using KitchenCloud.Models.Admin;
+@model LoginModel
+<div class="modal-body">
+    <div class="row">
+        <div class="container col-lg-10 col-lg-offset-1">
+            @using (Html.BeginForm("LogIn", "Admin"))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(x => x.UserName, new { @class = "text-muted" })
+                    @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+                    <div class="input-group">
+
+                        @Html.TextBoxFor(x => x.UserName, null, new { @class = "form-control" })
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Password, new { @class = "text-muted" })
+                    @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+                    <div class="input-group">
+
+                        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" style="width: 150px">Login</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

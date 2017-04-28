@@ -1,0 +1,54 @@
+﻿@{
+    @model KitchenCloud.Models.CreateNewMenu
+}
+@using (Html.BeginForm("AddMenu", "Sellers", FormMethod.Post, new { @class = "Form" }))
+{
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a href="#Title">Title and Description</a>
+                            @*@Html.ActionLink("Title and Tags", "UserProfile")*@
+                        </li>
+                        <li role="presentation">
+                            <a href="#Location">Location</a>
+                            
+                        </li>
+                        <li role="presentation">
+                            <a href="#Media">Media</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#Done">Done</a>
+                        </li>
+                    </ul>
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+}
+  
+
+
+
+

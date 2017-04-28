@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KitchenCloudEntitiesHandler.Recipe.RecipeHandler">
+    <Position X="1" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Recipe\RecipeHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Recipe.RecipeImageHandler">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAACAAAAIA=</HashCode>
+      <FileName>Recipe\RecipeImageHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Recipe.RecipeCategoryHandler">
+    <Position X="0.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Recipe\RecipeCategoryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Recipe.RecipeubCategoryHandler">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Recipe\RecipeubCategoryHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Orders.OrderHandler">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Orders\OrderHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Users.BuyerHandler">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Users\BuyerHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Users.SellerHandler">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Users\SellerHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KitchenCloudEntitiesHandler.Users.ServiceHandler">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAgAAAAAAAAACAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Users\ServiceHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

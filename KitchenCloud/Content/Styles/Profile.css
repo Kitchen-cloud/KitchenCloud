@@ -1,0 +1,659 @@
+﻿
+ .overflow { height: 200px; }
+a {
+color:steelblue;
+}
+a:hover
+{
+    text-decoration:underline;    
+
+}
+.Btn
+{
+  
+  border:1px solid steelblue;
+  color:steelblue;
+  border-radius:5px;
+  background:white;
+}
+.Btn:hover
+{
+background:steelblue;
+color:white;
+cursor:pointer;
+}
+.Ttl
+{
+    color:steelblue;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.SubTtl
+{
+    color:steelblue;
+    font-size:12px;
+    font-family:Arial;
+}
+.SearchTxtBx
+{
+   height:25px;
+   color:steelblue;
+   border-radius:2px;
+   border:1px solid lightgray;
+}
+
+.TxtBxErr {
+    width: 300px;
+    height: 30px;
+    margin-left: 45px;
+    font-family: Arial;
+    font-weight: bold;
+    border-radius: 5px;
+    color: steelblue;
+    border: 1px solid red;
+}
+
+.Spnr
+{
+    width:160px;
+    height:15px;
+}
+
+
+
+.ClsBtn {
+    position: absolute;
+    margin-left: 370px;
+    margin-top: -35px;
+}
+
+.ClsBtns input {
+    font-size: 10px;
+    height:20px;
+    background: steelblue;
+    color: white;
+    border-radius:30px;
+    border: 1px solid lightgray;
+}
+.ClsBtns input:hover
+{
+  cursor:pointer;
+      font-size: 11px;
+}
+.Form
+{
+    padding:10px;
+}
+
+.ClrStl {
+    clear: both;
+}
+
+header{
+
+height:250px;
+
+}
+
+.HeaderWrapper img
+{
+width:1349px;
+height:250px;
+
+}   
+.HeaderProfileImg
+{
+  margin-left:100px;
+margin-top:-210px;
+position:absolute;
+border-radius:130px;
+box-shadow:0px 0px 10px 4px  lightgreen;
+height:150px;
+width:150px;
+}
+.HeaderProfileImg img{
+border-radius:130px;
+height:150px;
+width:150px;
+}
+.ProfileSlogan .Ttl
+{
+    position:absolute;
+    font-size:30px;
+    text-decoration:underline;
+    margin-left:550px;
+    margin-top:-120px;
+
+}
+
+.UserName .Ttl
+{
+    position:absolute;
+    margin-top:-180px;
+    font-size:25px;
+    margin-left:600px;
+}
+
+nav
+{
+    top:240px;
+
+}
+
+
+.ProfileStatsRecipe
+{
+    margin-left:350px;
+}
+
+.ProfileStatsRecipe li 
+{
+    color:steelblue;
+    font-size:16px;
+    display:block;
+    float:left;
+    margin-right:140px;
+    margin-top:8px;
+
+}
+.ProfileRatingsStars
+{
+  position:absolute;
+  margin-left:75px;
+  margin-top:-25px;
+
+}
+.ProfileRatingsStars img
+{
+  width:25px;
+  height:25px;
+}
+
+
+
+
+
+.ProfileStatsSettings
+{
+    position:absolute;
+    margin-top:-38px;
+    margin-left:1100px;
+    display:block;
+
+}
+
+
+
+.ProfileStatsSubRecipe
+{
+    background:white;
+    border-bottom:1px solid lightgray;
+    border-left:1px solid lightgray;
+    border-right:1px solid lightgray;
+     box-shadow:0px 2px  2px 0px  gray;
+margin-top:18px;
+    margin-left:-175px;
+    height:230px;
+padding-bottom:20px;
+}
+
+.ProfileStatsSubRecipe li 
+{
+    padding-bottom:1px;
+    margin-top:15px;
+    
+    color:steelblue;
+   padding-right:35px;
+   padding-top:15px; 
+
+}
+.ProfileSettingsBtn .Btn{
+    background:url("../Images/Icons/Down-icon.png");
+    background-repeat:no-repeat;
+    width:27px;
+    height:27px;
+    border:1px solid lightgray;
+    border-radius:3px;
+
+}                 
+
+
+
+
+.ProfileMainSec
+{
+
+ height:auto;
+ margin-top:90px;
+ margin-left:110px;
+ width:1120px;
+}
+
+.ProfileDetails div
+{
+
+    
+    float:left;
+    border-radius:30px;
+  font-family:Tahoma, Geneva, sans-serif;
+
+}
+
+
+
+.Prgrph
+{     padding:10px;
+margin-top:5px;
+color:steelblue;
+}
+
+
+
+
+
+.ProfileDscrptn
+{
+  box-shadow:0px 10px 100px 0px lightgray inset;  
+
+    border:1px solid lightgray;
+ height:auto;
+ margin-top:10px;
+ margin-left:28px;
+ width:350px;
+}
+.DscrptnTitle
+{
+     background:steelblue;
+     height:25px;
+
+}
+.DscrptnTitle .Ttl
+{
+ color:white;
+ padding-right:262px;
+ margin-left:10px;
+ font-size:14px;
+}   
+.DscrptnBody{
+    font-family:Arial;
+    
+ font-size:14px;
+}
+
+
+.ProfileServices
+{
+  box-shadow:0px 10px 100px 0px lightgray inset;  
+
+    border:1px solid lightgray;
+ height:auto;
+ margin-top:10px;
+ margin-left:10px;
+ width:700px;
+
+}
+.ServicesTitle
+{
+     background:steelblue;
+     height:25px;
+
+}
+.ServicesTitle .Ttl
+{
+  padding-right:632px;
+ color:white;
+ margin-left:10px;
+ font-size:14px;
+}   
+.ServicesBody{
+    font-family:Arial;
+ font-size:14px;
+}
+
+
+
+
+.UserRecipes
+{
+
+  
+ border:1px solid lightgray;
+ margin-top:50px;
+
+ margin-left:28px;
+ margin-bottom:15px;
+ width:1062px;
+}
+
+.UserRecipesTitle
+{
+     background:steelblue;
+     height:25px;
+
+
+}
+.UserRecipesTitle .Ttl
+{
+ color:white;
+ margin-left:10px;
+ font-size:14px;
+}   
+.UserRecipesBody{
+    font-family:Arial;
+ font-size:14px;
+
+}
+
+
+/**
+
+demo recipe creator
+**/
+
+
+.RecipeImg .Btn {
+    background-image: url('../Images/Icons/CreateRecipeB.png');
+    height: 57px;
+    width: 54px;
+    opacity:0.5;
+    border-radius: 40px;
+    margin-left: -170px;
+    margin-top: 65px;
+    border: 0px;
+    background-repeat: no-repeat;
+}
+.RecipeImg .Btn:hover
+{
+    background-image: url('../Images/Icons/CreateRecipeW.png');
+
+}
+
+.RecipeTitleCreator
+{
+  background:steelblue;
+
+  width:200px;
+  border:1px solid steelblue;
+}
+.RecipeTitleCreator .Ttl
+{
+  margin-left:60px;
+  color:white;
+}
+
+
+.ProfileRecipes
+{
+box-shadow:0px 0px 20px 0px lightgray inset;  
+
+  padding-top:25px;
+  padding-left:65px;
+
+}
+
+
+
+.RecipeTitle
+{
+  
+  background:steelblue;
+ 
+  padding-left:10px;
+
+}
+.RecipeTitle .Ttl
+{
+  color:white;
+}
+.RecipeImg img
+{
+  height:100px;
+  width:180px;
+  margin-left:10px;
+  margin-top:10px;
+  cursor:pointer;
+
+}
+.RecipeDetail{
+ font-size:12px;
+ margin-left:-15px;
+ margin-top:-5px;
+ color:steelblue;
+}
+.RecipeRatings
+{
+
+}
+.RecipeTtlOrders{
+  margin-left:108px;
+  font-size:14px;
+  font-weight:bold;
+  color:orange;
+  background:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*******Test*****/
+
+.AccountSettingsAndStat
+{
+  
+  width:1200px;
+  margin-left:80px;
+  border:1px solid lightgray;
+
+
+
+  }
+.AccountStats
+{
+  position:fixed;
+  z-index:1;
+height:492px;
+width:500px;
+margin-left:350px;
+margin-top:-160px;
+  border:1px solid steelblue;
+
+
+}
+.AccountStatsTitle
+{
+  background:steelblue;
+  height:40px;
+
+}
+
+
+.AccountStats .ClsBtn {
+    position: absolute;
+    margin-left: 460px;
+    margin-top: 10px;
+}
+
+.AccountStatsTitle .Ttl
+{
+  color:white;
+  font-size:18px;
+  margin-left:175px;
+  position:absolute;
+  margin-top:10px;
+
+}
+.AccountStatsBody
+{
+  
+}
+
+.NewRecipe
+{
+
+ position:fixed;
+  z-index:1;
+width:600px;
+
+margin-left:280px;
+margin-top:-200px;
+box-shadow:0px 0px 111110px 400000px white;
+
+border-radius:5px;
+background:white;
+border:1.5px solid steelblue;
+
+}
+.CreateNewRecipeTitle
+{
+  background:steelblue;
+  height:40px;
+
+}
+
+
+.NewRecipe .ClsBtn {
+    position: absolute;
+    margin-left: 560px;
+    margin-top: 10px;
+}
+
+.NewRecipe .Ttl
+{
+  color:white;
+  font-size:18px;
+  margin-left:200px;
+  position:absolute;
+  margin-top:10px;
+}
+.NewRecipeBody
+{
+  margin-top:10px;
+}             
+
+
+
+
+.NewRecipeGrpBx
+{
+    border: 1px solid #eae8e8;
+   border-radius:3px;
+   width:415px;
+    padding-bottom:10px;
+
+
+}
+.NewRecipeGrpBx legend,.NewRecipeTitle
+{ color: lightgray;
+  font-size:14px;
+ 
+ 
+}
+
+.MealFor {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.MealFor .PTtl {
+position:absolute;
+    color: steelblue;
+    font-size: 14px;
+    margin-left:-65px;
+    margin-top:4px;
+
+}
+
+.MealFor input {
+    width: 20px;
+    height: 18px;
+    margin-bottom: 10px;
+    margin-right:70px;
+}
+
+
+.NewRecipe textarea
+{
+  width:440px;
+  height:130px;
+}
+
+.NewRecipe .NewRecipeLocation
+{
+  margin-top:20px;
+  margin-left:40px;
+}
+
+.NewRecipe .TxtBx
+{
+  width:440px;
+  margin-top:35px;
+  margin-left:2px;
+  font-size:12px;
+  padding-left:5px;
+}
+
+.NewRecipeMedia
+{
+    margin-top:60px;
+  margin-left:70px;
+}
+
+
+.ChsBtn 
+{
+  border:1px solid lightgray;
+  width:400px;
+  color:lightgray;
+  font-family:arial;
+}
+
+.file-upload-wrapper {
+    margin-bottom: 10px;
+    margin-left:50px;
+}
+.file-upload-input {
+    background:#ececec;
+    color:steelblue;
+    padding: 10px; 
+    border: 1px solid steelblue;
+
+
+}
+
+.file-upload-button {
+    cursor: pointer; 
+    display: inline-block; 
+    color: #fff;
+    padding:10px; 
+    border: none;
+    margin-left: 1px; 
+    background:steelblue; 
+}
+
+
+
+
+.RecipeTags
+{
+  background:#e8e6e6;
+  border:lightgray 1px solid;
+  border-radius:5px;
+  padding:5px;
+color:darkgrey;
+margin-right:8px;
+}
+
+
+
+:focus {
+    outline: none;
+}

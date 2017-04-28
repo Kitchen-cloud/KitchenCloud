@@ -1,0 +1,58 @@
+﻿@{
+
+
+    Layout = "";
+
+
+
+}
+@using KitchenCloud.Models
+@model TestUser
+
+<div class="Parent">
+    <div class="FormsRgstr">
+        <div class="FormTtl">
+            <span style="margin-left: -20px;">Register</span>
+        </div>
+        <div class="ClsBtns">
+            <input class="ClsBtn" value="X" type="button" />
+        </div>
+        @*<form action="#">*@
+        @*@using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))*@
+        @using (Html.BeginForm("SignUp", "Dashboard", FormMethod.Post))
+        {
+            @*<input class="TxtBx" id="UserName" name="Name" type="text" placeholder=" User Name" required="Required"/>*@
+            @Html.TextBoxFor(x => x.Name, null, new {@class = "TxtBx", id = "UserName", placeholder = " User Name"})<br/>
+            @Html.ValidationMessageFor(m=>m.Name)
+                    @*<input class="TxtBx" id="Email" name="Email" type="text" placeholder=" Email" required="Required" />*@
+                    @Html.TextBoxFor(x=>x.Email, null, new { @class = "TxtBx", id = "Email", placeholder = " Email" })<br />
+                    @*<input class="TxtBx" id="Password" name="password" type="password" placeholder=" password" required="Required" />*@
+                    @Html.PasswordFor(x => x.Password, new { @class = "TxtBx", id = "Password", placeholder = " Password" })<br />
+                    @*<input class="TxtBx" id="ConfirmPassword" name="Confirmpassword" type="password" placeholder=" Confirm password" required="Required" />*@
+                    @Html.Password("ConfrimPassword", null, new { @class = "TxtBx", id = "ConfirmPassword", placeholder = " Confirm Password"})<br />
+                    <fieldset class="FormsRgstrGrpBx">
+                        <legend style="color: lightgray;">
+                            Gender
+                        </legend>
+                        @*<input id="GenderMale" name="Gender" type="radio" value="Male" required="Required" checked="checked" />*@
+                        @Html.RadioButtonFor(x => x.Gender, "Male", new {  @checked = "checked", id = "GenderMale" })
+                        @*<label class="GdrLbl" for="GenderMale">Male</label>*@
+                        @Html.Label("Male", new { @class = "GdrLbl", @for = "GenderMale" })
+                        @*<input id="GenderFemale" name="Gender" type="radio" value="Female" required="Required" />*@
+                        @Html.RadioButtonFor(x => x.Gender, "Female", new { @checked = "checked", id = "GenderFemale" })
+                        @*<label class="GdrLbl" for="GenderFemale">Female</label>*@
+                        @Html.Label("Female", new { @class = "GdrLbl", @for = "GenderFemale" })
+
+
+                    </fieldset>
+                    <div class="FormsRgstrAddrs">
+                        @*<textarea placeholder=" Street Address Here" class="AddrsTxtArea" id="Address" cols="40" rows="5"></textarea>*@
+                        @Html.TextAreaFor(x => x.Address, new { placeholder = " Street Address Here", @class = "AddrsTxtArea", id = "Address", cols = "40", rows = "5" })
+                    </div>
+                    <div class="FormsRgstrBtn">
+                        <input class="Btn" id="Submit" name="Submit" type="submit" />
+                    </div>
+        }
+        @*</form>*@
+    </div>
+</div>

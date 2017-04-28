@@ -1,0 +1,82 @@
+﻿
+@{
+
+   List<SelectListItem> Cities= ViewBag.Cities;
+}
+
+
+
+
+
+<div class="panel panel-default" id="sdepnl" style="width: 280px;box-shadow: 0px 0px 10px 0px lightgray;">
+    <div class="label-default" style="background-color: steelblue;">
+        <span style="color: white; margin-left:90px;">Search Food</span>
+    </div>
+
+
+   
+    <div class="panel-body">
+
+
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-fire"></span></span>
+                <input class="form-control" id="SrchByNm" onfocusout="UnFixPanel()" onfocus="FixPanel()"   onkeyup="Search()" type="text" placeholder="your fav food ?" />
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="Spnr" class="lbl">Price (Max)</label>
+            <div class="input-group">
+                <span class="input-group-addon">Rs</span>
+                <input style="width: 120px;"   type="text" value="200" id="Spnr" />
+                <span class="input-group-addon">.00/-</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="text-muted lbl">Location</label>
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+                                
+                @Html.DropDownList("Cities", Cities, "Lahore", new {@class = "form-control", id = "SidePanelCityList", })
+
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div class="list-group">
+                <label class="list-group-item" style="background: url('/Content/Images/Extra/texture.png')" for="Ols">
+
+                    <input name="personfor" onclick="Search();" id="Ols" type="checkbox" />
+                    <label for="Ols" class="text-primary">Online Sellers </label>
+                </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="text-muted lbl">Meal For</label>
+                <div class="list-group">
+                    <label class="list-group-item" style="background:url('/Content/Images/Extra/texture.png')" for="single">
+                        <input class="personfor" name="personfor" id="single" type="radio" />
+                        <label for="single" onclick="Search();" class="text-primary">Single</label>
+                    </label>
+
+                    <label class="list-group-item" style="background:url('/Content/Images/Extra/texture.png')" for="double">
+
+                        <input class="personfor" onclick="Search();" name="personfor" id="double" type="radio" />
+                        <label for="double" class="text-primary">Double</label>
+                    </label>
+
+                    <label class="list-group-item" style="background:url('/Content/Images/Extra/texture.png')" for="party">
+                        <input class="personfor" onclick="Search();" name="personfor" id="party" type="radio" />
+                        <label for="party" class="text-primary">Party</label>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+

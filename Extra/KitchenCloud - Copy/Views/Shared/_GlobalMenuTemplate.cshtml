@@ -1,0 +1,60 @@
+﻿@using System.Collections
+@using KitchenCloud.Models
+@model MenuTemplate
+@{List<MenuTemplate> M = ViewBag.MenuLists;
+}
+@*Menu For Loop*@
+@if (M != null && M.Count() > 0)
+{
+
+    foreach (var m in M)
+    {
+            <div class="container  col-lg-3 col-md-3 col-sm-6 col-xs-12 " style="margin-top: 20px; margin-right: 30px;  width: 200px;">
+                    <div class="row"  >
+                        <span class="text-muted">@m.Title</span>
+                        <span class="text-muted">@m.TotalOrders</span>
+                    </div>
+                    <div class="row"  >
+                        <img style="height: 100px; width: 180px;" class="thumbnail img-responsive" src="@Url.Content(m.Image)" alt="@m.Title" />
+                    </div>
+                    <div class="row" >
+                        <ul class="container col-lg-1 col-md-2 col-sm-6 col-xs-4" style="width:100px; margin-top:-10px;">
+                            @foreach (var D in m.Services)
+                    {
+                                <li class="text-primary">
+                                    <span style="font-size: 12px;font-family: arial;"> @Html.ActionLink(D, "Account", "Sellers")</span>
+                                </li>
+                            }
+                        </ul>
+                        <input type="hidden" value="@m.Location" />
+                        <div class="container col-sm-6 col-xs-8" style="margin-top: -8px; width: 80px; ">
+                            <button class="btn btn-primary" style="font-size: 12px; padding:2px; margin-left: -15px;">order</button>
+                            &nbsp;<img class="fav" src="~/Content/Images/Icons/favgray.png" style="height: 20px; width: 20px" />
+                        </div>
+                    </div>
+            </div>
+
+
+    }
+}
+<script>
+    $(".fav").click(function () {
+        if ($(this).attr("src") == "/Content/Images/Icons/favred.png") {
+            $(this).attr("src", "/Content/Images/Icons/favgray.png");
+        } else {
+            {
+                $(this).attr("src", "/Content/Images/Icons/favred.png");
+            }
+        }
+
+    });
+
+</script>
+<script src="~/Scripts/Profile.js">
+
+</script>
+
+
+
+
+

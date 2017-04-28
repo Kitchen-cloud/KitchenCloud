@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Message</title>
+
+</head>
+<body>
+        <!--Main-->
+        <div class="container-fluid">
+            <!--Left Panel-->
+            <div class="col-lg-2">
+
+                @*<img src="~/Content/Images/left.PNG" height="250" width="200" />*@
+                <ul class="list-group text-muted">
+                    <li class="list-group-item">
+                        Inbox
+                    </li>
+                    <li class="list-group-item">
+                        Unread
+                    </li>
+                    <li class="list-group-item">
+                        Sent
+                    </li>
+                    <li class="list-group-item">
+                        Orders
+                    </li>
+                </ul>
+
+            </div>
+            <!--Left Panel-->
+            <!--Chat Panel-->
+            <div class="col-lg-8" id="MessageAppMain"  style="height: 550px;border: 1px solid lightgrey">
+                <div class="row" style="color: white; font-size: 12px; font-weight: bold;background-image:url(../../Content/Images/Extra/body-bg7.png)">
+                    <span class="col-lg-2 col-lg-offset-1"><a>Sender</a></span>
+                    <span class="col-lg-6"><a>Message</a></span>
+                    <span class="col-lg-3"><a>Received On</a></span>
+                </div>
+                <div class="row">
+                    @RenderPage("_InboxData.cshtml")
+                </div>
+
+            </div>
+
+            <!--Chat Panel-->
+            <!--Right Panel-->
+            @*<div class="col-lg-2" style="height: 500px; border-left: 1px dashed lightgray; border-right: 1px dashed lightgray;border-bottom: 1px dashed lightgray">
+               
+                
+                
+                <div class="row bg-primary text-center">
+                    <span style="color: white; font-size: 12px; font-weight: bold">All Users</span>
+                </div>
+
+
+                <div class="row" id="loading" style="margin-top: 150px">
+                    <img class="center-block" src="/Content/Images/GIF/loadinganimation.gif" height="30" width="50" />
+                </div>
+
+                <div class="row">
+                    <ul class="list-group" id="AllPersons"></ul>
+                    <ul class="pagination" id="personspaging" style="margin-top:-22px "></ul>
+                </div>
+            </div>*@
+            <!--Right Panel-->
+        </div>
+<!--Main-->
+    
+    
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(".InboxMsg").click(function () {
+
+            // $("#MessageAppMain").html("dadadfrom fram");
+           // $("#Myframe").attr("src", $(this).data("href"));
+
+            $.ajax({
+                url: "/Chat/ChatWith/" + $(this).data("chatwithid"),
+                method: "Get",
+                success: function (result) {
+                    alert(result);
+                    $("#MessageAppMain").html(result);
+                    // alert($("#MessageAppMain").data("abc"));
+                    // $("#inbox", $("#MessageAppMain").contents()).append("No Messages");
+                    //$("#Myframe").attr("src",$(this).data("href"));
+
+                }
+
+
+            });
+        });
+
+
+    $("#inbx").click(function () {
+
+        //$("#Myframe").attr("src", "Inbox.html");
+
+
+        $.ajax({
+            url: "http://localhost:57840/api/Chat/Inbox/" + $("#session").val(),
+            method: "Get"
+        }).done(function (messages) {
+            $("#Myframe").attr("src", "Inbox.html");
+            for (var i = 0; i < messages.length; i++) {
+                alert("IN LOOP");
+                var temp = "<div class='list-group'>" +
+                    "<ul class='list-group-item'>" +
+                    "<input type='hidden' value='" + messages[i].Id + "' />" +
+                    "<img src='" + messages[i].SenderImg + "' />" +
+                    "<span class='text-primary'>" + messages[i].Sender.UserName +
+                    "</span><span class='text-primary'>" +
+                    messages[i].Preview + "</span><span class='text-primary'>" +
+                    messages[i].RecievedOn +
+                    "</span></ul></div>";
+                $("#inbox", $("#Myframe").contents()).append(temp);
+
+            }
+
+
+            alert("OUT LOOP");
+
+            $("#inbox", $("#Myframe").contents()).append("No Messages");
+        });
+    });
+    //var forsender = "<div class='row'><div class='col-sm-1'></div>"+
+    //                "<div class='col-sm-1' style='margin-left: -10px; margin-right: 10px'>"+
+    //                "<img class='img-circle' height='50' width='50' src='Content/Images/Profile/person3.png' />"+
+    //                "<br /><span class='text-muted' >" + messages.Sender.UserName+
+    //                "</span ></div><div class='well col-sm-6'>" +
+    //                "<span class='pull-right' " +
+    //                "style='margin-top: -15px; font-size: 10px; font-weight: bold'>" +
+    //                11/12/2017+
+    //                "</span><span>" +
+    //                Hello how are you+
+    //                "</span><br /><span>"+no attachments +
+    //                "</span></div><div class='col-sm-4'></div>" +
+    //                "</div >";
+
+
+</script>
+</body>
+</html>

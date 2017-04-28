@@ -1,0 +1,63 @@
+﻿@using EvsLabTask.Models;
+@model StudentModel
+
+<div class="Parent">
+    <div class="FormsLgn">
+        <div class="FormTtl">
+            <span>Edit</span>
+        </div>
+
+        <div class="ClsBtns">
+            <input class="ClsBtn" value="X" type="button"/>
+        </div>
+        @if (ViewBag.Name != null)
+        {
+            using (Html.BeginForm("EditStudentConfirm", "Home", FormMethod.Post, new {@class = "EditForm"}))
+            {
+
+                <div class="MainFormInputs">
+                    <ul>
+                        <li>
+                            @Html.Label("Name", new {@class = "lblE"})<br/>
+                            @*@Html.LabelFor(x => x.Name, new {@class = "lbl"})<br/>*@
+                            @*@Html.TextBoxFor(x => x.Name, new { value = "Irshad", placeholder = "Student Name", @class = "TxtBx"})*@
+                            @Html.TextBox("Name",null, new {  placeholder = "Student Name", @class = "TxtBxE"})
+                        </li>
+                        <li>
+                            @Html.Label("FatherName", new {@class = "lblE" })<br/>
+                            @*@Html.LabelFor(x => x.FatherName, new {@class = "lbl"})<br/>*@
+                            @Html.TextBox("FatherName",null, new {value="Irshad", placeholder = "Student Father Name", @class = "TxtBxE" })
+                            @*@Html.TextBoxFor(x => x.FatherName, new {value="Irshad", placeholder = "Student Father Name", @class = "TxtBx"})*@
+                        </li>
+                        <li>
+                            @Html.Label("Email", new {@class = "lblE" })<br/>
+                            @*@Html.LabelFor(x => x.Email, new {@class = "lbl"})<br/>*@
+                            @Html.TextBox("Email",null, new { value = "Irshad", placeholder = "Student Email Address", @class = "TxtBxE" })
+                            @*@Html.TextBoxFor(x => x.Email, new { value = "Irshad", placeholder = "Student Email Address", @class = "TxtBx"})*@
+                        </li>
+                        <li>
+                            @Html.Hidden("Id")
+                            <input type="button" value="Cancel" class="ClsBtn" />
+                            <input type="submit" value="Confirm" class="btn" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="ClrStl"></div>
+
+            }
+        }
+    </div>
+</div>
+
+
+
+<script>
+    $(".ClsBtn").click(function() {
+        $(this).parents(".FormsLgn").hide();
+    });
+
+
+
+</script>
+
+

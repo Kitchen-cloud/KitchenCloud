@@ -1,0 +1,33 @@
+﻿<div class="Parent">
+    <div class="FormsLgn">
+        <div class="FormTtl">
+            <span>Login</span>
+        </div>
+        <div class="ClsBtns">
+            <input class="ClsBtn" value="X" type="button" />
+        </div>
+        @*<form action="#">*@
+        @using (Html.BeginForm("Index", "Dashboard", FormMethod.Post))
+        {
+            <div class="FormsLgnUserCrd">
+                @*<input class="TxtBx" id="UserName" type="text" placeholder=" User Name " />*@
+                @Html.TextBox("UserName", null, new { placeholder = " User Name", @class = "TxtBx" })
+                @*<input class="TxtBx" id="Password" type="password" placeholder=" Password " />*@
+                @Html.Password("Password", null, new { placeholder = " Password", @class = "TxtBx" })
+            </div>
+                    <div class="FormsLgnBtnFgtPss">
+                        <div class="FormsLgnBtn">
+                            <input class="Btn" type="button" id="LogInBtn" value="Login" />
+                        </div>
+                        <div>
+                            <div class="FormsLgnFgtPss">
+                                <a id="FgtPssLnk" href="#">Forgot Password</a>
+                                @*@Html.ActionLink("Forgot Password","Index", new { id = "FgtPssLnk" })*@
+                            </div>
+                        </div>
+                    </div>
+        }
+        @*</form>*@
+    </div>
+</div>
+

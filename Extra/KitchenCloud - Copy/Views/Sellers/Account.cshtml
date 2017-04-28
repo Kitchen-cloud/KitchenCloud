@@ -1,0 +1,115 @@
+﻿
+
+
+
+
+@using KitchenCloud.Models;
+@model SellerProfile
+
+@{
+
+    Layout = "_AccountLayout.cshtml";
+
+    SellerProfile seller = ViewBag.SellerAcc;
+
+}
+@RenderPage("_NewMenu.cshtml")
+
+@if (seller != null)
+{
+    <section class="container-fluid">
+        <div class="container">
+            <div class="row col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="height: 20px; padding: 0px 15px;">
+                        <span class="text-primary">Description</span>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-muted">
+                            @seller.Introduction
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-lg-6 col-md-6 hidden-sm hidden-xs  " style="margin-left: 35px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="height: 20px; padding: 0px 15px;">
+                        <span class="text-primary">Services</span>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="container">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <button id="PrfileMenuShow" class="btn"><span class="text-primary">My Menus</span></button>
+
+                        <ul class="pull-right">
+                            <li class="dropdown " style="display: block;">
+                                <a class="dropdown-toggle" style="border: 1px solid lightgray; padding: 5px; display: block; margin-right: 60px;" data-toggle="dropdown"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="#">Name</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Date</a>
+                                    </li>
+                                    <li>
+                                        <a id="ShowStat" href="#">Reviews</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Orders</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body " id="MenuArea" style="padding-left: 65px;">
+                <div class="container  col-lg-3 col-md-3 col-sm-6 col-xs-12 " style="margin-top: 20px; margin-right: 64px; width: 200px;">
+                    <div class="row bg-info hidden-sm hidden-xs" style="width: 180px;" >
+                        <span class="text-muted" style="margin-left: 30px;">Create New menu </span>
+                    </div>
+                    <div class="row">
+                            <div class="container thumbnail col-lg-1 hidden-sm hidden-xs" style="padding: 60px; height: 180px; width: 180px;">
+                                <button id="NewMenu" class="btn btn-default" style="outline: none; height: 55px; width: 55px; border-radius: 30px;"><span class="text-primary glyphicon glyphicon-plus"></span></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+        <br />
+}
+@RenderPage("_BuyerReviewsTemplate.cshtml")
+
+<br />
+<br />
+<br />
+
+@section AccountScripts{
+    <script src="~/Scripts/Profile.js"></script>
+}

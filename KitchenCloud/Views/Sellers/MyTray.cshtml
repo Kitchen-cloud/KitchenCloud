@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewBag.Title = "MyTray";
+    Layout = "_AccountLayout.cshtml";
+}
+
+@using KitchenCloud.Models.Helpers
+@using KitchenCloud.Models.Shared;
+@model TrayRecipe
+@{
+    var MyTrayRecipes = (MyTray)Session[WebUtil.MY_TRAY];
+
+}
+<style>
+    .OneAdd {
+        margin-bottom: 2px;
+    }
+
+        .OneAdd:hover {
+            cursor: pointer;
+            border: 1px solid lightgray;
+        }
+</style>
+<div class="container">
+    <div class="container col-lg-12">
+
+
+        @if (MyTrayRecipes.Items.Count > 0 && MyTrayRecipes != null)
+        {
+
+            <div class="row">
+                <div class="container col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
+                    <div class="list-group">
+                        <div class="list-group-item-heading ">
+                            <div class="row">
+                                <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                    <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;sr#</span>
+                                    <span class="text-muted col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;Image</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">&nbsp;&nbsp;Title</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Category</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Sub Category</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Price</span>
+                                    <span class="text-muted col-lg-2 col-md-2 col-sm-2 col-xs-2">Action</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                    <div class="list-group">
+                        @{ int count = 1; }
+
+
+
+
+                        @foreach (var myTrayRecipe in MyTrayRecipes.Items)
+
+                        {
+
+                            <div class="list-group-item OneAdd">
+                                <div class="row">
+                                    <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+                                        <span class="text-primary col-lg-1 col-md-1 col-sm-1 col-xs-1 ">@count</span>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                            <img class="img-circle" src="@Url.Content(myTrayRecipe.ImgUrl)" style="height: 30px; width: 30px;" />
+                                        </div>
+                                        <input type="hidden" name="AddID" value="@myTrayRecipe.Id" />
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.Title</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.Category</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.SubCategory</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.Quantity</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">@myTrayRecipe.Amount</span>
+                                        <span class="text-primary col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <a href="#" id="@myTrayRecipe.Id" class="btn btn-group-sm RemoveAdd" style="padding: 2px;"><span class="glyphicon glyphicon-remove"></span></a>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            count++;
+
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+                            }
+
+
+
+
+
+    </div>
+</div>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+
+
+    $(".RemoveAdd").click(function () {
+
+      
+        $.ajax({
+            url: "/Dashboard/RemoveRecipeTray/" + $(this).attr("id"),
+            method: "POST",
+            success: function (result) {
+                if (result) {
+          
+                    $("#TrayCount").html(result);
+                }
+                else {
+                    alert("Failed");
+                }
+            
+        }
+
+        });
+
+
+    });
+
+
+
+
+</script>

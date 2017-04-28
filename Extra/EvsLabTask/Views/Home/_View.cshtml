@@ -1,0 +1,35 @@
+﻿
+@if (ViewBag.Stds != null)
+{
+    foreach (var student in ViewBag.Stds)
+    {
+        <ul id="Record">
+            <li>
+                <ul class="RecordDataN">
+                    <li>@student.Name</li>
+
+                </ul>
+                <ul class="RecordDataNF">
+                    <li>@student.FatherName</li>
+
+                </ul>
+                <ul class="RecordDataE">
+                    <li>@student.Email</li>
+
+                </ul>
+            </li>
+            <li>
+                <ul class="RecordBtns">
+                    <li class="badge btn">
+                        @Html.ActionLink("Edit", "EditStudentLnk", "Home", new { @class = "EditLnk", id = student.Id })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Delete", "DeleteLnk", "Home", new { @class = "DeleteLnk", id = student.Id })
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    }
+}
+

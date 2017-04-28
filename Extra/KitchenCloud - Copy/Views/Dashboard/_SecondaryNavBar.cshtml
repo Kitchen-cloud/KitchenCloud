@@ -1,0 +1,311 @@
+﻿
+
+<style>
+    #navs .nav-container {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    ul.navbars {
+        background: lightgray;
+        width: 100%;
+        font: 12px Helvetica,Arial,sans-serif;
+    }
+
+        ul.navbars, ul.navbars li, ul.navbars a:hover ul, ul.navbars a, ul.navbars li:hover > ul, ul.navbars span {
+            display: block;
+        }
+
+            ul.navbars, ul.navbars li, ul.navbars ul li {
+                float: left;
+            }
+
+                ul.navbars li {
+                    margin: 0;
+                }
+
+                ul.navbars a {
+                    vertical-align: middle;
+                    padding: 0px;
+                }
+
+                ul.navbars a, ul.navbars ul a {
+                    text-align: left;
+                }
+
+                ul.navbars span {
+                    overflow: hidden;
+                    background: no-repeat;
+                    padding-left: 5px;
+                    padding-right: 13px;
+                }
+
+                ul.navbars li a, ul.navbars li a:hover {
+                    padding: 9px 9px;
+                    color: gray;
+                }
+
+    ul.navbars-inner li a, ul.navbars-inner li a:hover {
+        padding: 1px;
+        font-weight: bold;
+    }
+
+        ul.navbars-inner li a, ul.navbars-inner li a:hover, ul.navbars li:hover > a, ul.navbars li a:hover {
+            color: gray;
+        }
+
+    ul.navbars ul, ul.navbars ul ul {
+        position: absolute;
+    }
+
+    ul.navbars ul {
+        left: 0px;
+        top: 98%;
+        width: 160.65px;
+        border-top: 0;
+    }
+
+        ul.navbars ul.nav-col-list {
+            top: 0px !important;
+        }
+
+    ul.navbars ul, ul.navbars {
+        margin: 0;
+        list-style: none;
+        padding: 0 2px 2px 0;
+    }
+
+        ul.navbars a:focus, ul.navbars a:active {
+            outline-style: none;
+        }
+
+        ul.navbars ul li, ul.navbars ul li:hover {
+            background-repeat: no-repeat;
+            background-position: 1px 5px;
+            margin: 0px;
+            width: 18.5em;
+            font-size: 8pt;
+        }
+
+        ul.navbars ul a {
+            padding-top: 0px;
+            padding-right: 3px;
+            margin-top: 2px;
+            margin-left: 8px;
+        }
+
+        ul.navbars li:hover, #nav li a:hover {
+            position: relative;
+        }
+
+            ul.navbars li:hover > a {
+            }
+
+        ul.navbars li a:hover {
+            border-bottom: none;
+        }
+
+        ul.navbars a:hover ul ul, ul.navbars ul {
+            -moz-border-radius-bottomleft: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -moz-border-radius-bottomright: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            padding: 5px;
+            background-color: #EEEEEE;
+            display: none;
+            border-top: none;
+            padding: 8px 2px 8px 12px;
+            z-index: 999;
+            border: 1px solid gray;
+            border-top: none;
+            margin-left: -1px;
+        }
+
+    ul.navbars-inner li a {
+        padding-top: 0;
+        padding-left: 8px;
+    }
+
+        ul.navbars-inner li a:hover {
+            color: lightgray;
+            padding-top: 0;
+            padding-left: 8px;
+            padding-right: 3px;
+        }
+
+    ul.navbars-inner strong {
+        color: black;
+    }
+
+    ul.navbars-inner li:hover {
+        background-image: none;
+    }
+
+    li.more {
+        float: left;
+    }
+
+        li.more a { /*background-image:url('../../images/nav/arrow-white.gif'); background-repeat:no-repeat; background-position:96% center;*/
+            line-height: 16px;
+        }
+
+        li.more li a {
+            background-image: none;
+        }
+
+    /* Navigation Bar Enteries*/
+    #nav #nav-home {
+        margin-left: 0px;
+    }
+
+        #nav #nav-home a {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+
+    #nav #nav-home,
+    ul.navbars #nav-reviews,
+    ul.navbars #nav-discuss,
+    ul.navbars #nav-events {
+        line-height: 15px;
+    }
+
+    ul.navbars #nav-jobs ul.navbars-inner {
+        margin-left: -393px;
+        top: 98%;
+        width: 500px;
+    }
+
+        ul.navbars #nav-jobs ul.navbars-inner li.nav-inner-content {
+            width: 165px;
+        }
+
+            ul.navbars #nav-jobs ul.navbars-inner li.nav-inner-content ul.nav-col-list {
+                width: 150px;
+            }
+
+                ul.navbars #nav-jobs ul.navbars-inner li.nav-inner-content ul.nav-col-list li {
+                    width: 14em;
+                }
+
+    ul.navbars #nav-community-1 ul.navbars-inner {
+        margin-left: -260px;
+        top: 98%;
+        width: 358px;
+    }
+
+        ul.navbars #nav-community-1 ul.navbars-inner li.nav-inner-content {
+            width: 165px;
+        }
+
+            ul.navbars #nav-community-1 ul.navbars-inner li.nav-inner-content ul.nav-col-list {
+                width: 150px;
+            }
+
+                ul.navbars #nav-community-1 ul.navbars-inner li.nav-inner-content ul.nav-col-list li {
+                    width: 14em;
+                }
+
+    #nav-classified ul.navbars-inner {
+        width: 650px;
+    }
+
+    ul.navbars li ul.navbars-inner li.nav-inner-content {
+        width: 215px;
+        float: left;
+        background: none;
+    }
+
+    #nav-property-for-sale ul.navbars-inner {
+        height: auto;
+        width: 210px;
+    }
+
+    #nav-property-for-rent ul.navbars-inner {
+        height: auto;
+        width: 225px;
+    }
+
+    ul.navbars li.nochild a, ul.navbars li.nochild a:hover {
+        padding: 9px 15px 9px 15px;
+    }
+
+    ul.navbars-inner li.nav-inner-content ul.nav-col-list {
+        display: block;
+        float: left;
+        width: 200px;
+        position: relative;
+        left: 0;
+        border: none;
+        background: none;
+    }
+
+    ul.nav-col-list {
+        top: 0px !important;
+    }
+    /* AutoSuggest CSS - Version 1.2 */
+</style>
+
+@using KitchenCloud.Models;
+@model SecondaryNavModel
+
+@{
+    List<SecondaryNavModel> Catogaries = ViewBag.CatogariesList;
+}
+
+<div class="row   hidden-sm hidden-xs" style="margin-top: -20px;">
+
+    <div id="navs">
+        <ul class="nav-container">
+            <li class="nav-container-main">
+                <ul id="navbars-id" class="navbars" style="padding-left: 100px;">
+
+
+                    @if (Catogaries.Count() > 0 && Catogaries != null)
+                    {
+                        int a = 0;
+                        foreach (SecondaryNavModel cs in Catogaries)
+                        {
+
+                            <li class="parent more" id="nav-community-@a">
+                                <a href="http://uae.dubizzle.com/community/" title=""><span class="more">@cs.CategoryName</span></a>
+
+                                <ul class="navbars-inner">
+
+
+                                    <li class="nav-inner-content">
+                                        <ul class="nav-col-list">
+                                            @foreach (string s in cs.Subcategories)
+                                            {
+                                                <li class="starred"><a href="#">@s<strong>(569)</strong></a></li>
+
+                                            }
+                                        </ul>
+                                    </li>
+
+                                    @*<li class="nav-inner-content">
+                                            <ul class="nav-col-list">
+                                                <li class="starred"><a href="http://uae.dubizzle.com/community/music/">Music <strong>(424)</strong></a></li>
+                                                <li class="starred"><a href="http://uae.dubizzle.com/community/news/">News <strong>(67)</strong></a></li>
+                                                <li class="starred"><a href="http://uae.dubizzle.com/community/photography/">Photography <strong>(468)</strong></a></li>
+                                                <li class="starred"><a href="http://uae.dubizzle.com/community/services/">Services <strong>(4299)</strong></a></li>
+                                                <li class="starred"><a href="http://uae.dubizzle.com/community/sports/">Sports <strong>(496)</strong></a></li>
+                                            </ul>
+                                        </li>*@
+
+
+                                </ul>
+
+
+                            </li>
+                            a = 1;
+                        }
+                    }
+                </ul>
+            </li>
+            <li class="nav-corner-end"></li>
+        </ul>
+
+    </div>
+</div><!-- end nav-->

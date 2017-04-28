@@ -1,0 +1,153 @@
+﻿
+@using KitchenCloud.Models;
+@using KitchenCloudEntitiesHandler.Users
+@model SellerProfile
+@{
+    
+    SellerProfile s=ViewBag.SellerProfile;
+   
+
+}
+
+
+
+    <html>
+    <head>
+        <title>
+            @s.UserName
+        </title>
+        <meta charset="utf-8"/>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+        <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet"/>
+        <link href="~/Content/Styles/jquery-ui.css" rel="stylesheet"/>
+        @*<style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: rgba(255, 255, 255, .8) url("/Content/Images/GIF/loadinganimation.gif") 50% 50% no-repeat;
+            }
+            body.loading {
+                overflow: hidden;
+            }
+
+            /* Anytime the body has the loading class, our
+   modal element will be visible */
+            body.loading .modal {
+                display: block;
+            }
+
+        </style>*@
+    </head>
+    <body>
+
+    <div class="container-fluid">
+
+        <div class="container-fluid" style="height: 250px; background: url('/Content/Images/Users/Profile Banners/Banner(13).png');">
+            <div class="row">
+                <div class="container col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+                    <img class="img-circle center-block" src="@Url.Content(s.ProfileImage.FolderPath)" style="height: 150px; width: 150px; margin-top: 35px;"/>
+                    <span class="hidden-lg hidden-md col-sm-12 col-xs-12 text-center " style="margin-top: 20px;">
+                        <a href="#" style= "color: white; font-size: 18px; font-weight: bold; font-family: Arial;">@s.UserName</a>
+                    </span>
+                </div>
+                <div class="container col-lg-8 col-md-6 hidden-sm hidden-xs ">
+                    <span class="col-lg-8 col-md-6 hidden-sm hidden-xs " style="margin-top: 80px;">
+                        <a href="#" style="color: white; font-size: 22px; font-weight: bold; font-family: Arial;"><span class="glyphicon glyphicon-home"> <span style="font-family: arial">@s.Location.Name</span></span></a><br /><br />
+                        <a href="#" style = "color: white; font-size: 24px; font-weight: bold; font-family: Arial; margin-left: 16px;">@s.UserName</a><br /><br />
+                       <a href="#" style = "color: white; font-size: 22px; font-weight: bold; font-family: Arial;">@s.Slogan</a><br /><br />
+
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-default  ">
+                    <div class="navbar-header col-lg-1">
+                        <a href="#" class="navbar-brand"><img src="~/Content/Images/Logos/LogoG.png" style="height: 40px; width: 70px; margin-top: -10px;"/></a>
+                    </div>
+                    <ul class="nav  navbar-nav ">
+                        <li class="col-lg-push-3"><a href="#">Reviews <span class="badge text-primary">@s.Reviews</span></a></li>
+
+
+
+
+                        <li class="col-lg-push-12 ">
+                            <a href="#">
+                                <span>Ratings</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i == 4)
+                                    {
+                                        <img src="~/Content/Images/Icons/star_half.png" style="height: 25px; width: 25px; margin-top: -5px"/>
+                                    }
+                                    else if (i == 5)
+                                    {
+                                        <img src="~/Content/Images/Icons/star_empty.png" style="height: 25px; width: 25px; margin-top: -5px"/>
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/Icons/star_full.png" style="height: 25px; width: 25px; margin-top: -5px"/>
+                                    }
+                                }
+                            </a>
+                        </li>
+                        <li><a href="#">Visitors <span class="badge text-primary">@s.Visitors</span></a></li>
+                        <li > <a  href="#">Tray <span class="badge text-primary  ">4</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right col-lg-1">
+                        <li class="dropdown  hidden-sm hidden-xs  ">
+                            <a class="dropdown-toggle" style="border: 1px solid #EEEEEE; margin-top: 6px;" data-toggle="dropdown"><span class="text-primary caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#myModal">New Menu</a>
+                                </li>
+                                <li>
+                                    <a href="#">Customer Orders</a>
+                                </li>
+                                <li>
+                                    <a id="ShowStat" href="#">Statistics</a>
+                                </li>
+                                <li>
+                                    <a href="#">Account Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sign Out</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    @RenderBody()<br/>
+
+
+    @RenderPage("~/Views/Shared/_GlobalFooter.cshtml")
+
+
+   @* <div class="modal"><!-- Place at bottom of page --></div>
+*@
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("AccountScripts", false)
+
+
+    </body>
+    </html>

@@ -1,0 +1,199 @@
+﻿@using KitchenCloud.Models.Recipes;
+@model CreateNewRecipe
+@{
+
+
+    List<SelectListItem> category = ViewBag.CategoryList;
+    List<SelectListItem> country = ViewBag.Countries;
+}
+@using (Html.BeginForm("Addrecipe", "Sellers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">Create New recipe</h4>
+                </div>
+                <div class="modal-body">
+
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a data-toggle="tab" href="#Title"><span class="glyphicon glyphicon-pencil"></span> Title and Description</a>
+                        </li>
+
+                        <li role="presentation">
+                            <a data-toggle="tab" href="#Location"><span class="glyphicon glyphicon-map-marker"></span> Address and Timing</a>
+
+                        </li>
+                        <li role="presentation">
+                            <a data-toggle="tab" href="#Media"><span class="glyphicon glyphicon-picture"></span> Media and Categeory</a>
+                        </li>
+                        <li role="presentation">
+                            <a data-toggle="tab" href="#Done"><span class="glyphicon glyphicon-tags"></span> Tags</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="Title" class="tab-pane fade in active" style="padding-left: 60px;">
+                            <br />
+                            <div class="row">
+                                <div class="container col-lg-10">
+                                    <div class="form-group">
+                                        @Html.ValidationMessageFor(x => x.Title, null, new { @class = "ValidationError" })
+                                        @Html.TextBoxFor(x => x.Title, new { placeholder = "recipe Title", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="form-group">
+
+                                <label class="lbl">Person's For</label>
+                                <div class="list-group">
+                                    <div class="list-group-item col-lg-10" style="background: url('/Content/Images/Extra/texture.png')">
+                                        @Html.RadioButtonFor(x => x.PersonsFor, "Single", new { id = "Single", required = "Required", @checked = "checked" })
+                                        @Html.Label("Single", new { @class = "text-primary", @for = "Single" })
+                                        &nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;
+                                        @Html.RadioButtonFor(x => x.PersonsFor, "Double", new { id = "Double", required = "Required" })
+                                        @Html.Label("Double", new { @class = "text-primary", @for = "Double" })
+                                        &nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;
+                                        @Html.RadioButtonFor(x => x.PersonsFor, "Party", new { id = "Party", required = "Required" })
+                                        @Html.Label("Party", new { @class = "text-primary", @for = "Party" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br /> <br /> <br />
+                            <div class="row">
+                                <div class="container col-lg-10">
+                                    <div class="form-group">
+                                        <label class="lbl">Description</label>
+                                        @*@Html.ValidationMessageFor(x => x.Description, null, new { @class = "ValidationError" })*@
+                                        @Html.TextAreaFor(x => x.Description, new { cols = "35", rows = "5", @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Location" class="tab-pane fade" style="padding-left: 60px;">
+                            <br />
+                            <br />
+                            @*<div class="row">
+                                    <div class="container col-lg-5">
+                                        <div class="form-group">
+
+                                            <label class="lbl">Country</label>
+                                            @Html.DropDownList("Country", country, "- Select Country -", new {@class = "form-control", id = "CountryList"})
+                                        </div>
+                                    </div>
+                                    <div class="container col-lg-5">
+                                        <div class="form-group">
+                                            <label class="lbl">City</label>
+
+                                            <div id="CityList">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="row">
+                                <div class="container col-lg-10">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Price, new { @class = "form-control", placeholder = "Price" })
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="container col-lg-10">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.StreetAddress, null, new { placeholder = "Street Address # Line 1", @class = "form-control" })
+                                        <br />
+                                       </div>
+                                </div>
+                            </div>
+
+
+                            <br />
+
+
+
+
+
+                        </div>
+                        <div id="Media" class="tab-pane fade" style="padding-left: 60px;">
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="container col-lg-5">
+
+                                    <div class="form-group">
+                                        <label class="lbl">Food Category</label>
+                                        @Html.DropDownList("FoodCategoryList", category, "- Select Category -", new { @class = "form-control", id = "FoodCategory" })
+                                    </div>
+                                </div>
+                                <div class="container col-lg-5">
+                                    <div class="form-group">
+                                        <label class="lbl">Food Sub Category</label>
+                                        <div id="FoodSubCategory">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="container col-lg-10">
+                                    <div class="form-group">
+                                        <input type="file" name="file1" id="file1" class="form-control" />
+                                    </div><div class="form-group">
+                                        <input type="file" name="file2" id="file2" class="form-control" />
+                                    </div><div class="form-group">
+                                        <input type="file" name="file3" id="file3" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+
+
+                        </div>
+                        <div id="Done" class="tab-pane fade" style="padding-left: 60px;">
+                            <br />
+
+                            <div class="row">
+                                <div class="container col-lg-10">
+                                    <div class="form-group">
+                                        <div id="AddedTags" style="height: 130px; background: url('/Content/Images/Extra/texture.png')">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <input type="text" id="AddTagTxtBx" placeholder="recipe Tags -hit (,) to add Tag" class="form-control" /><br /><br />
+
+
+
+                                    <br />
+                                    <input type="submit" class="btn btn-primary pull-right" style="width: 200px" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+}

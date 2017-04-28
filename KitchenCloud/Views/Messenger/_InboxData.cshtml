@@ -1,0 +1,97 @@
+﻿
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+@using KitchenCloud.Models.Messenger;
+@model List<MessagePreviewModel>
+
+<style>
+    ::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+
+    .InboxMsg {
+        border: 1px solid lightgrey;
+        padding: 15px 15px;
+    }
+
+        .InboxMsg:hover {
+            border: 1px solid gray;
+            background: gainsboro;
+            cursor: pointer;
+            font-weight: bold;
+        }
+</style>
+
+
+@if (Model != null && Model.Count > 0)
+{
+
+    foreach (MessagePreviewModel msgPreview in Model)
+    {
+        <div class="container-fluid InboxMsg" data-chatwithid="@msgPreview.Id">
+            <div class="col-sm-3">
+                <img src="@Url.Content(msgPreview.SenderImage.Replace('~',' '))" style="height: 25px; width: 25px;" />
+                &nbsp;&nbsp;@msgPreview.SenderName
+            </div>
+            <div class="col-sm-6">
+                @msgPreview.Preview
+            </div>
+            <div class="col-sm-3">
+                @msgPreview.RecievedOn
+            </div>
+        </div>
+
+    }
+
+}
+else
+{
+    @*<span class="bg-danger">No Messages</span>*@
+
+for (int i = 1; i < 100; i++)
+{
+    <div class="container-fluid InboxMsg" data-chatwithid="@i">
+        <div class="col-sm-3">
+            <img src="~/Content/Images/Users/Profile Img/person1.png" style="height: 25px; width: 25px;" />
+            &nbsp;&nbsp; Irshad Ahmed
+        </div>
+        <div class="col-sm-6">
+            Hello How are you ?...
+        </div>
+        <div class="col-sm-3">
+            @DateTime.Now.ToString()
+        </div>
+    </div>
+
+
+    }
+
+}
+<script src="~/Scripts/jquery-2.2.3.min.js"></script>
+<script>
+    $(".InboxMsg").click(function () {
+
+        $.ajax({
+
+            url: "/Messenger/ChatInInbox/" +$(this).data("chatwithid"),
+            method: "Get"
+        }).done(function (result) {
+
+            window.parent.$("#MessageAppMain").html(result);
+            
+        }).error(function () {
+            alert("failed");
+        });
+    });
+</script>

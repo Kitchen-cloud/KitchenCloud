@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5603095D-FA69-4879-A62E-A34CACF9FE56}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KitchenCloud</RootNamespace>
+    <AssemblyName>KitchenCloud</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Diphap.JsNetBridge, Version=1.4.0.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Diphap.JsNetBridge.Mvc.1.1.34\lib\net45\Diphap.JsNetBridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Diphap.JsNetBridge.Mvc, Version=1.4.0.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Diphap.JsNetBridge.Mvc.1.1.34\lib\net45\Diphap.JsNetBridge.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Diphap.JsNetBridge.Mvc.Proxy, Version=1.3.0.24, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Diphap.JsNetBridge.Mvc.1.1.34\lib\net45\Diphap.JsNetBridge.Mvc.Proxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Omu.Encrypto, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Omu.Encrypto.1.0.0\lib\net35\Omu.Encrypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\All Menus\MenuImg %281%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2810%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2811%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2812%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2813%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2814%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2814%29.png" />
+    <Content Include="Content\Images\All Menus\MenuImg %2815%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2816%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2817%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2818%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2819%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %282%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2820%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2821%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2822%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2823%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2824%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2825%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2826%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2827%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2828%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2829%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %283%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2830%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2831%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2832%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2833%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2834%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2835%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2836%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2837%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %2838%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %284%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %285%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %286%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %287%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %288%29.jpg" />
+    <Content Include="Content\Images\All Menus\MenuImg %289%29.jpg" />
+    <Content Include="Content\Images\banners\banner 23 %282%29.png" />
+    <Content Include="Content\Images\banners\Picture2.png" />
+    <Content Include="Content\Images\banners\Picture3.png" />
+    <Content Include="Content\Images\banners\Picture4.PNG" />
+    <Content Include="Content\Images\Extra\body-bg7.png" />
+    <Content Include="Content\Images\Extra\border-image.png" />
+    <Content Include="Content\Images\Extra\Capture.PNG" />
+    <Content Include="Content\Images\Extra\chat-bg.png" />
+    <Content Include="Content\Images\Extra\Cut-n-Paste.jpg" />
+    <Content Include="Content\Images\Extra\Pad-Thai.jpg" />
+    <Content Include="Content\Images\Extra\Picture1.png" />
+    <Content Include="Content\Images\Extra\Picture2.png" />
+    <Content Include="Content\Images\Extra\06cadc23265815eeb90e55642d07af5f.jpg" />
+    <Content Include="Content\Images\Extra\3e9f02a2-d74f-4713-9959-acbbf331aa7b.jpg" />
+    <Content Include="Content\Images\Extra\decorative_fruits_on_dish_vector_illustration_6824100.jpg" />
+    <Content Include="Content\Images\Extra\GreensboroGlutenFree-Food-Drive-banner.jpg" />
+    <Content Include="Content\Images\Extra\Healthy_Summer_Foods.jpg" />
+    <Content Include="Content\Images\Extra\l_6f5dfcc0-5eec-11e2-800d-43c4cdd00012.jpg" />
+    <Content Include="Content\Images\GIF\abc.gif" />
+    <Content Include="Content\Images\GIF\FhHRx.gif" />
+    <Content Include="Content\Images\Extra\icons.png" />
+    <Content Include="Content\Images\GIF\loadinganimation.gif" />
+    <Content Include="Content\Images\Icons\award.png" />
+    <Content Include="Content\Images\Icons\cer badge  %281%29.png" />
+    <Content Include="Content\Images\Icons\cer badge  %282%29.png" />
+    <Content Include="Content\Images\Icons\chat-off.png" />
+    <Content Include="Content\Images\Icons\chat-on.png" />
+    <Content Include="Content\Images\Icons\CreateMenuB.png" />
+    <Content Include="Content\Images\Icons\CreateMenuW.png" />
+    <Content Include="Content\Images\Icons\fav %281%29.png" />
+    <Content Include="Content\Images\Icons\fav %282%29.png" />
+    <Content Include="Content\Images\Icons\favgray.png" />
+    <Content Include="Content\Images\Icons\favred.png" />
+    <Content Include="Content\Images\Icons\favsgray.png" />
+    <Content Include="Content\Images\Icons\fb.jpg" />
+    <Content Include="Content\Images\Icons\linkedin.jpg" />
+    <Content Include="Content\Images\Icons\LogoBC.ico" />
+    <Content Include="Content\Images\Icons\LogoBC.png" />
+    <Content Include="Content\Images\Icons\LogoBF.ico" />
+    <Content Include="Content\Images\Icons\LogoBF.png" />
+    <Content Include="Content\Images\Icons\notification.png" />
+    <Content Include="Content\Images\Icons\notificationDim.png" />
+    <Content Include="Content\Images\Icons\Picture1.png" />
+    <Content Include="Content\Images\Icons\Picture2.png" />
+    <Content Include="Content\Images\Icons\Picture3.png" />
+    <Content Include="Content\Images\Icons\Picture4.png" />
+    <Content Include="Content\Images\Icons\star_empty.png" />
+    <Content Include="Content\Images\Icons\star_full.png" />
+    <Content Include="Content\Images\Icons\star_half.png" />
+    <Content Include="Content\Images\Icons\twitter.jpg" />
+    <Content Include="Content\Images\Icons\youtube.jpg" />
+    <Content Include="Content\Images\job5.png" />
+    <Content Include="Content\Images\left.PNG" />
+    <Content Include="Content\Images\Logos\hh.png" />
+    <Content Include="Content\Images\Logos\LogoBC.png" />
+    <Content Include="Content\Images\Logos\LogoBF.png" />
+    <Content Include="Content\Images\Logos\logod.png" />
+    <Content Include="Content\Images\Logos\Logoss.png" />
+    <Content Include="Content\Images\Logos\LogoWC.png" />
+    <Content Include="Content\Images\Logos\LogoWF.png" />
+    <Content Include="Content\Images\Slider\Img %281%29.bmp" />
+    <Content Include="Content\Images\Slider\Img %281%29.jpg" />
+    <Content Include="Content\Images\Slider\Img %282%29.jpg" />
+    <Content Include="Content\Images\Slider\Img %283%29.jpg" />
+    <Content Include="Content\Images\Slider\Img %284%29.jpg" />
+    <Content Include="Content\Images\Slider\Img %285%29.jpg" />
+    <Content Include="Content\Images\Slider\prof.png" />
+    <Content Include="Content\Images\GIF\neww.gif" />
+    <Content Include="Content\Images\Logos\LogoG.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %281%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %281%29.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %2810%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %2811%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %2812%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %282%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %282%29.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %283%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %284%29.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %285%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %286%29.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %287%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %288%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner %289%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\banner 23 %281%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\banner 23 %282%29.png" />
+    <Content Include="Content\Images\Users\Profile Banners\banner 23 %282%294.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\banner 23 %283%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner 24 %281%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner 24 %282%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner%2813%29.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner%2814%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner%2815%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Banner%2816%29.jpg" />
+    <Content Include="Content\Images\Users\Profile Banners\Picture2.png" />
+    <Content Include="Content\Images\Users\Profile Banners\Picture3.png" />
+    <Content Include="Content\Images\Users\Profile Img\cb.jpg" />
+    <Content Include="Content\Images\Users\Profile Img\person1.png" />
+    <Content Include="Content\Images\Users\Profile Img\person2.png" />
+    <Content Include="Content\Images\Users\Profile Img\person3.png" />
+    <Content Include="Content\Images\Users\Profile Img\person4.png" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\06cadc23265815eeb90e55642d07af5f.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\3e9f02a2-d74f-4713-9959-acbbf331aa7b.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\Cut-n-Paste.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\decorative_fruits_on_dish_vector_illustration_6824100.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\food-9-facebook-cover-timeline-banner-for-fb.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\Food-for-desktop.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\GreensboroGlutenFree-Food-Drive-banner.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\Healthy_Summer_Foods.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\Extra\l_6f5dfcc0-5eec-11e2-800d-43c4cdd00012.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuBG %281%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuBG %281%29.png" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuBG %282%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuBG %282%29.png" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuBG %283%29.png" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %281%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %282%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %283%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %284%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %285%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %286%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %287%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %288%29.jpg" />
+    <Content Include="Content\Images\Users\Recipe Images\MenuImg %289%29.jpg" />
+    <Content Include="Content\Images\Extra\texture.png" />
+    <Content Include="Content\kitchencloud-custom-css.css" />
+    <Content Include="Content\sliderengine\amazingslider-1.css" />
+    <Content Include="Content\sliderengine\amazingslider.js" />
+    <Content Include="Content\sliderengine\arrows-32-32-0.png" />
+    <Content Include="Content\sliderengine\bottomshadow-110-95-0.png" />
+    <Content Include="Content\sliderengine\bullet-24-24-0.png" />
+    <Content Include="Content\sliderengine\carouselarrows-32-32-0.png" />
+    <Content Include="Content\sliderengine\html5boxplayer.swf" />
+    <Content Include="Content\sliderengine\html5boxplayer_fullscreen.png" />
+    <Content Include="Content\sliderengine\html5boxplayer_hd.png" />
+    <Content Include="Content\sliderengine\html5boxplayer_playpause.png" />
+    <Content Include="Content\sliderengine\html5boxplayer_playvideo.png" />
+    <Content Include="Content\sliderengine\html5boxplayer_volume.png" />
+    <Content Include="Content\sliderengine\initslider-2.js" />
+    <Content Include="Content\sliderengine\initslider-1.js" />
+    <Content Include="Content\sliderengine\jquery.js" />
+    <Content Include="Content\sliderengine\lightbox-close.png" />
+    <Content Include="Content\sliderengine\lightbox-loading.gif" />
+    <Content Include="Content\sliderengine\lightbox-navnext.png" />
+    <Content Include="Content\sliderengine\lightbox-navprev.png" />
+    <Content Include="Content\sliderengine\lightbox-next.png" />
+    <Content Include="Content\sliderengine\lightbox-playvideo.png" />
+    <Content Include="Content\sliderengine\lightbox-prev.png" />
+    <Content Include="Content\sliderengine\navarrows-28-28-0.png" />
+    <Content Include="Content\sliderengine\navbuttonbgimage-28-28-0.png" />
+    <Content Include="Content\sliderengine\navplaypause-28-28-0.png" />
+    <Content Include="Content\sliderengine\play-32-32-0.png" />
+    <Content Include="Content\sliderengine\playvideo-64-64-0.png" />
+    <Content Include="Content\sliderengine\previewarrow-16-8-0.png" />
+    <Content Include="Content\Styles\bjqs.css" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Styles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Styles\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\Styles\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\Styles\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\Styles\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\Styles\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Styles\Index.css" />
+    <Content Include="Content\Styles\jquery-ui.css" />
+    <Content Include="Content\Styles\jquery-ui.min.css" />
+    <Content Include="Content\Styles\Profile.css" />
+    <Content Include="Content\Styles\Site.css" />
+    <Content Include="Content\Styles\Test.css" />
+    <Content Include="Content\sweet-alert.css" />
+    <Content Include="Content\Videos\Cut-n-Paste.mp4" />
+    <Content Include="Content\Videos\Pad-Thai.mp4" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\bjqs-1.3.js" />
+    <Content Include="Scripts\bjqs-1.3.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Index - Copy.js" />
+    <Content Include="Scripts\Index - withoutbootstrap.js" />
+    <Content Include="Scripts\Index.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\sweet-alert.min.js" />
+    <Content Include="Views\Shared\_Dialog.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Profile.js" />
+    <Content Include="Scripts\Test.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BuyersController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\MessengerController.cs" />
+    <Compile Include="Hubs\MessengerHub.cs" />
+    <Compile Include="Models\Admin\LoginModel.cs" />
+    <Compile Include="Models\Admin\SellerInfo.cs" />
+    <Compile Include="Models\Buyers\BuyerProfile.cs" />
+    <Compile Include="Models\Buyers\BuyerReviewModel.cs" />
+    <Compile Include="Controllers\SellersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helpers\StringCryptor.cs" />
+    <Compile Include="Models\Helpers\TypeCaster.cs" />
+    <Compile Include="Models\Helpers\WebUtil.cs" />
+    <Compile Include="Models\Messenger\MessageModel.cs" />
+    <Compile Include="Models\Messenger\MessagePreviewModel.cs" />
+    <Compile Include="Models\Orders\OrderModel.cs" />
+    <Compile Include="Models\Recipes\CreateNewRecipe.cs" />
+    <Compile Include="Models\Recipes\RecipeSeller.cs" />
+    <Compile Include="Models\Sellers\SellerProfileSettings.cs" />
+    <Compile Include="Models\Sellers\SellerServices.cs" />
+    <Compile Include="Models\Shared\DDListModel.cs" />
+    <Compile Include="Models\Shared\FavoriteRecipeModel.cs" />
+    <Compile Include="Models\Shared\GenericDDL.cs" />
+    <Compile Include="Models\Shared\LoginUserModel.cs" />
+    <Compile Include="Models\Recipes\MyRecipesModel.cs" />
+    <Compile Include="Models\Recipes\RecipeDescription.cs" />
+    <Compile Include="Models\Recipes\RecipeTagListModel.cs" />
+    <Compile Include="Models\Recipes\RecipeTemplate.cs" />
+    <Compile Include="Models\Shared\MyTray.cs" />
+    <Compile Include="Models\Shared\MyTrayRecipe.cs" />
+    <Compile Include="Models\Shared\NotificationModel.cs" />
+    <Compile Include="Models\Shared\SearchKeys.cs" />
+    <Compile Include="Models\Shared\SecondaryNavModel.cs" />
+    <Compile Include="Models\Sellers\SellerProfile.cs" />
+    <Compile Include="Models\Sellers\SignupSellerModel.cs" />
+    <Compile Include="Models\Shared\UpdatePassword.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Sellers\Account.cshtml" />
+    <Content Include="Views\Dashboard\_DashboardLayout.cshtml" />
+    <Content Include="Views\Shared\_GlobalFooter.cshtml" />
+    <Content Include="Views\Shared\_GlobalRecipeTemplate.cshtml" />
+    <Content Include="Views\Dashboard\_SignUp.cshtml" />
+    <Content Include="Views\Dashboard\_LogIn.cshtml" />
+    <Content Include="Views\Dashboard\_RecoverPassword.cshtml" />
+    <Content Include="Views\Shared\_GlobalFeedback.cshtml" />
+    <Content Include="Views\Sellers\_NewRecipe.cshtml" />
+    <Content Include="Views\Sellers\_AccountStats.cshtml" />
+    <Content Include="Views\Sellers\_AccountLayout.cshtml" />
+    <Content Include="Views\Sellers\_BuyerReviewsTemplate.cshtml" />
+    <Content Include="Views\Buyers\Account.cshtml" />
+    <Content Include="Views\Dashboard\Guest.cshtml" />
+    <Content Include="Views\Dashboard\_SecondaryNavBar.cshtml" />
+    <Content Include="Views\Buyers\_AccountLayout.cshtml" />
+    <Content Include="Views\Dashboard\_SidePanel.cshtml" />
+    <Content Include="Views\Dashboard\_PrimaryNavBar.cshtml" />
+    <Content Include="Views\Shared\_DDListView.cshtml" />
+    <Content Include="Views\Dashboard\_RecipeDescription.cshtml" />
+    <Content Include="Views\Dashboard\_SecondaryDashboard.cshtml" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="Views\Sellers\_AccountSettings.cshtml" />
+    <Content Include="Views\Sellers\_AccountOrders.cshtml" />
+    <Content Include="Views\Sellers\_AccountStatistics.cshtml" />
+    <Content Include="Views\Sellers\_MyRecipes.cshtml" />
+    <Content Include="Views\Shared\_UpdatePassword.cshtml" />
+    <Content Include="Views\Dashboard\_MyTrayView.cshtml" />
+    <Content Include="Views\Dashboard\_AlertMessageBar.cshtml" />
+    <Content Include="Views\Admin\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_AllRecipes.cshtml" />
+    <Content Include="Views\Admin\_AllSellers.cshtml" />
+    <Content Include="Views\Admin\_AllBuyers.cshtml" />
+    <Content Include="Views\Admin\_AllOrders.cshtml" />
+    <Content Include="Views\Sellers\_MyOrders.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Dashboard\_CityList.cshtml" />
+    <Content Include="Views\Shared\_Notification.cshtml" />
+    <Content Include="Views\Messenger\Index.cshtml" />
+    <Content Include="Views\Messenger\_InboxData.cshtml" />
+    <Content Include="Views\Messenger\_InboxFrame.cshtml" />
+    <Content Include="Views\Messenger\_ChatData.cshtml" />
+    <Content Include="Views\Messenger\_ChatFrame.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\TemporaryFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KitchenCloudEntitiesHandler\KitchenCloudEntitiesHandler.csproj">
+      <Project>{645be669-d749-4290-97c4-7d0537065c1f}</Project>
+      <Name>KitchenCloudEntitiesHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KitchenCloudEntities\KitchenCloudEntities.csproj">
+      <Project>{a5649b2a-e4d3-4ec8-8158-374e540c9a51}</Project>
+      <Name>KitchenCloudEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4502</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4502/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

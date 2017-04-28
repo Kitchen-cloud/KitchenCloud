@@ -1,0 +1,129 @@
+﻿@{
+    @model KitchenCloud.Models.CreateNewMenu
+}
+@using (Html.BeginForm("AddMenu", "Users", FormMethod.Post, new { @class = "Form" }))
+{
+
+    <div class="NewMenu">
+        <div class="ClsBtns">
+            <input class="ClsBtn" value="X" type="button" />
+        </div>
+        <div class="CreateNewMenuTitle">
+            <span class="Ttl">Creating New Menu</span>
+        </div>
+        <div class="NewMenuBody">
+
+
+            <div class="NewMenuTabs">
+                <section id="NewMenuTabs" class="Tabs">
+                    <ul>
+                        <li>
+                            <a href="#Title">Title and Description</a>
+                            @*@Html.ActionLink("Title and Tags", "UserProfile")*@
+                        </li>
+                        <li>
+                            <a href="#Location">Location</a>
+                        </li>
+                        <li>
+                            <a href="#Media">Media</a>
+                        </li>
+                        <li>
+                            <a href="#Done">Done</a>
+                        </li>
+                    </ul>
+                    <div id="Title" class="NewMenuTab">
+                        <div class="NewMenuTitle">
+                            <fieldset class="NewMenuGrpBx">
+                                <legend>Select Recipe</legend>
+                                <select id="NewMenuCatogory">
+                                    <option value="0" disabled selected>- Select Category -</option>
+                                    <option value="1">Pakistani</option>
+                                    <option value="2">Continental</option>
+                                    <option value="3">Chinese</option>
+                                </select>
+                                <select id="NewMenuCatogoryType">
+                                    <option value="0" disabled selected>- Sub Category -</option>
+                                    <option value="1">Fast Food</option>
+                                    <option value="2">Soup</option>
+                                    <option value="3">Lite</option>
+                                    <option value="3">Desi</option>
+                                </select>
+                            </fieldset>
+                            <br /><br />
+                            <fieldset class="NewMenuGrpBx">
+                                <legend>For</legend>
+                                <div class="MealFor">
+                                    @Html.RadioButtonFor(x => x.PersonsFor, "Single", new { id = "Single", required = "Required", @checked = "checked" })
+                                    @Html.Label("Single", new { @class = "PTtl", @for = "Single" })
+                                    @Html.RadioButtonFor(x => x.PersonsFor, "Double", new { id = "Double", required = "Required", @checked = "checked" })
+                                    @Html.Label("Double", new { @class = "PTtl", @for = "Double" })
+                                    @Html.RadioButtonFor(x => x.PersonsFor, "Party", new { id = "Party", required = "Required", @checked = "checked" })
+                                    @Html.Label("Party", new { @class = "PTtl", @for = "Party" })
+                                </div>
+                            </fieldset>
+
+                            <br />
+                            <br />
+                            <Span class="TabTtl">Description</Span>
+                            @Html.ValidationMessageFor(x => x.Description, null, new { @class = "ValidationError" })
+
+
+                            <br />
+                            @Html.TextAreaFor(x => x.Description, new { cols = "35", rows = "5" })
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+
+                    <div id="Location" class="NewMenuTab">
+                        <div class="NewMenuLocation">
+                            <fieldset class="NewMenuGrpBx">
+                                <legend>Select Location</legend>
+                                <select id="NewMenuLocationCountry">
+                                    <option value="0" disabled selected>- Select Country -</option>
+                                    <option value="1">Pakistan</option>
+                                    <option value="2">India</option>
+                                </select>
+                                <select id="NewMenuLocationCity">
+                                    <option value="0" disabled selected>- Select City -</option>
+                                    <option value="1">Lahore</option>
+                                    <option value="2">Islamabad</option>
+                                    <option value="3">Karachi</option>
+                                    <option value="4">Sialkot</option>
+                                </select>
+                            </fieldset>
+                            @Html.TextBox("StreatAddressOne", null, new { placeholder = "Street Address # Line 1", @class = "TxtBx" })
+                            @Html.TextBox("StreatAddressTwo", null, new { placeholder = "Street Address # Line 2", @class = "TxtBx" })
+                        </div>
+
+                    </div>
+                    <div id="Media" class="NewMenuTab">
+                        <div class="NewMenuMedia">
+                           <div class="custom-file-upload">
+                                <!--<label for="file">File: </label>-->
+                                <input type="file" id="file"  class="ChsBtn"/>
+                                <input type="file" id="file" class="ChsBtn"/>
+                                <input type="file" id="file" class="ChsBtn"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Done" class="NewMenuTab">
+                        <div class="NewMenuDone">
+                            <fieldset class="NewMenuGrpBx" style="height: 40px; padding: 15px;">
+                                <legend>Tags</legend>
+                                <div id="AddedTags">
+                                </div>
+                            </fieldset>
+                            <input type="text" id="AddTagTxtBx" placeholder="Menu Tags -hit Enter to add Tag" class="TxtBx"/><br/><br/>
+
+                                <input type="submit" class="Btn" style="padding:8px 50px;"/>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+}
+  

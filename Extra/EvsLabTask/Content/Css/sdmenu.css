@@ -1,0 +1,31 @@
+div.sdmenu div {
+	background:Transparent;
+	overflow: hidden;
+	width:190px;
+	color:white;
+	margin-top:4px;
+	margin-left:20px;
+	box-shadow:whitesmoke 0px 0px 1px 0px;
+}
+div.sdmenu div:hover{
+box-shadow:whitesmoke 0px 0px 2px 0px;
+}
+div.sdmenu div.collapsed {
+	height: 25px;
+	
+}
+div.sdmenu div span {
+	display: block;
+	padding: 5px 30px;
+	cursor: pointer;
+}
+div.sdmenu div a {
+	padding: 5px 45px;
+	display: block;
+	color: gray;
+	text-decoration:none;
+}
+div.sdmenu div a:hover {
+	background :#3366FF;
+	color:white;
+}
