@@ -21,7 +21,6 @@ namespace KitchenCloud.Controllers
 {
     public class DashboardController : Controller
     {
-
         private static int _trayCount = 0;
         //private int RangeStart=1, RangeEnd;
         public ActionResult Index()
@@ -527,6 +526,8 @@ namespace KitchenCloud.Controllers
 
                     TrayRecipe trayRecipe = new TrayRecipe()
                     {
+
+                        Name = recipe.Title,
                         Category = recipe.Category,
                         ImageUrl = recipe.ImgUrl,
                         Price = recipe.Amount,
@@ -538,6 +539,7 @@ namespace KitchenCloud.Controllers
 
                     new OrderHandler().Add(new Order()
                     {
+                        
                         BuyerId = user.Id,
                         OrderDate = System.DateTime.Now.ToShortDateString(),
                         OrderStatus = Status.Pending,
@@ -576,7 +578,6 @@ namespace KitchenCloud.Controllers
                 return Json(false);
             }
         }
-
         [HttpPost]
         public ActionResult AddFavorite(int id)
         {
@@ -639,8 +640,6 @@ namespace KitchenCloud.Controllers
 
 
         }
-
-
-
+        
     }
 }

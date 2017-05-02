@@ -1,12 +1,213 @@
 ﻿@using KitchenCloud.Models.Orders;
-@model OrderModel
+@model OrderActionModel
 @{
-        List<OrderModel> MyOrderList = ViewBag.MyOrdersList;
-   
+    List<OrderModel> MyOrderList = ViewBag.MyOrdersList;
+
 }
 
 <div class="container">
-    @*<div class="container col-lg-12 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
+
+    @if (MyOrderList.Count() > 0 && MyOrderList != null)
+    {
+
+        foreach (OrderModel order in MyOrderList)
+        {
+            TimeSpan remaingDate = (Convert.ToDateTime(order.DueDate)).Subtract(Convert.ToDateTime(order.OrderDate));
+
+            string color = "wheat";
+            string remaingDays = remaingDate.Days.ToString();
+            string daysStatus = "Left";
+            string daysorday = "Days";
+
+            if (remaingDate.Days==1)
+            {
+                daysorday = "Day";
+            }
+
+
+
+            if (remaingDate.Days<=0)
+            {
+                color = "white";
+                daysStatus = "Over";
+
+                remaingDays = remaingDays.Replace('-', ' ');
+            }
+            else if(remaingDate.Days<=1)
+            {
+                color="#FFD259";
+            }
+
+            <div class="well row " style="background:url(../../Content/Images/Extra/ss.png) @color; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="col-lg-8">
+
+                      <div class="row">
+
+                          <div class="col-lg-6">
+                            
+                              <span>
+                                  <span class="glyphicon glyphicon-fire" style="color: lightgrey; font-size: 20px"></span>
+                                  &nbsp; <span style="color: black; font-weight: bold; font-size: 25px;">@order.Recipe.Name</span>&nbsp;
+                                  <a href="/Dashboard/RecipeDescription?id=@order.Recipe.RecipeId"><span style="color: gray">View Recipe</span></a>
+                                  <br/>
+                                  Buyer:<span style="color: green">@order.Seller.FirstName &nbsp; @order.Seller.SecondName</span> &nbsp; |&nbsp;
+                                  <span>@order.OrderDate</span> &nbsp;-&nbsp; 
+                                  <span>@order.DueDate</span>
+                              </span>
+
+                          </div>
+                          <div class="col-lg-6">
+                              <span>
+                               
+                                  <span style="font-size: 25px; color: gray;">@remaingDays @daysorday @daysStatus</span><br/>
+                                  @if (remaingDate.Days > 0)
+                                  {
+                                      <span class="badge text-center" style="background: steelblue; color: white">
+                                          <span class="glyphicon glyphicon-time"></span>  &nbsp; &nbsp;@order.Time.ToString()
+                                      </span>
+
+                                  }
+                                  else
+                                  {
+                                      <span class="badge text-center" style="background: #b70505; color: white">
+                                          <span class="glyphicon glyphicon-time"></span> &nbsp; &nbsp;Late
+                                      </span>
+
+                                  }
+                              </span>
+                          </div>
+                      </div>
+                      <br/>
+                    <div class="row">
+                    
+                        <div class="col-lg-10">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr >
+                                <th >
+                                    <a style="text-decoration: none" href="#">Item Type</a>
+                                </th>
+                                <th>
+                                    <a style="text-decoration: none" href="#">Quantity</a>
+
+                                </th>
+                                @*<th>
+                                    <a href="#">Person For</a>
+
+                                </th>*@
+                                <th>
+                                    <a style="text-decoration: none" href="#">Amount</a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr style="color: gray">
+                                <td>
+                                    @order.Recipe.SubCategory, &nbsp; @order.Recipe.Category 
+                                </td>
+                                <td>
+                                    @order.Recipe.Quantity
+                                </td>
+                                <td>
+                                    @order.Recipe.Price
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    @using (Ajax.BeginForm("OrderAction", new AjaxOptions() {HttpMethod = "Post", OnSuccess = "action"}))
+                    {
+                        <div class="row" >
+                            @Html.EnumDropDownListFor(x => x.Action, new {@class = "form-control"})
+                        </div>
+                        <br/>
+                        <div class="row" >
+                            @Html.TextAreaFor(x => x.Description, new {@class = "form-control", rows = "3", style = "resize:none"})
+                        </div>
+                        <div class="row">
+                            <input style="margin-top: 5px" class="btn-xs btn-success " value="Send to Buyer" type="submit" />
+
+                            <input style="margin-top: 5px" class="btn-xs btn-primary " value="Contact Buyer" type="submit"/>
+                            <input style="margin-top: 5px" class="btn-xs btn-danger" value="Delete this Order" type="submit"/>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        }
+
+
+    }
+
+
+
+
+</div>
+<script>
+    function action(bool) {
+    alert(bool);
+                    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="navbar navbar-default">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="#">Item</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Quantity</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Person For</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">Amount</a>
+                                </li>
+                            </ul>
+                        </div>
+    </div>*@
+
+
+
+@*<div class="row">
+        <span>Ordered On @order.OrderDate</span>
+        <span>Due Date   @order.DueDate</span>
+        <span>Status   @Html.EnumDropDownListFor(x => x.Status)</span>
+        <span>@order.Time.ToString()</span>
+        <span>@Html.HiddenFor(x => x.Id)</span>
+    </div>
+    <span>Recipe Details</span>
+    <div class="row">
+        <span>@order.Recipe.Name @order.Recipe.Category @order.Recipe.SubCategory</span>
+        <span>Quantity @order.Recipe.Quantity</span>
+        <span>Price @order.Recipe.Price</span>
+    </div>
+    <span>Buyer Details</span>
+    <div class="row">
+        <img class="img-circle" src="@Url.Content(@order.Buyer.ProfileImage.FolderPath + @order.Buyer.ProfileImage.ImageName)" style="height: 30px; width: 30px;" />
+        <span>@order.Buyer.FirstName @order.Buyer.SecondName</span>
+        <span>@order.Buyer.City.Name @order.Buyer.City.Country.Name</span>
+    </div>*@
+
+@*<div class="container col-lg-12 col-md-10 col-md-offset-1  col-sm-12 col-xs-12  ">
         <div class="list-group">
             <div class="list-group-item-heading ">
                 <div class="row">
@@ -25,40 +226,3 @@
             </div>
         </div>
     </div>*@
-    @if (MyOrderList.Count() > 0 && MyOrderList != null)
-    {
-
-
-           foreach (OrderModel order in MyOrderList)
-                {
-                    <div class="jumbotron" style="padding: 10px">
-                        <span>Order Details</span>
-                        <div class="row">
-                            <span>Ordered On @order.OrderDate</span>
-                            <span>Due Date   @order.DueDate</span>
-                            <span>Status   @Html.EnumDropDownListFor(x => x.Status)</span>
-                            <span>@order.Time.ToString()</span>
-                            <span>@Html.HiddenFor(x => x.Id)</span>
-                        </div>
-                        <span>Recipe Details</span>
-                        <div class="row">
-                            <span>@order.Recipe.Category @order.Recipe.SubCategory</span>
-                            <span>Quantity @order.Recipe.Quantity</span>
-                            <span>Price @order.Recipe.Price</span>
-                        </div>
-                        <span>Buyer Details</span>
-                        <div class="row">
-                            <img class="img-circle" src="@Url.Content(@order.Buyer.ProfileImage.FolderPath + @order.Buyer.ProfileImage.ImageName)" style="height: 30px; width: 30px;"/>
-                            <span>@order.Buyer.FirstName @order.Buyer.SecondName</span>
-                            <span>@order.Buyer.City.Name @order.Buyer.City.Country.Name</span>
-                        </div>
-
-                    </div>
-
-
-                }
-         
-
-    }
-
-</div>

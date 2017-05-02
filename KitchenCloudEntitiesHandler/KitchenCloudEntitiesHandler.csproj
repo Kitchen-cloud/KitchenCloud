@@ -71,6 +71,14 @@
     <Compile Include="Migrations\201704232045171_RemovedRecipeCategoryRedendancy.Designer.cs">
       <DependentUpon>201704232045171_RemovedRecipeCategoryRedendancy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705011127151_AddedOrderRecipeName.cs" />
+    <Compile Include="Migrations\201705011127151_AddedOrderRecipeName.Designer.cs">
+      <DependentUpon>201705011127151_AddedOrderRecipeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705011748296_AddedRecipeIdinTrayRecipe.cs" />
+    <Compile Include="Migrations\201705011748296_AddedRecipeIdinTrayRecipe.Designer.cs">
+      <DependentUpon>201705011748296_AddedRecipeIdinTrayRecipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders\TrayRecipeHandler.cs" />
     <Compile Include="Recipes\RecipeTagHandler.cs" />
@@ -115,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704232045171_RemovedRecipeCategoryRedendancy.resx">
       <DependentUpon>201704232045171_RemovedRecipeCategoryRedendancy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011127151_AddedOrderRecipeName.resx">
+      <DependentUpon>201705011127151_AddedOrderRecipeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705011748296_AddedRecipeIdinTrayRecipe.resx">
+      <DependentUpon>201705011748296_AddedRecipeIdinTrayRecipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

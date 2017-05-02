@@ -87,8 +87,7 @@ namespace KitchenCloud.Controllers
             }
             return RedirectToAction("Index", "Dashboard");
         }
-
-
+        
         [HttpGet]
         public ActionResult AccountLoad(int id)
         {
@@ -157,8 +156,6 @@ namespace KitchenCloud.Controllers
 
 
         }
-
-
         public ActionResult CitiesList(int id)
         {
 
@@ -182,7 +179,6 @@ namespace KitchenCloud.Controllers
             };
             return PartialView("_DDListView", model);
         }
-
         public ActionResult AccountSettings()
         {
 
@@ -220,7 +216,6 @@ namespace KitchenCloud.Controllers
             }
             return RedirectToAction("Index", "Dashboard");
         }
-
         public ActionResult AccountStatistics()
         {
 
@@ -264,7 +259,6 @@ namespace KitchenCloud.Controllers
             }
             return RedirectToAction("Account");
         }
-
         public ActionResult MyTrayView()
         {
 
@@ -273,8 +267,6 @@ namespace KitchenCloud.Controllers
 
 
         }
-
-
         ////public ActionResult MyTray()
         //{
         //    if (Session[WebUtil.CURRENT_USER] != null)
@@ -322,14 +314,9 @@ namespace KitchenCloud.Controllers
         //    }
         //    return RedirectToAction("Index", "Dashboard");
         //}
-
-
-
-
         [HttpPost]
         public ActionResult AddRecipe(CreateNewRecipe newRecipe, FormCollection formCollection)
         {
-
             User user = (User)Session[WebUtil.CURRENT_USER];
 
             Seller seller = new SellerHandler().GetById(user.Id);
@@ -500,8 +487,6 @@ namespace KitchenCloud.Controllers
 
             return RedirectToAction("Account");
         }
-
-
         [HttpPost]
         public ActionResult ProfileSettings(SellerProfileSettings settings, FormCollection collection)
         {
@@ -559,8 +544,6 @@ namespace KitchenCloud.Controllers
 
             return RedirectToAction("Account");
         }
-
-
         // [HttpGet]
         //public ActionResult ChangeProfileImage(string tempImg)
         //{
@@ -580,9 +563,7 @@ namespace KitchenCloud.Controllers
 
         //    return Json(tempImgUrl);
         //}
-
-
-
+        [HttpGet]
         public ActionResult MyOrders()
         {
             User user = (User)Session[WebUtil.CURRENT_USER];
@@ -608,6 +589,12 @@ namespace KitchenCloud.Controllers
             return PartialView("_MyOrders");
         }
 
+        [HttpPost]
+        public ActionResult OrderAction(OrderActionModel orderAction)
+        {
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
 
 
 

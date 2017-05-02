@@ -12,7 +12,27 @@ namespace KitchenCloudEntities.Orders
             get { return id; }
             set { id = value; }
         }
-        
+
+        private int recipeId;
+
+        public int RecipeId
+        {
+            get { return recipeId; }
+            set { recipeId = value; }
+        }
+
+
+
+
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+
         private int quantity;
 
         public int Quantity

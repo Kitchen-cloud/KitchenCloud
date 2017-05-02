@@ -208,6 +208,7 @@
     <Content Include="Content\Images\Extra\Capture.PNG" />
     <Content Include="Content\Images\Extra\chat-bg.png" />
     <Content Include="Content\Images\Extra\Cut-n-Paste.jpg" />
+    <Content Include="Content\Images\Extra\Order.PNG" />
     <Content Include="Content\Images\Extra\Pad-Thai.jpg" />
     <Content Include="Content\Images\Extra\Picture1.png" />
     <Content Include="Content\Images\Extra\Picture2.png" />
@@ -217,6 +218,7 @@
     <Content Include="Content\Images\Extra\GreensboroGlutenFree-Food-Drive-banner.jpg" />
     <Content Include="Content\Images\Extra\Healthy_Summer_Foods.jpg" />
     <Content Include="Content\Images\Extra\l_6f5dfcc0-5eec-11e2-800d-43c4cdd00012.jpg" />
+    <Content Include="Content\Images\Extra\ss.png" />
     <Content Include="Content\Images\GIF\abc.gif" />
     <Content Include="Content\Images\GIF\FhHRx.gif" />
     <Content Include="Content\Images\Extra\icons.png" />
@@ -431,6 +433,7 @@
     <Compile Include="Models\Helpers\WebUtil.cs" />
     <Compile Include="Models\Messenger\MessageModel.cs" />
     <Compile Include="Models\Messenger\MessagePreviewModel.cs" />
+    <Compile Include="Models\Orders\OrderActionModel.cs" />
     <Compile Include="Models\Orders\OrderModel.cs" />
     <Compile Include="Models\Recipes\CreateNewRecipe.cs" />
     <Compile Include="Models\Recipes\RecipeSeller.cs" />
